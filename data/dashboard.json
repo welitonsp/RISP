@@ -1,0 +1,6367 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "generatedAt": "2026-07-27T20:16:22.382Z",
+    "sourceFiles": [
+      "data (12).xlsx",
+      "data (13).xlsx"
+    ],
+    "periodStart": "2026-01-01",
+    "periodEnd": "2026-07-25",
+    "records": 686,
+    "uniqueFacts": 658,
+    "previousTotal": 717,
+    "currentTotal": 686,
+    "regionalVariation": -0.043235704323570434,
+    "warnings": [
+      "O comparativo anterior é fornecido apenas no nível regional e por natureza.",
+      "A fonte não identifica a unidade que realizou o atendimento; a unidade exibida é territorial."
+    ]
+  },
+  "dimensions": {
+    "natures": [
+      "HOMICÍDIO DOLOSO",
+      "FEMINICÍDIO",
+      "ESTUPRO",
+      "LATROCÍNIO",
+      "LESÃO SEGUIDA DE MORTE",
+      "ROUBO A TRANSEUNTE",
+      "ROUBO DE VEÍCULOS",
+      "ROUBO EM COMÉRCIO",
+      "ROUBO EM RESIDÊNCIA",
+      "ROUBO DE CARGA",
+      "ROUBO A INSTITUIÇÃO FINANCEIRA",
+      "FURTO DE VEÍCULOS",
+      "FURTO EM COMÉRCIO",
+      "FURTO EM RESIDÊNCIA",
+      "FURTO A TRANSEUNTE"
+    ],
+    "territorialUnits": {
+      "BPTUR": [
+        "CALDAS NOVAS",
+        "RIO QUENTE",
+        "MARZAGÃO",
+        "CORUMBAÍBA"
+      ],
+      "36º BPM": [
+        "MORRINHOS",
+        "PONTALINA",
+        "MAIRIPOTABA",
+        "CROMÍNIA"
+      ],
+      "6ª CIPM": [
+        "PIRACANJUBA",
+        "PROFESSOR JAMIL",
+        "CRISTIANÓPOLIS"
+      ]
+    },
+    "groups": {
+      "CVLI": [
+        "HOMICÍDIO DOLOSO",
+        "FEMINICÍDIO",
+        "LATROCÍNIO",
+        "LESÃO SEGUIDA DE MORTE"
+      ],
+      "CRIMES SEXUAIS": [
+        "ESTUPRO"
+      ],
+      "ROUBOS": [
+        "ROUBO A TRANSEUNTE",
+        "ROUBO DE VEÍCULOS",
+        "ROUBO EM COMÉRCIO",
+        "ROUBO EM RESIDÊNCIA",
+        "ROUBO DE CARGA",
+        "ROUBO A INSTITUIÇÃO FINANCEIRA"
+      ],
+      "FURTOS": [
+        "FURTO DE VEÍCULOS",
+        "FURTO EM COMÉRCIO",
+        "FURTO EM RESIDÊNCIA",
+        "FURTO A TRANSEUNTE"
+      ]
+    }
+  },
+  "comparison": [
+    {
+      "id": 1,
+      "nature": "HOMICÍDIO DOLOSO",
+      "previous": 5,
+      "current": 10,
+      "variation": 1
+    },
+    {
+      "id": 2,
+      "nature": "FEMINICÍDIO",
+      "previous": 2,
+      "current": 1,
+      "variation": -0.5
+    },
+    {
+      "id": 3,
+      "nature": "ESTUPRO",
+      "previous": 20,
+      "current": 12,
+      "variation": -0.4
+    },
+    {
+      "id": 4,
+      "nature": "LATROCÍNIO",
+      "previous": 0,
+      "current": 0,
+      "variation": 0
+    },
+    {
+      "id": 5,
+      "nature": "LESÃO SEGUIDA DE MORTE",
+      "previous": 1,
+      "current": 4,
+      "variation": 3
+    },
+    {
+      "id": 6,
+      "nature": "ROUBO A TRANSEUNTE",
+      "previous": 25,
+      "current": 18,
+      "variation": -0.28
+    },
+    {
+      "id": 7,
+      "nature": "ROUBO DE VEÍCULOS",
+      "previous": 11,
+      "current": 6,
+      "variation": -0.45454545454545453
+    },
+    {
+      "id": 8,
+      "nature": "ROUBO EM COMÉRCIO",
+      "previous": 12,
+      "current": 10,
+      "variation": -0.16666666666666666
+    },
+    {
+      "id": 9,
+      "nature": "ROUBO EM RESIDÊNCIA",
+      "previous": 7,
+      "current": 4,
+      "variation": -0.42857142857142855
+    },
+    {
+      "id": 10,
+      "nature": "ROUBO DE CARGA",
+      "previous": 1,
+      "current": 0,
+      "variation": -1
+    },
+    {
+      "id": 11,
+      "nature": "ROUBO A INSTITUIÇÃO FINANCEIRA",
+      "previous": 0,
+      "current": 0,
+      "variation": 0
+    },
+    {
+      "id": 12,
+      "nature": "FURTO DE VEÍCULOS",
+      "previous": 84,
+      "current": 88,
+      "variation": 0.047619047619047616
+    },
+    {
+      "id": 13,
+      "nature": "FURTO EM COMÉRCIO",
+      "previous": 180,
+      "current": 153,
+      "variation": -0.15
+    },
+    {
+      "id": 14,
+      "nature": "FURTO EM RESIDÊNCIA",
+      "previous": 313,
+      "current": 332,
+      "variation": 0.06070287539936102
+    },
+    {
+      "id": 15,
+      "nature": "FURTO A TRANSEUNTE",
+      "previous": 56,
+      "current": 48,
+      "variation": -0.14285714285714285
+    }
+  ],
+  "records": [
+    {
+      "date": "2026-01-01",
+      "time": "00:00",
+      "factId": "F000001",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "PONTALINA",
+      "neighborhood": "SETOR JARDIM FREI WALTER",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-01",
+      "time": "00:00",
+      "factId": "F000002",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-01",
+      "time": "10:00",
+      "factId": "F000003",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "OLEGÁRIO PINTO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-01",
+      "time": "13:46",
+      "factId": "F000004",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-02",
+      "time": "17:00",
+      "factId": "F000005",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-02",
+      "time": "21:00",
+      "factId": "F000006",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM HANASHIRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-02",
+      "time": "22:00",
+      "factId": "F000007",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR BELA VISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-04",
+      "time": "11:02",
+      "factId": "F000008",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PONTALINA",
+      "neighborhood": "SETOR JARDIM FREI WALTER",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-04",
+      "time": "11:51",
+      "factId": "F000009",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CHÁCARAS ITAPEMAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-04",
+      "time": "12:34",
+      "factId": "F000010",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "FAUNA II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-04",
+      "time": "16:57",
+      "factId": "F000011",
+      "nature": "HOMICÍDIO DOLOSO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "BAIRRO NAO IDENTIFICADO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-05",
+      "time": "08:00",
+      "factId": "F000012",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR MORRO DA SAUDADE 2ª ETAPA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-05",
+      "time": "08:00",
+      "factId": "F000012",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR MORRO DA SAUDADE 2ª ETAPA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-05",
+      "time": "13:22",
+      "factId": "F000013",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR AEROPORTO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-01-06",
+      "time": "00:00",
+      "factId": "F000014",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "PONTALINA",
+      "neighborhood": "BAIRRO NAO IDENTIFICADO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-06",
+      "time": "12:32",
+      "factId": "F000015",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PRIVÊ DAS CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-07",
+      "time": "11:00",
+      "factId": "F000016",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-08",
+      "time": "08:29",
+      "factId": "F000017",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-08",
+      "time": "08:54",
+      "factId": "F000018",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "MANSÕES DAS ÁGUAS QUENTES",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-08",
+      "time": "21:00",
+      "factId": "F000019",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR SÃO JOSÉ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-08",
+      "time": "21:00",
+      "factId": "F000020",
+      "nature": "ESTUPRO",
+      "municipality": "PONTALINA",
+      "neighborhood": "BAIRRO NAO IDENTIFICADO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-09",
+      "time": "19:10",
+      "factId": "F000021",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "ESPLANADA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-09",
+      "time": "21:09",
+      "factId": "F000022",
+      "nature": "ROUBO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE THERMAS DE CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-11",
+      "time": "17:00",
+      "factId": "F000023",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PORTAL DAS ÁGUAS QUENTES",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-12",
+      "time": "20:35",
+      "factId": "F000024",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-13",
+      "time": "03:00",
+      "factId": "F000025",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PONTALINA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-13",
+      "time": "15:00",
+      "factId": "F000026",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "NOVA VILA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-13",
+      "time": "17:39",
+      "factId": "F000027",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "NOVA VILA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-14",
+      "time": "00:00",
+      "factId": "F000028",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MAIRIPOTABA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-14",
+      "time": "19:00",
+      "factId": "F000029",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "FAUNA II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-14",
+      "time": "22:00",
+      "factId": "F000030",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-15",
+      "time": "01:59",
+      "factId": "F000031",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-15",
+      "time": "10:00",
+      "factId": "F000032",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-15",
+      "time": "15:00",
+      "factId": "F000033",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL RECANTO DE CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-15",
+      "time": "17:43",
+      "factId": "F000034",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CRISTIANÓPOLIS",
+      "neighborhood": "SETOR CENTRAL",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-01-15",
+      "time": "22:00",
+      "factId": "F000035",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PONTALINA",
+      "neighborhood": "BIJUÍ II",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-16",
+      "time": "11:48",
+      "factId": "F000036",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-17",
+      "time": "00:39",
+      "factId": "F000037",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CRISTIANÓPOLIS",
+      "neighborhood": "SETOR FLORESTA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-01-18",
+      "time": "12:23",
+      "factId": "F000038",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-18",
+      "time": "21:00",
+      "factId": "F000039",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-19",
+      "time": "07:00",
+      "factId": "F000040",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "CONJUNTO POUSO ALTO (BNH)",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-01-19",
+      "time": "15:00",
+      "factId": "F000041",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PRIVÊ DAS CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-20",
+      "time": "00:00",
+      "factId": "F000042",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "VILA NUNES",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-20",
+      "time": "07:30",
+      "factId": "F000043",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RECANTO DO LAGO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-20",
+      "time": "08:38",
+      "factId": "F000044",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CROMÍNIA",
+      "neighborhood": "CASTELO BRANCO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-20",
+      "time": "14:00",
+      "factId": "F000045",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PONTALINA",
+      "neighborhood": "VILA BRASIL",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-20",
+      "time": "20:40",
+      "factId": "F000046",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR AEROPORTO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-01-21",
+      "time": "22:31",
+      "factId": "F000047",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA DOS BURITIS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-22",
+      "time": "02:15",
+      "factId": "F000048",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-23",
+      "time": "00:00",
+      "factId": "F000049",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-24",
+      "time": "00:30",
+      "factId": "F000050",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-24",
+      "time": "11:00",
+      "factId": "F000051",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-24",
+      "time": "20:30",
+      "factId": "F000052",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-25",
+      "time": "01:00",
+      "factId": "F000053",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL VALE DA SERRA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-25",
+      "time": "09:25",
+      "factId": "F000054",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PORTAL DAS ÁGUAS QUENTES",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-25",
+      "time": "16:00",
+      "factId": "F000055",
+      "nature": "ESTUPRO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR VERA CRUZ",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-26",
+      "time": "07:45",
+      "factId": "F000056",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR OESTE",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-26",
+      "time": "15:21",
+      "factId": "F000057",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CROMÍNIA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-26",
+      "time": "21:39",
+      "factId": "F000058",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-27",
+      "time": "08:47",
+      "factId": "F000059",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-27",
+      "time": "17:57",
+      "factId": "F000060",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-27",
+      "time": "20:24",
+      "factId": "F000061",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-29",
+      "time": "03:00",
+      "factId": "F000062",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-29",
+      "time": "04:00",
+      "factId": "F000063",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-30",
+      "time": "17:00",
+      "factId": "F000064",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-01-31",
+      "time": "12:00",
+      "factId": "F000065",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "VILA NOVA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-01-31",
+      "time": "19:30",
+      "factId": "F000066",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR MAGALHÃES",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-01-31",
+      "time": "19:30",
+      "factId": "F000066",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR MAGALHÃES",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-02-01",
+      "time": "00:00",
+      "factId": "F000067",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-01",
+      "time": "00:00",
+      "factId": "F000067",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-01",
+      "time": "08:00",
+      "factId": "F000068",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL ALTO DA BOA VISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-01",
+      "time": "13:00",
+      "factId": "F000069",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE DAS BRISAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-01",
+      "time": "17:40",
+      "factId": "F000070",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CHÁCARA ROMA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-02",
+      "time": "00:00",
+      "factId": "F000071",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "JARDIM SANTA TEREZINHA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-02",
+      "time": "00:00",
+      "factId": "F000072",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "LAGO DAS BRISAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-02",
+      "time": "01:00",
+      "factId": "F000073",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "SETOR VILA NOVA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-02",
+      "time": "09:44",
+      "factId": "F000074",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-02",
+      "time": "17:30",
+      "factId": "F000075",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-02",
+      "time": "20:30",
+      "factId": "F000076",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-02",
+      "time": "22:42",
+      "factId": "F000077",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAGUAÍ II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "13:47",
+      "factId": "F000078",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "17:00",
+      "factId": "F000079",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "OLEGÁRIO PINTO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "17:30",
+      "factId": "F000080",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CRISTIANÓPOLIS",
+      "neighborhood": "SETOR CENTRAL",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "22:00",
+      "factId": "F000081",
+      "nature": "LESÃO SEGUIDA DE MORTE",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "RESIDENCIAL PREFEITO ELY ROCHA DA SILVA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "23:43",
+      "factId": "F000082",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "NOVA VILA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "10:57",
+      "factId": "F000083",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "13:00",
+      "factId": "F000084",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PARAÍSO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "16:52",
+      "factId": "F000085",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-05",
+      "time": "06:00",
+      "factId": "F000086",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "03:56",
+      "factId": "F000087",
+      "nature": "HOMICÍDIO DOLOSO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "07:30",
+      "factId": "F000088",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL SANTA CLARA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "12:54",
+      "factId": "F000089",
+      "nature": "LESÃO SEGUIDA DE MORTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "BAIRRO NAO IDENTIFICADO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "00:00",
+      "factId": "F000090",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL CAMINHO DO LAGO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "10:25",
+      "factId": "F000091",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "11:07",
+      "factId": "F000092",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA JEQUITIMAR",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "18:31",
+      "factId": "F000093",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CRISTIANÓPOLIS",
+      "neighborhood": "SETOR BRASINOPOLIS",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "20:00",
+      "factId": "F000094",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "20:27",
+      "factId": "F000095",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITANHANGÁ II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "20:30",
+      "factId": "F000096",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CONJUNTO RESIDENCIAL MONTE VERDE",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "23:00",
+      "factId": "F000097",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "CONJUNTO SEBASTIÃO DE OLIVEIRA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-02-08",
+      "time": "05:00",
+      "factId": "F000098",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM SERRANO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-08",
+      "time": "06:02",
+      "factId": "F000099",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM DOS TURISTAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-08",
+      "time": "08:30",
+      "factId": "F000100",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CROMÍNIA",
+      "neighborhood": "VILA MUTIRÃO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-08",
+      "time": "11:38",
+      "factId": "F000101",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PONTALINA",
+      "neighborhood": "RESIDENCIAL SANTORINI II",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-08",
+      "time": "21:00",
+      "factId": "F000102",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR AEROPORTO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-08",
+      "time": "22:30",
+      "factId": "F000103",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PONTALINA",
+      "neighborhood": "POPULAR",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-10",
+      "time": "00:00",
+      "factId": "F000104",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PONTALINA",
+      "neighborhood": "BIJUÍ I",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-10",
+      "time": "07:30",
+      "factId": "F000105",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PONTALINA",
+      "neighborhood": "SETOR JARDIM FREI WALTER",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-10",
+      "time": "08:39",
+      "factId": "F000106",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "JARDIM BELA VISTA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-10",
+      "time": "08:39",
+      "factId": "F000106",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "JARDIM BELA VISTA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-10",
+      "time": "10:15",
+      "factId": "F000107",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-10",
+      "time": "12:30",
+      "factId": "F000108",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-11",
+      "time": "20:00",
+      "factId": "F000109",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR AEROPORTO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-12",
+      "time": "04:10",
+      "factId": "F000110",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-12",
+      "time": "08:37",
+      "factId": "F000111",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR FERNANDES",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-02-13",
+      "time": "09:00",
+      "factId": "F000112",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-13",
+      "time": "14:42",
+      "factId": "F000113",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-13",
+      "time": "17:40",
+      "factId": "F000114",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-02-14",
+      "time": "00:00",
+      "factId": "F000115",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-14",
+      "time": "10:52",
+      "factId": "F000116",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITANHANGÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-15",
+      "time": "17:30",
+      "factId": "F000117",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL CAMINHO DO LAGO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-15",
+      "time": "22:05",
+      "factId": "F000118",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-17",
+      "time": "09:30",
+      "factId": "F000119",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-17",
+      "time": "10:00",
+      "factId": "F000120",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA JEQUITIMAR",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-17",
+      "time": "10:10",
+      "factId": "F000121",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-17",
+      "time": "10:30",
+      "factId": "F000122",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL NOVA CANAÃ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-19",
+      "time": "01:00",
+      "factId": "F000123",
+      "nature": "ROUBO EM RESIDÊNCIA",
+      "municipality": "CROMÍNIA",
+      "neighborhood": "CASTELO BRANCO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-19",
+      "time": "10:00",
+      "factId": "F000124",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PROFESSOR JAMIL",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-02-19",
+      "time": "14:07",
+      "factId": "F000125",
+      "nature": "FEMINICÍDIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-19",
+      "time": "16:10",
+      "factId": "F000126",
+      "nature": "ROUBO EM COMÉRCIO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR AEROPORTO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-02-19",
+      "time": "17:50",
+      "factId": "F000127",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "PROFESSOR JAMIL",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-02-19",
+      "time": "17:50",
+      "factId": "F000127",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PROFESSOR JAMIL",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-02-20",
+      "time": "08:00",
+      "factId": "F000128",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITANHANGÁ II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-20",
+      "time": "09:00",
+      "factId": "F000129",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITANHANGÁ II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-20",
+      "time": "11:00",
+      "factId": "F000130",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "BAIRRO NAO IDENTIFICADO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-20",
+      "time": "15:33",
+      "factId": "F000131",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PROFESSOR JAMIL",
+      "neighborhood": "SETOR BOA NOVA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-02-20",
+      "time": "18:00",
+      "factId": "F000132",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "MANSÕES DAS ÁGUAS QUENTES",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-21",
+      "time": "18:16",
+      "factId": "F000133",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE RESIDENCIAL HOLIDAY",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-21",
+      "time": "20:44",
+      "factId": "F000134",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM SERRANO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-21",
+      "time": "21:00",
+      "factId": "F000135",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-22",
+      "time": "22:00",
+      "factId": "F000136",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-23",
+      "time": "13:00",
+      "factId": "F000137",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RECANTO DOS EUCALIPTOS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-23",
+      "time": "13:00",
+      "factId": "F000138",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-23",
+      "time": "18:10",
+      "factId": "F000139",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CONDOMÍNIO MANSÕES SOLAR DO LAGO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-24",
+      "time": "06:30",
+      "factId": "F000140",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR SÃO FRANCISCO DE ASSIS",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-24",
+      "time": "09:30",
+      "factId": "F000141",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAJÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-24",
+      "time": "10:00",
+      "factId": "F000142",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PONTALINA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-02-24",
+      "time": "10:29",
+      "factId": "F000143",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-25",
+      "time": "11:24",
+      "factId": "F000144",
+      "nature": "HOMICÍDIO DOLOSO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-26",
+      "time": "09:00",
+      "factId": "F000145",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-26",
+      "time": "16:34",
+      "factId": "F000146",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-26",
+      "time": "16:34",
+      "factId": "F000146",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-28",
+      "time": "05:00",
+      "factId": "F000147",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CRISTIANÓPOLIS",
+      "neighborhood": "SETOR AEROPORTO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-02-28",
+      "time": "17:30",
+      "factId": "F000148",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAGUAÍ II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-28",
+      "time": "17:30",
+      "factId": "F000149",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-02-28",
+      "time": "20:20",
+      "factId": "F000150",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-01",
+      "time": "01:28",
+      "factId": "F000151",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-01",
+      "time": "10:00",
+      "factId": "F000152",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "BAIRRO NAO IDENTIFICADO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-01",
+      "time": "12:00",
+      "factId": "F000153",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL ELDORADO PARK I",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-01",
+      "time": "17:00",
+      "factId": "F000154",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM BELVEDERE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-02",
+      "time": "10:00",
+      "factId": "F000155",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL VALE DA SERRA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-02",
+      "time": "14:00",
+      "factId": "F000156",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CROMÍNIA",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-02",
+      "time": "14:54",
+      "factId": "F000157",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-03",
+      "time": "04:31",
+      "factId": "F000158",
+      "nature": "HOMICÍDIO DOLOSO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE RESIDENCIAL HOLIDAY",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-03",
+      "time": "08:42",
+      "factId": "F000159",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-03",
+      "time": "16:06",
+      "factId": "F000160",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "ESPLANADA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-03",
+      "time": "16:06",
+      "factId": "F000160",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "ESPLANADA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-04",
+      "time": "18:28",
+      "factId": "F000161",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR OESTE",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-04",
+      "time": "19:40",
+      "factId": "F000162",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-03-05",
+      "time": "03:25",
+      "factId": "F000163",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAGUAÍ I",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-05",
+      "time": "05:00",
+      "factId": "F000164",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-05",
+      "time": "09:45",
+      "factId": "F000165",
+      "nature": "ESTUPRO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PARAÍSO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-05",
+      "time": "12:58",
+      "factId": "F000166",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-05",
+      "time": "15:50",
+      "factId": "F000167",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR AEROPORTO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-05",
+      "time": "17:10",
+      "factId": "F000168",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PROFESSOR JAMIL",
+      "neighborhood": "SETOR BOA NOVA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-03-05",
+      "time": "21:00",
+      "factId": "F000169",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR CRISTO REDENTOR",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-06",
+      "time": "02:40",
+      "factId": "F000170",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CROMÍNIA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-06",
+      "time": "04:37",
+      "factId": "F000171",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CROMÍNIA",
+      "neighborhood": "SETOR RESIDENCIAL MORADA NOVA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-06",
+      "time": "09:25",
+      "factId": "F000172",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SOLAR DE CALDAS NOVAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-07",
+      "time": "07:15",
+      "factId": "F000173",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-07",
+      "time": "09:35",
+      "factId": "F000174",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-07",
+      "time": "09:35",
+      "factId": "F000174",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-07",
+      "time": "11:49",
+      "factId": "F000175",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM ESMERALDA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-07",
+      "time": "18:01",
+      "factId": "F000176",
+      "nature": "HOMICÍDIO DOLOSO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "JARDIM ROMANO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-07",
+      "time": "23:00",
+      "factId": "F000177",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-08",
+      "time": "00:00",
+      "factId": "F000178",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "LOTEAMENTO VINÍCIUS CÂNDIDO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-08",
+      "time": "06:00",
+      "factId": "F000179",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR BELA VISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-08",
+      "time": "06:00",
+      "factId": "F000179",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR BELA VISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-08",
+      "time": "07:34",
+      "factId": "F000180",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-08",
+      "time": "13:00",
+      "factId": "F000181",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR CRISTO REDENTOR",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-08",
+      "time": "14:20",
+      "factId": "F000182",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "OLEGÁRIO PINTO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-08",
+      "time": "16:00",
+      "factId": "F000183",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PONTALINA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-08",
+      "time": "17:52",
+      "factId": "F000184",
+      "nature": "HOMICÍDIO DOLOSO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "RESIDENDIAL JARDIM DOS IPÊS",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-09",
+      "time": "02:15",
+      "factId": "F000185",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITANHANGÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-09",
+      "time": "16:00",
+      "factId": "F000186",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR CRISTINA PARK",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-09",
+      "time": "16:30",
+      "factId": "F000187",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PONTALINA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-09",
+      "time": "18:12",
+      "factId": "F000188",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PRIVÊ DAS CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-09",
+      "time": "22:00",
+      "factId": "F000189",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR SÃO FRANCISCO DE ASSIS",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-10",
+      "time": "03:51",
+      "factId": "F000190",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-11",
+      "time": "08:17",
+      "factId": "F000191",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITANHANGÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-11",
+      "time": "08:25",
+      "factId": "F000192",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-11",
+      "time": "08:48",
+      "factId": "F000193",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-11",
+      "time": "16:00",
+      "factId": "F000194",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "NOVA VILA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-12",
+      "time": "02:00",
+      "factId": "F000195",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-12",
+      "time": "08:00",
+      "factId": "F000196",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "RESIDENCIAL PIRACANJUBA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-03-12",
+      "time": "08:00",
+      "factId": "F000196",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "RESIDENCIAL PIRACANJUBA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-03-12",
+      "time": "21:00",
+      "factId": "F000197",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-13",
+      "time": "03:30",
+      "factId": "F000198",
+      "nature": "ESTUPRO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR AEROPORTO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-03-13",
+      "time": "10:10",
+      "factId": "F000199",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE JARDIM BRASIL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-13",
+      "time": "20:21",
+      "factId": "F000200",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-13",
+      "time": "22:02",
+      "factId": "F000201",
+      "nature": "ROUBO EM RESIDÊNCIA",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "SETOR BOA VISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-13",
+      "time": "23:00",
+      "factId": "F000202",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE DAS BRISAS II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-14",
+      "time": "20:00",
+      "factId": "F000203",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PONTALINA",
+      "neighborhood": "VILA PARAÍSO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-14",
+      "time": "22:13",
+      "factId": "F000204",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PORTAL DAS ÁGUAS QUENTES",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-15",
+      "time": "08:25",
+      "factId": "F000205",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "JARDIM MARIA FERREIRA DE SOUZA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-16",
+      "time": "00:00",
+      "factId": "F000206",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR SÃO FRANCISCO DE ASSIS",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-16",
+      "time": "21:00",
+      "factId": "F000207",
+      "nature": "ROUBO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-17",
+      "time": "06:00",
+      "factId": "F000208",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-17",
+      "time": "15:00",
+      "factId": "F000209",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "LAGOA QUENTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-17",
+      "time": "17:16",
+      "factId": "F000210",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-18",
+      "time": "14:10",
+      "factId": "F000211",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-18",
+      "time": "18:03",
+      "factId": "F000212",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "NOVA VILA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-19",
+      "time": "04:33",
+      "factId": "F000213",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-19",
+      "time": "10:30",
+      "factId": "F000214",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR BELA VISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-19",
+      "time": "11:11",
+      "factId": "F000215",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-19",
+      "time": "15:00",
+      "factId": "F000216",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-20",
+      "time": "14:15",
+      "factId": "F000217",
+      "nature": "ROUBO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR GENOVEVA ALVES",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-20",
+      "time": "16:57",
+      "factId": "F000218",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-20",
+      "time": "17:30",
+      "factId": "F000219",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PRIVÊ DAS CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-20",
+      "time": "20:26",
+      "factId": "F000220",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR CRISTO REDENTOR",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-21",
+      "time": "11:47",
+      "factId": "F000221",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "VILA NOVA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-21",
+      "time": "22:46",
+      "factId": "F000222",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL NOVA CANAÃ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-22",
+      "time": "10:00",
+      "factId": "F000223",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-22",
+      "time": "10:48",
+      "factId": "F000224",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PRIVÊ DAS CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-22",
+      "time": "22:15",
+      "factId": "F000225",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "LAGOA QUENTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-23",
+      "time": "02:30",
+      "factId": "F000226",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "VILA NOSSA SENHORA DO CARMO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-23",
+      "time": "07:40",
+      "factId": "F000227",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-23",
+      "time": "17:00",
+      "factId": "F000228",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "LAGOA QUENTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-23",
+      "time": "21:22",
+      "factId": "F000229",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "NOVA VILA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-23",
+      "time": "22:00",
+      "factId": "F000230",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "NOVA VILA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-24",
+      "time": "07:00",
+      "factId": "F000231",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR UNIVERSITÁRIO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-24",
+      "time": "08:00",
+      "factId": "F000232",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAGUAÍ I",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-24",
+      "time": "12:28",
+      "factId": "F000233",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-24",
+      "time": "15:30",
+      "factId": "F000234",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PONTALINA",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-24",
+      "time": "18:00",
+      "factId": "F000235",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL CAMINHO DO LAGO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-25",
+      "time": "10:00",
+      "factId": "F000236",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM INTERLAGO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-25",
+      "time": "11:00",
+      "factId": "F000237",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "CONJUNTO CLÁUDIA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-03-25",
+      "time": "18:04",
+      "factId": "F000238",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-26",
+      "time": "00:00",
+      "factId": "F000239",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-26",
+      "time": "02:00",
+      "factId": "F000240",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-26",
+      "time": "21:30",
+      "factId": "F000241",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-27",
+      "time": "03:40",
+      "factId": "F000242",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-27",
+      "time": "08:30",
+      "factId": "F000243",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR AEROPORTO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-27",
+      "time": "08:42",
+      "factId": "F000244",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-27",
+      "time": "13:00",
+      "factId": "F000245",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR JK",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-28",
+      "time": "04:00",
+      "factId": "F000246",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MARZAGÃO",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-28",
+      "time": "14:00",
+      "factId": "F000247",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CROMÍNIA",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-28",
+      "time": "17:41",
+      "factId": "F000248",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-29",
+      "time": "00:00",
+      "factId": "F000249",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-29",
+      "time": "05:04",
+      "factId": "F000250",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL PRIMAVERA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-29",
+      "time": "08:00",
+      "factId": "F000251",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL VALE DA SERRA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-30",
+      "time": "15:32",
+      "factId": "F000252",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-30",
+      "time": "16:00",
+      "factId": "F000253",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PONTALINA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-31",
+      "time": "09:42",
+      "factId": "F000254",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-03-31",
+      "time": "14:37",
+      "factId": "F000255",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "MANSÕES RECANTO DA SERRA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-31",
+      "time": "14:37",
+      "factId": "F000255",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "MANSÕES RECANTO DA SERRA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-03-31",
+      "time": "23:00",
+      "factId": "F000256",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM JERIQUARA I",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-02",
+      "time": "04:46",
+      "factId": "F000257",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-03",
+      "time": "00:00",
+      "factId": "F000258",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA DOS BURITIS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-03",
+      "time": "19:30",
+      "factId": "F000259",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-03",
+      "time": "19:40",
+      "factId": "F000260",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM BELVEDERE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-04",
+      "time": "08:35",
+      "factId": "F000261",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR SÃO FRANCISCO DE ASSIS",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-04-04",
+      "time": "11:00",
+      "factId": "F000262",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM SERRANO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-04",
+      "time": "16:00",
+      "factId": "F000263",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PONTALINA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-04",
+      "time": "21:40",
+      "factId": "F000264",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-04",
+      "time": "22:00",
+      "factId": "F000265",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-05",
+      "time": "12:22",
+      "factId": "F000266",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR CRISTO REDENTOR",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-05",
+      "time": "17:30",
+      "factId": "F000267",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-05",
+      "time": "17:44",
+      "factId": "F000268",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-05",
+      "time": "20:00",
+      "factId": "F000269",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL NOVA CANAÃ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-05",
+      "time": "21:00",
+      "factId": "F000270",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "JARDIM AMÉRICA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-06",
+      "time": "08:55",
+      "factId": "F000271",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-06",
+      "time": "13:52",
+      "factId": "F000272",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR JK",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-06",
+      "time": "14:52",
+      "factId": "F000273",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "NOVA VILA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-07",
+      "time": "00:27",
+      "factId": "F000274",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-07",
+      "time": "15:00",
+      "factId": "F000275",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MARZAGÃO",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-07",
+      "time": "15:35",
+      "factId": "F000276",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CHÁCARAS PRIMAVERA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-07",
+      "time": "19:20",
+      "factId": "F000277",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM BELVEDERE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-07",
+      "time": "20:32",
+      "factId": "F000278",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-07",
+      "time": "21:00",
+      "factId": "F000279",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-07",
+      "time": "21:00",
+      "factId": "F000279",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-08",
+      "time": "04:30",
+      "factId": "F000280",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-08",
+      "time": "05:00",
+      "factId": "F000281",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-08",
+      "time": "08:00",
+      "factId": "F000282",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-08",
+      "time": "14:50",
+      "factId": "F000283",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "ESPLANADA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-08",
+      "time": "22:00",
+      "factId": "F000284",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-09",
+      "time": "01:27",
+      "factId": "F000285",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-09",
+      "time": "01:40",
+      "factId": "F000286",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-09",
+      "time": "03:20",
+      "factId": "F000287",
+      "nature": "ROUBO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR SERRINHA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-09",
+      "time": "04:00",
+      "factId": "F000288",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-09",
+      "time": "05:30",
+      "factId": "F000289",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-09",
+      "time": "06:00",
+      "factId": "F000290",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-09",
+      "time": "06:00",
+      "factId": "F000291",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-09",
+      "time": "07:00",
+      "factId": "F000292",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-09",
+      "time": "09:50",
+      "factId": "F000293",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PONTALINA",
+      "neighborhood": "SETOR CLUBE",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-09",
+      "time": "13:05",
+      "factId": "F000294",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE DAS BRISAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-09",
+      "time": "21:00",
+      "factId": "F000295",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-10",
+      "time": "03:20",
+      "factId": "F000296",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR MORRO DA SAUDADE 1ª ETAPA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-10",
+      "time": "08:30",
+      "factId": "F000297",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-10",
+      "time": "13:30",
+      "factId": "F000298",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MAIRIPOTABA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-11",
+      "time": "20:00",
+      "factId": "F000299",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "SOLAR ÁGUA QUENTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-11",
+      "time": "21:20",
+      "factId": "F000300",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-12",
+      "time": "00:00",
+      "factId": "F000301",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM ESMERALDA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-12",
+      "time": "08:00",
+      "factId": "F000302",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM ESMERALDA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-12",
+      "time": "19:30",
+      "factId": "F000303",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-13",
+      "time": "07:00",
+      "factId": "F000304",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM JUSSARA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-13",
+      "time": "13:00",
+      "factId": "F000305",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-14",
+      "time": "10:00",
+      "factId": "F000306",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "BAIRRO NAO IDENTIFICADO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-14",
+      "time": "21:00",
+      "factId": "F000307",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR JK",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-15",
+      "time": "02:15",
+      "factId": "F000308",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITANHANGÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-15",
+      "time": "08:00",
+      "factId": "F000309",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "MANSÕES DAS ÁGUAS QUENTES",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-15",
+      "time": "13:51",
+      "factId": "F000310",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PRIVÊ DAS CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-16",
+      "time": "19:40",
+      "factId": "F000311",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-04-16",
+      "time": "20:47",
+      "factId": "F000312",
+      "nature": "ROUBO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAGUAÍ I",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-16",
+      "time": "21:00",
+      "factId": "F000313",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "MANSÕES RECANTO DA SERRA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-16",
+      "time": "21:00",
+      "factId": "F000314",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "MANSÕES RECANTO DA SERRA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-16",
+      "time": "21:00",
+      "factId": "F000315",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "MANSÕES RECANTO DA SERRA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-17",
+      "time": "08:00",
+      "factId": "F000316",
+      "nature": "LESÃO SEGUIDA DE MORTE",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-04-17",
+      "time": "16:10",
+      "factId": "F000317",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "ESPLANADA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-18",
+      "time": "09:30",
+      "factId": "F000318",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR SÃO PEDRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-18",
+      "time": "15:22",
+      "factId": "F000319",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CROMÍNIA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-18",
+      "time": "22:30",
+      "factId": "F000320",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR CRISTO REDENTOR",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-19",
+      "time": "07:27",
+      "factId": "F000321",
+      "nature": "LESÃO SEGUIDA DE MORTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-19",
+      "time": "13:34",
+      "factId": "F000322",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-19",
+      "time": "16:59",
+      "factId": "F000323",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "VALÉRIA REIS",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-20",
+      "time": "00:00",
+      "factId": "F000324",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-20",
+      "time": "03:06",
+      "factId": "F000325",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-20",
+      "time": "10:00",
+      "factId": "F000326",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-20",
+      "time": "11:00",
+      "factId": "F000327",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "BANDEIRANTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-20",
+      "time": "11:00",
+      "factId": "F000327",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "BANDEIRANTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-20",
+      "time": "13:00",
+      "factId": "F000328",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM HANASHIRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-20",
+      "time": "15:30",
+      "factId": "F000329",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL NOVA CANAÃ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-21",
+      "time": "08:00",
+      "factId": "F000330",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-21",
+      "time": "13:42",
+      "factId": "F000331",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-21",
+      "time": "15:40",
+      "factId": "F000332",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA TAMBURI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-21",
+      "time": "19:00",
+      "factId": "F000333",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM BELVEDERE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-22",
+      "time": "11:26",
+      "factId": "F000334",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PRIVÊ DAS CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-22",
+      "time": "15:00",
+      "factId": "F000335",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR ANTÔNIO CORREA BUENO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-22",
+      "time": "23:30",
+      "factId": "F000336",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA TAMBURI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-23",
+      "time": "00:00",
+      "factId": "F000337",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR AEROPORTO SUL",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-04-23",
+      "time": "10:40",
+      "factId": "F000338",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR UNIVERSITÁRIO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-23",
+      "time": "22:25",
+      "factId": "F000339",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE DAS BRISAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-24",
+      "time": "00:00",
+      "factId": "F000340",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "BAIRRO NAO IDENTIFICADO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-24",
+      "time": "10:35",
+      "factId": "F000341",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "POVOADO QUINCA MARIANO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-24",
+      "time": "12:00",
+      "factId": "F000342",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-24",
+      "time": "16:00",
+      "factId": "F000343",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-24",
+      "time": "18:00",
+      "factId": "F000344",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR BELA VISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-24",
+      "time": "20:30",
+      "factId": "F000345",
+      "nature": "ROUBO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE RESIDENCIAL HOLIDAY",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-24",
+      "time": "23:49",
+      "factId": "F000346",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "NOVA VILA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-25",
+      "time": "09:06",
+      "factId": "F000347",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAGUAÍ II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "00:02",
+      "factId": "F000348",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "TERMAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "02:00",
+      "factId": "F000349",
+      "nature": "HOMICÍDIO DOLOSO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITANHANGÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "09:50",
+      "factId": "F000350",
+      "nature": "HOMICÍDIO DOLOSO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "10:00",
+      "factId": "F000351",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "12:01",
+      "factId": "F000352",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM SERRANO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "16:00",
+      "factId": "F000353",
+      "nature": "ESTUPRO",
+      "municipality": "PROFESSOR JAMIL",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-04-26",
+      "time": "17:01",
+      "factId": "F000354",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CONDOMÍNIO SAINT GERMAN",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-27",
+      "time": "03:14",
+      "factId": "F000355",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-27",
+      "time": "10:00",
+      "factId": "F000356",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-27",
+      "time": "14:26",
+      "factId": "F000357",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM DOS TURISTAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-28",
+      "time": "00:32",
+      "factId": "F000358",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR CRISTO REDENTOR",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-28",
+      "time": "08:00",
+      "factId": "F000359",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR JARDIM SANTA FÉ",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-04-29",
+      "time": "08:00",
+      "factId": "F000360",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-29",
+      "time": "08:00",
+      "factId": "F000361",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "BANDEIRANTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-30",
+      "time": "00:00",
+      "factId": "F000362",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "SOLAR ÁGUA QUENTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-30",
+      "time": "12:00",
+      "factId": "F000363",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-04-30",
+      "time": "14:30",
+      "factId": "F000364",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR LIMA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-04-30",
+      "time": "14:30",
+      "factId": "F000364",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR LIMA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-04-30",
+      "time": "17:00",
+      "factId": "F000365",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR SÃO FRANCISCO DE ASSIS",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-05-01",
+      "time": "02:00",
+      "factId": "F000366",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-01",
+      "time": "20:30",
+      "factId": "F000367",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "10:09",
+      "factId": "F000368",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR SERRINHA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "14:22",
+      "factId": "F000369",
+      "nature": "ROUBO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "14:26",
+      "factId": "F000370",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-02",
+      "time": "14:26",
+      "factId": "F000370",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-03",
+      "time": "06:00",
+      "factId": "F000371",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR SERRINHA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-03",
+      "time": "17:00",
+      "factId": "F000372",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CRISTIANÓPOLIS",
+      "neighborhood": "SETOR MORADA SUL",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-05-03",
+      "time": "17:49",
+      "factId": "F000373",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-03",
+      "time": "22:00",
+      "factId": "F000374",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-04",
+      "time": "14:00",
+      "factId": "F000375",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM BELVEDERE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-04",
+      "time": "18:31",
+      "factId": "F000376",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-05",
+      "time": "07:00",
+      "factId": "F000377",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL RECANTO DE CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-05",
+      "time": "09:23",
+      "factId": "F000378",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-05",
+      "time": "14:00",
+      "factId": "F000379",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PRIVÊ DAS CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-05",
+      "time": "17:30",
+      "factId": "F000380",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PONTALINA",
+      "neighborhood": "SETOR JARDIM FREI WALTER",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-05-05",
+      "time": "19:00",
+      "factId": "F000381",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA DOS BURITIS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-05",
+      "time": "19:52",
+      "factId": "F000382",
+      "nature": "ROUBO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PRIVÊ DAS CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-06",
+      "time": "09:30",
+      "factId": "F000383",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "JARDIM AMÉRICA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-05-06",
+      "time": "11:43",
+      "factId": "F000384",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM ROMA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-06",
+      "time": "12:00",
+      "factId": "F000385",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SOLAR DE CALDAS NOVAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-06",
+      "time": "12:00",
+      "factId": "F000386",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-06",
+      "time": "12:00",
+      "factId": "F000387",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-06",
+      "time": "14:00",
+      "factId": "F000388",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-06",
+      "time": "19:28",
+      "factId": "F000389",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PRIVÊ DAS CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-06",
+      "time": "20:00",
+      "factId": "F000390",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-06",
+      "time": "22:17",
+      "factId": "F000391",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL CAMINHO DO LAGO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-07",
+      "time": "08:57",
+      "factId": "F000392",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "JARDIM AMÉRICA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-05-07",
+      "time": "13:25",
+      "factId": "F000393",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "JARDIM SANTA TEREZINHA II",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-05-07",
+      "time": "16:30",
+      "factId": "F000394",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL RECANTO DE CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-08",
+      "time": "05:30",
+      "factId": "F000395",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "OLEGÁRIO PINTO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-08",
+      "time": "12:47",
+      "factId": "F000396",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "00:00",
+      "factId": "F000397",
+      "nature": "ESTUPRO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "07:51",
+      "factId": "F000398",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "09:00",
+      "factId": "F000399",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "10:45",
+      "factId": "F000400",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "14:00",
+      "factId": "F000401",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "VILA BELA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "16:00",
+      "factId": "F000402",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "01:00",
+      "factId": "F000403",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PORTAL DAS ÁGUAS QUENTES",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "10:00",
+      "factId": "F000404",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "10:00",
+      "factId": "F000405",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RECANTO DOS EUCALIPTOS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "11:30",
+      "factId": "F000406",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "ESPLANADA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-11",
+      "time": "06:00",
+      "factId": "F000407",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-11",
+      "time": "07:00",
+      "factId": "F000408",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM SERRANO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-11",
+      "time": "08:00",
+      "factId": "F000409",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-11",
+      "time": "08:00",
+      "factId": "F000410",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR AEROPORTO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-05-11",
+      "time": "13:30",
+      "factId": "F000411",
+      "nature": "ESTUPRO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA DOS BURITIS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-11",
+      "time": "15:45",
+      "factId": "F000412",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "NOVA VILA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-11",
+      "time": "16:00",
+      "factId": "F000413",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-11",
+      "time": "17:18",
+      "factId": "F000414",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PORTAL DAS ÁGUAS QUENTES",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-12",
+      "time": "04:45",
+      "factId": "F000415",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR PRIMAVERA NORTE",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-05-12",
+      "time": "04:45",
+      "factId": "F000415",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR PRIMAVERA NORTE",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-05-12",
+      "time": "09:32",
+      "factId": "F000416",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR GENOVEVA ALVES",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-05-12",
+      "time": "12:00",
+      "factId": "F000417",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-05-12",
+      "time": "16:26",
+      "factId": "F000418",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-12",
+      "time": "16:26",
+      "factId": "F000418",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-12",
+      "time": "18:30",
+      "factId": "F000419",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-13",
+      "time": "18:00",
+      "factId": "F000420",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-13",
+      "time": "21:27",
+      "factId": "F000421",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "POVOADO DA SERRA NEGRA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-05-13",
+      "time": "23:30",
+      "factId": "F000422",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "MANSÕES DAS ÁGUAS QUENTES",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-14",
+      "time": "03:53",
+      "factId": "F000423",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAGUAÍ I",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-14",
+      "time": "07:00",
+      "factId": "F000424",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-14",
+      "time": "20:00",
+      "factId": "F000425",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-15",
+      "time": "05:09",
+      "factId": "F000426",
+      "nature": "ROUBO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "NOSSA SENHORA DE FÁTIMA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-15",
+      "time": "06:00",
+      "factId": "F000427",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM DOS IPÊS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-15",
+      "time": "16:22",
+      "factId": "F000428",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-15",
+      "time": "16:22",
+      "factId": "F000428",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-15",
+      "time": "19:27",
+      "factId": "F000429",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "OLEGÁRIO PINTO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-16",
+      "time": "08:00",
+      "factId": "F000430",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM DOS TURISTAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-16",
+      "time": "13:30",
+      "factId": "F000431",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PORTAL DAS ÁGUAS QUENTES",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-16",
+      "time": "16:40",
+      "factId": "F000432",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CONDOMÍNIO SAN FRANCISCO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-16",
+      "time": "23:21",
+      "factId": "F000433",
+      "nature": "ROUBO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-17",
+      "time": "10:23",
+      "factId": "F000434",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "VILA NOVA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-18",
+      "time": "00:00",
+      "factId": "F000435",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM ESMERALDA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-18",
+      "time": "09:15",
+      "factId": "F000436",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PORTAL DAS ÁGUAS QUENTES",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-18",
+      "time": "10:00",
+      "factId": "F000437",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PRIVÊ DAS CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-18",
+      "time": "20:00",
+      "factId": "F000438",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-19",
+      "time": "01:34",
+      "factId": "F000439",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-19",
+      "time": "08:47",
+      "factId": "F000440",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-19",
+      "time": "09:00",
+      "factId": "F000441",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-19",
+      "time": "13:30",
+      "factId": "F000442",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "OLEGÁRIO PINTO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-20",
+      "time": "00:55",
+      "factId": "F000443",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-20",
+      "time": "00:55",
+      "factId": "F000443",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-20",
+      "time": "01:00",
+      "factId": "F000444",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL JARDIM BRASÍLIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-20",
+      "time": "12:00",
+      "factId": "F000445",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-20",
+      "time": "12:12",
+      "factId": "F000446",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "NOVA VILA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-20",
+      "time": "16:00",
+      "factId": "F000447",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-21",
+      "time": "03:00",
+      "factId": "F000448",
+      "nature": "ESTUPRO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "BAIRRO NAO IDENTIFICADO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-21",
+      "time": "16:00",
+      "factId": "F000449",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-21",
+      "time": "17:10",
+      "factId": "F000450",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR GENOVEVA ALVES",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-05-22",
+      "time": "03:30",
+      "factId": "F000451",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-22",
+      "time": "05:00",
+      "factId": "F000452",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CONJUNTO RESIDENCIAL MONTE VERDE",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-05-22",
+      "time": "18:27",
+      "factId": "F000453",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-22",
+      "time": "23:18",
+      "factId": "F000454",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE DAS LARANJEIRAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-23",
+      "time": "13:24",
+      "factId": "F000455",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "SETOR VILA NOVA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-23",
+      "time": "16:30",
+      "factId": "F000456",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-23",
+      "time": "21:00",
+      "factId": "F000457",
+      "nature": "ROUBO EM COMÉRCIO",
+      "municipality": "PONTALINA",
+      "neighborhood": "SETOR JARDIM FREI WALTER",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "00:00",
+      "factId": "F000458",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "00:30",
+      "factId": "F000459",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "00:30",
+      "factId": "F000459",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "12:00",
+      "factId": "F000460",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "NOVA VILA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "15:31",
+      "factId": "F000461",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "19:24",
+      "factId": "F000462",
+      "nature": "ROUBO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL NOVA CANAÃ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-24",
+      "time": "21:46",
+      "factId": "F000463",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-25",
+      "time": "19:30",
+      "factId": "F000464",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAJÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-26",
+      "time": "08:00",
+      "factId": "F000465",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAGUAÍ I",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-26",
+      "time": "10:28",
+      "factId": "F000466",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM ROMA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-26",
+      "time": "13:00",
+      "factId": "F000467",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM ESMERALDA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-26",
+      "time": "16:30",
+      "factId": "F000468",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR GENOVEVA ALVES",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-05-26",
+      "time": "22:35",
+      "factId": "F000469",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR SERRINHA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-27",
+      "time": "07:02",
+      "factId": "F000470",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "PONTALINA",
+      "neighborhood": "CONJUNTO RESIDENCIAL ELIAS AGUIAR",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-05-27",
+      "time": "14:00",
+      "factId": "F000471",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-27",
+      "time": "16:00",
+      "factId": "F000472",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "BAIRRO NAO IDENTIFICADO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-27",
+      "time": "18:15",
+      "factId": "F000473",
+      "nature": "ROUBO EM COMÉRCIO",
+      "municipality": "CRISTIANÓPOLIS",
+      "neighborhood": "SETOR CENTRAL",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-05-27",
+      "time": "20:52",
+      "factId": "F000474",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-28",
+      "time": "07:00",
+      "factId": "F000475",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-28",
+      "time": "09:30",
+      "factId": "F000476",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "BANDEIRANTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-28",
+      "time": "23:15",
+      "factId": "F000477",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR BELA VISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-29",
+      "time": "00:40",
+      "factId": "F000478",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM DOS IPÊS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-29",
+      "time": "17:30",
+      "factId": "F000479",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CHÁCARAS PRIMAVERA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-30",
+      "time": "18:00",
+      "factId": "F000480",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CROMÍNIA",
+      "neighborhood": "BAIRRO NAO IDENTIFICADO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-05-31",
+      "time": "19:00",
+      "factId": "F000481",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-05-31",
+      "time": "22:00",
+      "factId": "F000482",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "ESPLANADA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-01",
+      "time": "09:00",
+      "factId": "F000483",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CROMÍNIA",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-01",
+      "time": "16:00",
+      "factId": "F000484",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-01",
+      "time": "17:00",
+      "factId": "F000485",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "PONTALINA",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-01",
+      "time": "17:00",
+      "factId": "F000486",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR SERRINHA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-02",
+      "time": "07:00",
+      "factId": "F000487",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-02",
+      "time": "15:34",
+      "factId": "F000488",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "VILA NOVA II",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-02",
+      "time": "16:30",
+      "factId": "F000489",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-02",
+      "time": "16:30",
+      "factId": "F000489",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-02",
+      "time": "16:45",
+      "factId": "F000490",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-02",
+      "time": "18:30",
+      "factId": "F000491",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM ESMERALDA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-03",
+      "time": "02:37",
+      "factId": "F000492",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR PRIMAVERA NORTE",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-06-03",
+      "time": "09:22",
+      "factId": "F000493",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-03",
+      "time": "09:30",
+      "factId": "F000494",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA TAMBURI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-03",
+      "time": "11:16",
+      "factId": "F000495",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-03",
+      "time": "12:46",
+      "factId": "F000496",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-04",
+      "time": "01:00",
+      "factId": "F000497",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-04",
+      "time": "13:51",
+      "factId": "F000498",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR GENOVEVA ALVES",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-04",
+      "time": "18:14",
+      "factId": "F000499",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "02:00",
+      "factId": "F000500",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "05:20",
+      "factId": "F000501",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "09:42",
+      "factId": "F000502",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "09:42",
+      "factId": "F000502",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "11:56",
+      "factId": "F000503",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "16:17",
+      "factId": "F000504",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "18:00",
+      "factId": "F000505",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-06",
+      "time": "09:00",
+      "factId": "F000506",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-06",
+      "time": "18:00",
+      "factId": "F000507",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "TERMAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-07",
+      "time": "00:00",
+      "factId": "F000508",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "CONJUNTO MANOEL FRANCISCO FELIPE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-07",
+      "time": "09:41",
+      "factId": "F000509",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "BAIRRO NAO IDENTIFICADO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-07",
+      "time": "20:30",
+      "factId": "F000510",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR GENOVEVA ALVES",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-07",
+      "time": "20:30",
+      "factId": "F000511",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PONTALINA",
+      "neighborhood": "SETOR JARDIM FREI WALTER",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "08:00",
+      "factId": "F000512",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-09",
+      "time": "01:00",
+      "factId": "F000513",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-09",
+      "time": "02:20",
+      "factId": "F000514",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-10",
+      "time": "04:00",
+      "factId": "F000515",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL ELDORADO PARK II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-11",
+      "time": "12:00",
+      "factId": "F000516",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM ROMA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-11",
+      "time": "15:42",
+      "factId": "F000517",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "FAUNA II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-11",
+      "time": "16:20",
+      "factId": "F000518",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "05:00",
+      "factId": "F000519",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM ESMERALDA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "15:41",
+      "factId": "F000520",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "20:00",
+      "factId": "F000521",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PROFESSOR JAMIL",
+      "neighborhood": "SETOR BOA NOVA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "12:00",
+      "factId": "F000522",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "19:50",
+      "factId": "F000523",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CONJUNTO RESIDENCIAL MONTE VERDE",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "19:50",
+      "factId": "F000523",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CONJUNTO RESIDENCIAL MONTE VERDE",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "23:00",
+      "factId": "F000524",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CONDOMÍNIO DEL FIORI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-14",
+      "time": "12:00",
+      "factId": "F000525",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "BANDEIRANTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-14",
+      "time": "12:00",
+      "factId": "F000526",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA JEQUITIMAR",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "00:00",
+      "factId": "F000527",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CONJUNTO RESIDENCIAL MONTE VERDE",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "06:00",
+      "factId": "F000528",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR AEROPORTO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "08:00",
+      "factId": "F000529",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SOLAR DE CALDAS NOVAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "13:00",
+      "factId": "F000530",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM ESMERALDA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "20:14",
+      "factId": "F000531",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR SÃO JOSÉ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "23:00",
+      "factId": "F000532",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITANHANGÁ II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "23:00",
+      "factId": "F000532",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITANHANGÁ II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "14:04",
+      "factId": "F000533",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CHÁCARAS ITAPEMAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "15:23",
+      "factId": "F000534",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "18:00",
+      "factId": "F000535",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR MORRO DA SAUDADE 1ª ETAPA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-16",
+      "time": "18:36",
+      "factId": "F000536",
+      "nature": "ESTUPRO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-17",
+      "time": "15:00",
+      "factId": "F000537",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "SETOR SIMON BOLIVAR",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-17",
+      "time": "18:00",
+      "factId": "F000538",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-17",
+      "time": "19:30",
+      "factId": "F000539",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "PONTALINA",
+      "neighborhood": "VILA ALEGRETINHO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-18",
+      "time": "04:55",
+      "factId": "F000540",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-18",
+      "time": "16:30",
+      "factId": "F000541",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-18",
+      "time": "17:06",
+      "factId": "F000542",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-18",
+      "time": "21:40",
+      "factId": "F000543",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR OESTE",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "00:00",
+      "factId": "F000544",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR AEROPORTO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "00:00",
+      "factId": "F000545",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "11:01",
+      "factId": "F000546",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR OESTE",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-06-20",
+      "time": "08:00",
+      "factId": "F000547",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA DOS BURITIS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-20",
+      "time": "09:40",
+      "factId": "F000548",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAGUAÍ II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-20",
+      "time": "16:27",
+      "factId": "F000549",
+      "nature": "HOMICÍDIO DOLOSO",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-20",
+      "time": "20:00",
+      "factId": "F000550",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL PORTAL DO LAGO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-20",
+      "time": "20:30",
+      "factId": "F000551",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-21",
+      "time": "09:00",
+      "factId": "F000552",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "NOVA VILA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-21",
+      "time": "09:00",
+      "factId": "F000553",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-21",
+      "time": "15:00",
+      "factId": "F000554",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-22",
+      "time": "00:49",
+      "factId": "F000555",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR UNIVERSITÁRIO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-22",
+      "time": "09:00",
+      "factId": "F000556",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-06-22",
+      "time": "15:00",
+      "factId": "F000557",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "VILA NOVA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-22",
+      "time": "17:29",
+      "factId": "F000558",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "01:04",
+      "factId": "F000559",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL CAMINHO DO LAGO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "10:30",
+      "factId": "F000560",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR AEROPORTO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "11:15",
+      "factId": "F000561",
+      "nature": "ESTUPRO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "12:24",
+      "factId": "F000562",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "PROFESSOR JAMIL",
+      "neighborhood": "SETOR BOA NOVA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "13:13",
+      "factId": "F000563",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CHÁCARAS ITAPEMAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "20:30",
+      "factId": "F000564",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "22:14",
+      "factId": "F000565",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL ELDORADO PARK II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-23",
+      "time": "22:56",
+      "factId": "F000566",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "LAGOA QUENTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-24",
+      "time": "03:00",
+      "factId": "F000567",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE DAS LARANJEIRAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-24",
+      "time": "22:00",
+      "factId": "F000568",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-25",
+      "time": "01:10",
+      "factId": "F000569",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-25",
+      "time": "10:00",
+      "factId": "F000570",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR MORRO DA SAUDADE 2ª ETAPA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-25",
+      "time": "17:00",
+      "factId": "F000571",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE DAS LARANJEIRAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-25",
+      "time": "19:40",
+      "factId": "F000572",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "ESPLANADA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-26",
+      "time": "03:30",
+      "factId": "F000573",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-26",
+      "time": "10:00",
+      "factId": "F000574",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MARZAGÃO",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-27",
+      "time": "11:00",
+      "factId": "F000575",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR AEROPORTO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-27",
+      "time": "12:49",
+      "factId": "F000576",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-27",
+      "time": "22:30",
+      "factId": "F000577",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-28",
+      "time": "09:00",
+      "factId": "F000578",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PONTALINA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-28",
+      "time": "11:00",
+      "factId": "F000579",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "VILA NOVA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-28",
+      "time": "19:12",
+      "factId": "F000580",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-29",
+      "time": "10:00",
+      "factId": "F000581",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PONTALINA",
+      "neighborhood": "SETOR JARDIM FREI WALTER",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-30",
+      "time": "07:00",
+      "factId": "F000582",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR SOL NASCENTE",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-06-30",
+      "time": "09:00",
+      "factId": "F000583",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "CONJUNTO MANOEL FRANCISCO FELIPE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-06-30",
+      "time": "22:00",
+      "factId": "F000584",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR NOROESTE",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-02",
+      "time": "02:40",
+      "factId": "F000585",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL JARDIM BRASÍLIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-02",
+      "time": "02:45",
+      "factId": "F000586",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "VILA NOVA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-02",
+      "time": "14:20",
+      "factId": "F000587",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-03",
+      "time": "01:00",
+      "factId": "F000588",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-03",
+      "time": "01:00",
+      "factId": "F000588",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-03",
+      "time": "13:42",
+      "factId": "F000589",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR SERRINHA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-04",
+      "time": "11:03",
+      "factId": "F000590",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-04",
+      "time": "16:54",
+      "factId": "F000591",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-07-05",
+      "time": "10:00",
+      "factId": "F000592",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-05",
+      "time": "16:00",
+      "factId": "F000593",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "MANSÕES DAS ÁGUAS QUENTES",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-05",
+      "time": "18:00",
+      "factId": "F000594",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR SÃO JOSÉ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-06",
+      "time": "00:00",
+      "factId": "F000595",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-06",
+      "time": "20:00",
+      "factId": "F000596",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PROFESSOR JAMIL",
+      "neighborhood": "SETOR BOA NOVA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-07-07",
+      "time": "00:00",
+      "factId": "F000597",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM ESMERALDA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-07",
+      "time": "11:56",
+      "factId": "F000598",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL CAMINHO DO LAGO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-07",
+      "time": "18:02",
+      "factId": "F000599",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "BANDEIRANTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-08",
+      "time": "08:00",
+      "factId": "F000600",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-08",
+      "time": "10:00",
+      "factId": "F000601",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-08",
+      "time": "13:16",
+      "factId": "F000602",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-09",
+      "time": "15:00",
+      "factId": "F000603",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-09",
+      "time": "15:54",
+      "factId": "F000604",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "CONJUNTO SEBASTIÃO DE OLIVEIRA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-07-09",
+      "time": "16:15",
+      "factId": "F000605",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PRIVÊ DAS CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-10",
+      "time": "10:00",
+      "factId": "F000606",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-10",
+      "time": "12:50",
+      "factId": "F000607",
+      "nature": "ROUBO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CHÁCARAS ITAPEMAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-10",
+      "time": "13:37",
+      "factId": "F000608",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM SERRANO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-10",
+      "time": "13:37",
+      "factId": "F000608",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM SERRANO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-10",
+      "time": "15:30",
+      "factId": "F000609",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAGUAÍ III",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-11",
+      "time": "09:15",
+      "factId": "F000610",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-11",
+      "time": "10:00",
+      "factId": "F000611",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CORUMBAÍBA",
+      "neighborhood": "SETOR LAGO BONITO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-11",
+      "time": "11:15",
+      "factId": "F000612",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM DOS BURITIS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-11",
+      "time": "18:40",
+      "factId": "F000613",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-12",
+      "time": "09:54",
+      "factId": "F000614",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE RESIDENCIAL HOLIDAY",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-12",
+      "time": "09:54",
+      "factId": "F000614",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE RESIDENCIAL HOLIDAY",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-12",
+      "time": "12:56",
+      "factId": "F000615",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-12",
+      "time": "14:00",
+      "factId": "F000616",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR SERRINHA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-12",
+      "time": "15:00",
+      "factId": "F000617",
+      "nature": "ESTUPRO",
+      "municipality": "PROFESSOR JAMIL",
+      "neighborhood": "SETOR BUENO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-07-13",
+      "time": "08:30",
+      "factId": "F000618",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-13",
+      "time": "13:00",
+      "factId": "F000619",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "RIO QUENTE",
+      "neighborhood": "FAUNA II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-13",
+      "time": "19:00",
+      "factId": "F000620",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-16",
+      "time": "03:40",
+      "factId": "F000621",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "RESIDENCIAL CAMINHO DO LAGO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-16",
+      "time": "08:40",
+      "factId": "F000622",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAICI",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-16",
+      "time": "12:30",
+      "factId": "F000623",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR LAGO SUL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-16",
+      "time": "22:00",
+      "factId": "F000624",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-16",
+      "time": "22:50",
+      "factId": "F000625",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "11:51",
+      "factId": "F000626",
+      "nature": "ROUBO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR MORRO DA SAUDADE 1ª ETAPA",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "14:00",
+      "factId": "F000627",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "MANSÕES ALDEIA DO LAGO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "16:00",
+      "factId": "F000628",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PARAÍSO II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-17",
+      "time": "19:58",
+      "factId": "F000629",
+      "nature": "ROUBO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "VILA NOVA II",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "18:00",
+      "factId": "F000630",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ZONA RURAL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-18",
+      "time": "22:00",
+      "factId": "F000631",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-07-21",
+      "time": "04:44",
+      "factId": "F000632",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-21",
+      "time": "10:37",
+      "factId": "F000633",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE DAS BRISAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-21",
+      "time": "13:00",
+      "factId": "F000634",
+      "nature": "ROUBO EM COMÉRCIO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-07-21",
+      "time": "14:00",
+      "factId": "F000635",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR SUL DOS POMARES",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-21",
+      "time": "18:00",
+      "factId": "F000636",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SETOR LAGO SUL",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-21",
+      "time": "22:00",
+      "factId": "F000637",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "SETOR PLANALTO (CIBRAZEM)",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-07-21",
+      "time": "22:00",
+      "factId": "F000638",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-21",
+      "time": "22:30",
+      "factId": "F000639",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-22",
+      "time": "07:00",
+      "factId": "F000640",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM TANGARÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-22",
+      "time": "08:54",
+      "factId": "F000641",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-22",
+      "time": "09:00",
+      "factId": "F000642",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "RESIDENCIAL HERCÍLIO GOMES DE MELO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-22",
+      "time": "09:01",
+      "factId": "F000643",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-22",
+      "time": "12:54",
+      "factId": "F000644",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITANHANGÁ",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-22",
+      "time": "15:30",
+      "factId": "F000645",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR CRISTO REDENTOR",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "04:30",
+      "factId": "F000646",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "05:00",
+      "factId": "F000647",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "07:02",
+      "factId": "F000648",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "PONTALINA",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "07:07",
+      "factId": "F000649",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA ITAGUAÍ II",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "10:30",
+      "factId": "F000650",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "14:00",
+      "factId": "F000651",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-23",
+      "time": "17:55",
+      "factId": "F000652",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-24",
+      "time": "00:30",
+      "factId": "F000653",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "PROFESSOR JAMIL",
+      "neighborhood": "SETOR BOA NOVA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-07-24",
+      "time": "00:30",
+      "factId": "F000653",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "PROFESSOR JAMIL",
+      "neighborhood": "SETOR BOA NOVA",
+      "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-07-24",
+      "time": "08:00",
+      "factId": "F000654",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CALDAS DO OESTE",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-24",
+      "time": "19:28",
+      "factId": "F000655",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-25",
+      "time": "02:51",
+      "factId": "F000656",
+      "nature": "ESTUPRO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-25",
+      "time": "18:19",
+      "factId": "F000657",
+      "nature": "FURTO DE VEÍCULOS",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-25",
+      "time": "20:16",
+      "factId": "F000658",
+      "nature": "HOMICÍDIO DOLOSO",
+      "municipality": "PIRACANJUBA",
+      "neighborhood": "VILA UNIÃO",
+      "territorialUnit": "6ª CIPM"
+    }
+  ]
+}

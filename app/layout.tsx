@@ -4,7 +4,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Relatório de Indicadores Criminais | 19ª RISP",
   description:
-    "Relatório institucional de auditoria dos indicadores criminais da 19ª RISP — Caldas Novas.",
+    "Painel regional dos indicadores criminais controlados pela SSP na 19ª RISP.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({

@@ -1,5 +1,6 @@
-import { redirect } from "next/navigation";
+import dashboardData from "@/data/dashboard.json";
+import { RegionalDashboard } from "./regional-dashboard";
 
 export default function Home() {
-  redirect("/relatorio.html");
+  return <RegionalDashboard data={dashboardData} />;
 }
