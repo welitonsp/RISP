@@ -29,7 +29,7 @@ jobs:
           cache: npm
 
       - name: Instalar dependências
-        run: npm ci
+        run: npm install --include=optional --no-audit --no-fund
 
       - name: Gerar o site
         run: npm run build:pages
