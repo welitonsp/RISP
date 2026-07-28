@@ -3,7 +3,7 @@
 Documento de handoff. Se você (pessoa ou IA) está pegando este projeto agora,
 leia este arquivo inteiro antes de tocar em qualquer coisa.
 
-Última revisão: 2026-07-28. Commit de referência: `98b2f60`.
+Última revisão: 2026-07-28. Commit de referência: `e44bfb2`.
 
 ---
 
@@ -136,9 +136,14 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
   engines antigas e nunca verificado em navegador real.
 - **A7 — HTML inválido tolerado:** `<h3>`/`<div>`/`<p>` dentro de `<button>`.
   O `<h3>` deixa de ser exposto como heading na árvore de acessibilidade.
-- **A8 — `bonferroniN` está INERTE na base atual.** Nenhuma natureza chega a
-  p<0.05 nem sem correção. Consequência: nenhum teste de HTML detecta regressão
-  ali. Só teste unitário direto de `statistics.ts` protege esse código.
+- ~~**A8 — `bonferroniN` está INERTE na base atual.**~~ **MITIGADO** (commit
+  `e44bfb2`). O fato continua verdadeiro: com este volume, nenhuma natureza
+  chega a p<0.05 nem sem correção, então **nenhum teste de HTML detectaria uma
+  regressão em `bonferroniN`**. A rede agora existe em `tests/analytics.test.mjs`:
+  há teste unitário direto de `classifyVariation` com um par cujo p-valor cai
+  entre `0.05/15` e `0.05`, provando `observar` com N=15 e `significativo` com
+  N=1. **Não remova esse teste** achando que é redundante — ele é a única coisa
+  que protege esse caminho.
 - ~~**A9 — `npx tsc --noEmit` retorna 3 erros**~~ **RESOLVIDO** (commit
   `95c9178`). Hoje `tsc --noEmit` retorna zero erros. Mantenha assim.
 - **A10 — `npm audit` reporta 18 vulnerabilidades** (1 low, 4 moderate, 13
