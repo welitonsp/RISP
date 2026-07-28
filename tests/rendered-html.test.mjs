@@ -82,6 +82,36 @@ test("servidor entrega o painel regional", async () => {
   assert.doesNotMatch(html, /<option value="PIRACANJUBA">PIRACANJUBA<\/option>/);
 });
 
+test("rótulo da taxa é sempre 'por 100 mil habitantes no período', nunca anualizado", async () => {
+  const response = await render();
+  const html = await response.text();
+  assert.match(html, /por 100 mil habitantes no período/);
+  assert.doesNotMatch(html, /por 100 mil habitantes ao ano/i);
+  assert.doesNotMatch(html, /taxa anual/i);
+  assert.doesNotMatch(html, /anualizad/i);
+});
+
+test("municípios com menos de 10 registros recebem estilo atenuado e asterisco na taxa", async () => {
+  const response = await render();
+  const html = await response.text();
+  const rankingStart = html.indexOf("Municípios com maior volume");
+  assert.ok(rankingStart > -1, "seção de ranking de municípios não encontrada no HTML renderizado");
+
+  // MAIRIPOTABA tem 2 registros no dashboard.json atual (< LOW_VOLUME_THRESHOLD = 10).
+  const mairipotabaIndex = html.indexOf("Mairipotaba", rankingStart);
+  assert.ok(mairipotabaIndex > -1, "Mairipotaba não encontrado no ranking de municípios");
+  const aroundMairipotaba = html.slice(mairipotabaIndex, mairipotabaIndex + 600);
+  assert.match(aroundMairipotaba, /rate-low-volume/);
+  assert.match(aroundMairipotaba, /por 100 mil habitantes no período(<!-- -->)?\*/);
+
+  // CALDAS NOVAS tem 446 registros no dashboard.json atual (>= LOW_VOLUME_THRESHOLD): sem atenuação.
+  const caldasIndex = html.indexOf("Caldas Novas", rankingStart);
+  assert.ok(caldasIndex > -1, "Caldas Novas não encontrado no ranking de municípios");
+  const aroundCaldas = html.slice(caldasIndex, caldasIndex + 600);
+  assert.doesNotMatch(aroundCaldas, /rate-low-volume/);
+  assert.match(aroundCaldas, /por 100 mil habitantes no período(<!-- -->)?<\/span>/);
+});
+
 test("titleCase preserva siglas conhecidas e converte o restante para Title Case", async () => {
   const titleCase = await loadTitleCase();
   assert.equal(titleCase("CVLI"), "CVLI");

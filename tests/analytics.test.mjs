@@ -440,6 +440,24 @@ test("executiveSummary: concentração territorial ajusta a redação com menos 
   assert.doesNotMatch(result.concentracaoTerritorial, /5 bairros mais frequentes/);
 });
 
+test("classifyVariation: bonferroniN muda o resultado quando o p-valor cai entre alpha/N e alpha (armadilha A8)", async () => {
+  const { classifyVariation, poissonComparisonPValue } = await loadStatistics();
+  const previous = 5;
+  const current = 15;
+  const alpha = 0.05;
+  const n = 15;
+  const pValue = poissonComparisonPValue(previous, current);
+  // Confirma a premissa do teste: o p-valor precisa estar estritamente entre
+  // alpha/N e alpha para que a correção de Bonferroni faça diferença.
+  assert.ok(pValue > alpha / n && pValue < alpha, `p-valor fora da faixa esperada: ${pValue}`);
+
+  const semCorrecao = classifyVariation(previous, current, { bonferroniN: 1 });
+  assert.equal(semCorrecao.level, "significativo");
+
+  const comCorrecao = classifyVariation(previous, current, { bonferroniN: n });
+  assert.equal(comCorrecao.level, "observar");
+});
+
 test("populacao.json cobre exatamente os municípios de dominio.json", async () => {
   const dominio = JSON.parse(await readFile(new URL("../config/dominio.json", import.meta.url), "utf8"));
   const populacao = JSON.parse(await readFile(new URL("../config/populacao.json", import.meta.url), "utf8"));
@@ -455,4 +473,15 @@ test("populacao.json cobre exatamente os municípios de dominio.json", async () 
   for (const [municipio, valor] of Object.entries(populacao.municipios)) {
     assert.ok(Number.isInteger(valor) && valor > 0, `${municipio} deve ter população inteira positiva`);
   }
+});
+
+test("soma de população por unidade territorial trava os valores exibidos no painel", async () => {
+  const dominio = JSON.parse(await readFile(new URL("../config/dominio.json", import.meta.url), "utf8"));
+  const populacao = JSON.parse(await readFile(new URL("../config/populacao.json", import.meta.url), "utf8"));
+  const somaPorUnidade = (unidade) =>
+    dominio.unidadesTerritoriais[unidade].reduce((sum, municipio) => sum + populacao.municipios[municipio], 0);
+
+  assert.equal(somaPorUnidade("BPTUR"), 119786);
+  assert.equal(somaPorUnidade("36º BPM"), 76104);
+  assert.equal(somaPorUnidade("6ª CIPM"), 32036);
 });

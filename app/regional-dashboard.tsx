@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { classifyVariation, type VariationClassification } from "./statistics";
+import { DataIntegrityError } from "./errors";
 import {
   rankNeighborhoods,
   weekHourMatrix,
@@ -143,7 +144,7 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
 
   const CVLI = useMemo(() => {
     if (!data.dimensions.groups?.CVLI?.length) {
-      throw new Error("data.dimensions.groups.CVLI ausente: KPI de CVLI não pode ser calculado.");
+      throw new DataIntegrityError("data.dimensions.groups.CVLI ausente: KPI de CVLI não pode ser calculado.");
     }
     return new Set(data.dimensions.groups.CVLI);
   }, [data.dimensions.groups]);

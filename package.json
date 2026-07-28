@@ -11,7 +11,7 @@
     "build:pages": "vite build --config vite.pages.config.ts",
     "start": "vinext start",
     "atualizar": "node scripts/import-reports.mjs",
-    "test": "npm run build && node --test tests/rendered-html.test.mjs tests/analytics.test.mjs",
+    "test": "npm run build && node --test tests/rendered-html.test.mjs tests/analytics.test.mjs tests/errors.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern github-pages-dist --ignore-pattern .next"
   },
   "dependencies": {

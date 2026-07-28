@@ -64,7 +64,7 @@ select {
 .eyebrow,
 .section-kicker {
   margin: 0 0 9px;
-  color: #6c91bd;
+  color: #4a74a5;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: .16em;
@@ -555,7 +555,7 @@ button:focus-visible {
 }
 
 .rank-number {
-  color: #8b969e;
+  color: #66727a;
   font-size: 10px;
   font-weight: 800;
 }
@@ -779,6 +779,43 @@ td {
 .heatmap-table td.cell-3 { background: rgba(18, 73, 143, .46); color: var(--white); }
 .heatmap-table td.cell-4 { background: rgba(18, 73, 143, .68); color: var(--white); }
 .heatmap-table td.cell-below-threshold { background: var(--white); color: var(--ink); }
+
+.error-boundary {
+  width: min(720px, calc(100% - 40px));
+  margin: 60px auto;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--blue);
+  background: var(--white);
+  box-shadow: 0 12px 34px rgba(12, 40, 67, .06);
+  padding: 24px 28px;
+  color: var(--ink);
+}
+
+.error-boundary strong {
+  display: block;
+  margin-bottom: 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+}
+
+.error-boundary p {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.error-boundary p:last-child {
+  margin-bottom: 0;
+}
+
+.error-boundary-data {
+  border-left-color: var(--red);
+}
+
+.error-boundary-data strong {
+  color: var(--red);
+}
 
 footer {
   margin-top: 34px;
