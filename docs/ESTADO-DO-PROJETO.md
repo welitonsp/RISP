@@ -191,17 +191,26 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
       Pages no repositório e remover `.github/workflows/pages.yml`.
       Depende de: Access validado.
 
-### P1 — Alto. Confiabilidade do que já existe.
+### P1 — Alto. Confiabilidade do que já existe. ✅ CONCLUÍDO em 2026-07-28
 
-- [ ] Adicionar `esbuild` a `devDependencies` (armadilha A1).
-- [ ] Adicionar `npm run lint` e `npm test` ao workflow de deploy, **antes** do
-      passo de build. Hoje qualquer push em `main` publica sem verificação.
-- [ ] Criar `.gitattributes` com `* text=auto eol=lf` (armadilha A11).
-      Commit isolado, sem misturar com mudança de código — a renormalização
-      gera diff em muitos arquivos.
-- [ ] Mover o arquivo temporário de `app/` para `tests/` em
-      `tests/rendered-html.test.mjs` e acrescentar `.tmp-*.mjs` ao
-      `.gitignore` (armadilha A2).
+- [x] ~~Adicionar `esbuild` a `devDependencies`~~ (armadilha A1) — commit
+      `d7b363e`. Fixado em `0.28.0`, a mesma versão que já vinha sendo
+      resolvida por hoisting, para não mudar comportamento.
+- [x] ~~Adicionar `npm run lint` e `npm test` ao workflow~~ — commit `d7b363e`.
+      **Contexto:** ao tornar o repositório privado, o GitHub Pages parou de
+      funcionar (plano gratuito não suporta Pages em repo privado) e
+      `pages.yml` passou a falhar em todo push. Como a publicação real agora é
+      feita pela integração própria do Cloudflare Pages (que não depende deste
+      workflow), `pages.yml` foi **substituído** por
+      `.github/workflows/ci.yml`, que roda `lint` + `test` + `build:pages` sem
+      publicar nada. Isso entregou o portão de verificação que faltava: antes,
+      qualquer push publicava sem rodar teste algum.
+- [x] ~~Criar `.gitattributes`~~ (armadilha A11) — commit `52eb5da`, isolado.
+      `git add --renormalize .` não alterou **nenhum** arquivo: os objetos já
+      estavam armazenados em LF, o ruído era só no working tree durante edição.
+      Commit neutro em conteúdo. `vendor/*.tgz` marcado como `binary`.
+- [x] ~~Mover o arquivo temporário de `app/` para `tests/`~~ (armadilha A2) —
+      commit `d7b363e`. `.tmp-*.mjs` acrescentado ao `.gitignore`.
 
 ### P2 — Importante. Qualidade e sustentabilidade.
 
