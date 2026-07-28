@@ -5,13 +5,17 @@ import esbuild from "esbuild";
 
 async function loadTitleCase() {
   const sourcePath = new URL("../app/regional-dashboard.tsx", import.meta.url);
-  const source = await readFile(sourcePath, "utf8");
-  const { code } = await esbuild.transform(source, {
-    loader: "tsx",
+  const tmpPath = new URL(`../app/.tmp-titlecase-${process.pid}.mjs`, import.meta.url);
+  const result = await esbuild.build({
+    entryPoints: [sourcePath.pathname.replace(/^\/([A-Za-z]:)/, "$1")],
+    bundle: true,
+    write: false,
     format: "esm",
     jsx: "automatic",
+    platform: "node",
+    external: ["react", "react-dom"],
   });
-  const tmpPath = new URL(`./.tmp-titlecase-${process.pid}.mjs`, import.meta.url);
+  const code = result.outputFiles[0].text;
   await writeFile(tmpPath, code, "utf8");
   try {
     const mod = await import(`${tmpPath.href}?t=${Date.now()}`);

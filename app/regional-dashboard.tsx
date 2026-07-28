@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { classifyVariation, type VariationClassification } from "./statistics";
+import { rankNeighborhoods, weekHourMatrix, ratePer100k, HOUR_BUCKETS, WEEKDAY_LABELS } from "./analytics";
 
 type RecordItem = {
   date: string;
@@ -43,7 +45,15 @@ type DashboardData = {
   records: RecordItem[];
 };
 
+type Populacao = {
+  fonte: string;
+  anoReferencia: number;
+  atualizadoEm: string;
+  municipios: Record<string, number>;
+};
+
 const ALL = "TODOS";
+const LOW_VOLUME_THRESHOLD = 10;
 
 function formatNumber(value: number) {
   return new Intl.NumberFormat("pt-BR").format(value);
@@ -57,6 +67,49 @@ function formatPercent(value: number | null) {
     minimumFractionDigits: 1,
     maximumFractionDigits: 1,
   }).format(value)}`;
+}
+
+function formatShare(value: number) {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "percent",
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  }).format(value);
+}
+
+function formatRate(value: number | null) {
+  if (value === null) return "—";
+  return new Intl.NumberFormat("pt-BR", {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  }).format(value);
+}
+
+function RateLabel({ count, population }: { count: number; population: number | undefined }) {
+  if (population === undefined) {
+    return <span className="rank-rate">por 100 mil habitantes no período: —</span>;
+  }
+  const rate = ratePer100k(count, population);
+  const lowVolume = count < LOW_VOLUME_THRESHOLD;
+  return (
+    <span className={`rank-rate${lowVolume ? " rate-low-volume" : ""}`}>
+      {formatRate(rate)} por 100 mil habitantes no período{lowVolume ? "*" : ""}
+    </span>
+  );
+}
+
+function readingLabel(classification: VariationClassification) {
+  switch (classification.level) {
+    case "baixo-volume":
+      return "volume baixo";
+    case "observar":
+      return "sinal a observar";
+    case "significativo":
+      return classification.direction === "alta" ? "alta significativa" : "queda significativa";
+    case "sem-diferenca":
+    default:
+      return "sem diferença estatística";
+  }
 }
 
 function formatDate(value: string) {
@@ -87,7 +140,7 @@ function countBy<T>(items: T[], key: (item: T) => string) {
   return counts;
 }
 
-export function RegionalDashboard({ data }: { data: DashboardData }) {
+export function RegionalDashboard({ data, populacao }: { data: DashboardData; populacao: Populacao }) {
   const [startDate, setStartDate] = useState(data.metadata.periodStart);
   const [endDate, setEndDate] = useState(data.metadata.periodEnd);
   const [unit, setUnit] = useState(ALL);
@@ -136,6 +189,24 @@ export function RegionalDashboard({ data }: { data: DashboardData }) {
     [filtered],
   );
 
+  const unitPopulations = useMemo(() => {
+    const result = new Map<string, number | undefined>();
+    for (const [unitName, cities] of Object.entries(data.dimensions.territorialUnits)) {
+      let sum = 0;
+      let complete = true;
+      for (const city of cities) {
+        const cityPopulation = populacao.municipios[city];
+        if (cityPopulation === undefined) {
+          complete = false;
+          break;
+        }
+        sum += cityPopulation;
+      }
+      result.set(unitName, complete ? sum : undefined);
+    }
+    return result;
+  }, [data.dimensions.territorialUnits, populacao.municipios]);
+
   const comparisonApplicable =
     unit === ALL &&
     municipality === ALL &&
@@ -154,6 +225,14 @@ export function RegionalDashboard({ data }: { data: DashboardData }) {
         ? 0
         : null
       : (currentSelected - previousSelected) / previousSelected;
+  const regionalClassification = classifyVariation(previousSelected, currentSelected, {
+    alpha: 0.05,
+    bonferroniN: 1,
+  });
+
+  const neighborhoodRanking = useMemo(() => rankNeighborhoods(filtered), [filtered]);
+  const hourMatrix = useMemo(() => weekHourMatrix(filtered), [filtered]);
+  const maxNeighborhood = Math.max(1, ...neighborhoodRanking.rows.slice(0, 10).map((row) => row.count));
 
   const rankedMunicipalities = [...municipalityCounts.entries()].sort((a, b) => b[1] - a[1]);
   const rankedNatures = data.dimensions.natures
@@ -353,12 +432,20 @@ export function RegionalDashboard({ data }: { data: DashboardData }) {
             <strong>{formatNumber(cvliCount)}</strong>
             <small>Homicídio, feminicídio, latrocínio e lesão seguida de morte.</small>
           </article>
-          <article className={`kpi-card variation ${comparisonApplicable && regionalVariation !== null && regionalVariation > 0 ? "bad" : "good"}`}>
+          <article
+            className={`kpi-card variation ${
+              comparisonApplicable && regionalClassification.level === "significativo"
+                ? regionalVariation !== null && regionalVariation > 0
+                  ? "bad"
+                  : "good"
+                : "neutral"
+            }`}
+          >
             <span>Variação regional</span>
             <strong>{comparisonApplicable ? formatPercent(regionalVariation) : "—"}</strong>
             <small>
               {comparisonApplicable
-                ? `${formatNumber(previousSelected)} no período anterior e ${formatNumber(currentSelected)} no atual.`
+                ? `${formatNumber(previousSelected)} no período anterior e ${formatNumber(currentSelected)} no atual. Leitura: ${readingLabel(regionalClassification)}.`
                 : "Disponível somente para o período completo e visão regional."}
             </small>
           </article>
@@ -387,6 +474,7 @@ export function RegionalDashboard({ data }: { data: DashboardData }) {
                     <span style={{ width: `${share * 100}%` }} />
                   </div>
                   <p>{formatPercent(share)} do recorte</p>
+                  <RateLabel count={value} population={unitPopulations.get(unitName)} />
                   <small>{cities.map(titleCase).join(" · ")}</small>
                 </article>
               );
@@ -403,7 +491,7 @@ export function RegionalDashboard({ data }: { data: DashboardData }) {
             </article>
           </div>
 
-          <div className="two-column">
+          <div className="three-column">
             <article className="panel">
               <div className="panel-heading">
                 <h3>Municípios com maior volume</h3>
@@ -419,12 +507,43 @@ export function RegionalDashboard({ data }: { data: DashboardData }) {
                         <i style={{ width: `${(value / maxMunicipality) * 100}%` }} />
                       </span>
                       <strong>{formatNumber(value)}</strong>
+                      <RateLabel count={value} population={populacao.municipios[name]} />
                     </div>
                   ))
                 ) : (
                   <p className="empty-state">Nenhum registro corresponde aos filtros.</p>
                 )}
               </div>
+            </article>
+
+            <article className="panel">
+              <div className="panel-heading">
+                <h3>Bairros críticos</h3>
+                <span>top 10 · registros por natureza</span>
+              </div>
+              <div className="ranking">
+                {neighborhoodRanking.rows.length ? (
+                  neighborhoodRanking.rows.slice(0, 10).map((row, index) => (
+                    <div className="rank-row" key={`${row.municipality}\u0000${row.neighborhood}`}>
+                      <span className="rank-number">{String(index + 1).padStart(2, "0")}</span>
+                      <span className="rank-label">
+                        {titleCase(row.municipality)} · {titleCase(row.neighborhood)}
+                      </span>
+                      <span className="rank-track">
+                        <i style={{ width: `${(row.count / maxNeighborhood) * 100}%` }} />
+                      </span>
+                      <strong>{formatNumber(row.count)}</strong>
+                    </div>
+                  ))
+                ) : (
+                  <p className="empty-state">Nenhum registro corresponde aos filtros.</p>
+                )}
+              </div>
+              <p className="method-note">
+                Os 5 bairros mais frequentes concentram {formatShare(neighborhoodRanking.cr5)} dos
+                registros do recorte, distribuídos em {formatNumber(neighborhoodRanking.distinct)} bairros
+                distintos.
+              </p>
             </article>
 
             <article className="panel">
@@ -477,6 +596,7 @@ export function RegionalDashboard({ data }: { data: DashboardData }) {
                   <th className="numeric">Atual</th>
                   <th className="numeric">Anterior</th>
                   <th className="numeric">Variação</th>
+                  <th>Leitura</th>
                 </tr>
               </thead>
               <tbody>
@@ -486,6 +606,18 @@ export function RegionalDashboard({ data }: { data: DashboardData }) {
                     comparisonApplicable && sourceComparison
                       ? sourceComparison.variation
                       : null;
+                  const classification =
+                    comparisonApplicable && sourceComparison
+                      ? classifyVariation(sourceComparison.previous, sourceComparison.current, {
+                          bonferroniN: Math.max(1, comparison.length),
+                        })
+                      : null;
+                  const varianceClass =
+                    classification && classification.level === "significativo"
+                      ? variation !== null && variation > 0
+                        ? "up"
+                        : "down"
+                      : "neutral";
                   return (
                     <tr key={nature}>
                       <td>{titleCase(nature)}</td>
@@ -495,10 +627,11 @@ export function RegionalDashboard({ data }: { data: DashboardData }) {
                           ? formatNumber(sourceComparison.previous)
                           : "—"}
                       </td>
-                      <td
-                        className={`numeric variance ${variation === null ? "" : variation > 0 ? "up" : variation < 0 ? "down" : ""}`}
-                      >
+                      <td className={`numeric variance ${comparisonApplicable ? varianceClass : ""}`}>
                         {comparisonApplicable ? formatPercent(variation) : "—"}
+                      </td>
+                      <td className="reading">
+                        {classification ? readingLabel(classification) : "—"}
                       </td>
                     </tr>
                   );
@@ -506,6 +639,57 @@ export function RegionalDashboard({ data }: { data: DashboardData }) {
               </tbody>
             </table>
           </div>
+        </section>
+
+        <section className="content-section" aria-labelledby="hour-title">
+          <div className="section-heading">
+            <div>
+              <p className="section-kicker">Padrão temporal</p>
+              <h2 id="hour-title">Dia da semana × faixa de horário</h2>
+            </div>
+            <span>{formatNumber(hourMatrix.total)} registros com horário</span>
+          </div>
+
+          <div className="heatmap-wrap">
+            <table className="heatmap-table">
+              <thead>
+                <tr>
+                  <th>Dia</th>
+                  {HOUR_BUCKETS.map((bucket) => (
+                    <th key={bucket}>{bucket}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {WEEKDAY_LABELS.map((label, dayIndex) => (
+                  <tr key={label}>
+                    <td className="weekday-label">{label}</td>
+                    {hourMatrix.cells[dayIndex].map((value, hourIndex) => {
+                      const belowThreshold = value < 5;
+                      const ratio = hourMatrix.max ? value / hourMatrix.max : 0;
+                      const level = belowThreshold
+                        ? 0
+                        : Math.min(4, Math.max(1, Math.ceil(ratio * 4)));
+                      const cellClass = belowThreshold ? "cell-below-threshold" : `cell-${level}`;
+                      return (
+                        <td key={hourIndex} className={cellClass}>
+                          {formatNumber(value)}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="method-note">
+            Células com menos de 5 registros não recebem destaque de cor, apenas o número, para evitar
+            leitura enganosa de intensidade em volumes pequenos.
+          </p>
+          <p className="info-banner">
+            32 registros no total têm horário marcado como 00:00 e podem representar hora não informada;
+            a precisão desta matriz será refinada numa próxima atualização.
+          </p>
         </section>
 
         <section className="method-section" aria-labelledby="method-title">
@@ -532,6 +716,20 @@ export function RegionalDashboard({ data }: { data: DashboardData }) {
               </p>
             </article>
           </div>
+          <p className="method-note">
+            Variações são comparadas estatisticamente; só destacamos como alta ou queda real quando a
+            chance de ser coincidência é baixa. Volumes pequenos (menos de 10 casos no total) não
+            permitem essa conclusão e aparecem como &quot;volume baixo&quot;.
+          </p>
+          <p className="method-note">
+            As taxas por 100 mil habitantes usam a população de referência de {populacao.fonte}. Elas se
+            referem ao período do recorte selecionado, de {formatDate(startDate)} a {formatDate(endDate)},
+            não a um ano completo — evite compará-las diretamente com taxas anuais.
+            Marcadores com asterisco (*) indicam base de menos de 10 casos, cuja taxa é pouco informativa.
+            Atenção especial para Caldas Novas e Rio Quente: sua população turística flutuante é muito maior
+            que a população residente considerada pelo IBGE, então a taxa desses dois municípios deve ser
+            lida com essa ressalva.
+          </p>
         </section>
 
         <footer>

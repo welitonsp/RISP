@@ -322,6 +322,7 @@ button:focus-visible {
 
 .kpi-card.variation.good > strong { color: var(--green); }
 .kpi-card.variation.bad > strong { color: var(--red); }
+.kpi-card.variation.neutral > strong { color: var(--muted); }
 
 .content-section {
   margin-top: 54px;
@@ -394,6 +395,13 @@ button:focus-visible {
   margin-top: 18px;
 }
 
+.three-column {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+
 .panel {
   min-width: 0;
   padding: 22px;
@@ -450,6 +458,17 @@ button:focus-visible {
 .rank-row strong {
   text-align: right;
   font-size: 12px;
+}
+
+.rank-rate {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: right;
+}
+
+.rate-low-volume {
+  opacity: 0.6;
 }
 
 .month-chart {
@@ -536,10 +555,23 @@ td {
 .variance { font-weight: 800; }
 .variance.up { color: var(--red); }
 .variance.down { color: var(--green); }
+.variance.neutral { color: var(--muted); font-weight: 400; }
+
+.reading {
+  color: var(--muted);
+  font-size: 12px;
+}
 
 .method-section {
   margin-top: 54px;
   padding: 28px;
+}
+
+.method-note {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .method-grid {
@@ -576,6 +608,54 @@ td {
   font-size: 13px;
 }
 
+.heatmap-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.heatmap-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+}
+
+.heatmap-table th {
+  background: #f0f4f8;
+  padding: 10px 8px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.heatmap-table th:first-child {
+  text-align: left;
+}
+
+.heatmap-table td {
+  border-top: 1px solid var(--line);
+  padding: 10px 8px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.heatmap-table td.weekday-label {
+  text-align: left;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.heatmap-table td.cell-0 { background: var(--white); color: var(--ink); }
+.heatmap-table td.cell-1 { background: rgba(18, 73, 143, .12); color: var(--ink); }
+.heatmap-table td.cell-2 { background: rgba(18, 73, 143, .28); color: var(--ink); }
+.heatmap-table td.cell-3 { background: rgba(18, 73, 143, .46); color: var(--white); }
+.heatmap-table td.cell-4 { background: rgba(18, 73, 143, .68); color: var(--white); }
+.heatmap-table td.cell-below-threshold { background: var(--white); color: var(--ink); }
+
 footer {
   margin-top: 34px;
   border-top: 2px solid var(--red);
@@ -601,7 +681,8 @@ footer p {
   .filter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .kpi-grid,
   .unit-grid { grid-template-columns: repeat(2, 1fr); }
-  .two-column { grid-template-columns: 1fr; }
+  .two-column,
+  .three-column { grid-template-columns: 1fr; }
   .method-grid { grid-template-columns: repeat(2, 1fr); row-gap: 24px; }
   .method-grid article:nth-child(3) { border-left: 0; padding-left: 0; }
 }
