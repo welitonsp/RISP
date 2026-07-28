@@ -255,11 +255,26 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
 
 ### P3 — Melhorias analíticas.
 
-- [ ] **Sumário executivo automático** — 5 achados por regra fixa (maior alta,
-      maior queda, bairro mais crítico, faixa horária mais crítica, unidade com
-      melhor desempenho relativo). Todas as dependências já estão prontas
-      (`analytics.ts`, `statistics.ts`, `config/populacao.json`). É o item de
-      maior retorno percebido pelo comando.
+- [x] ~~**Sumário executivo automático**~~ — commit `a607d1e`. Cinco achados
+      por regra fixa, reagindo aos filtros (na visão de uma unidade, o sumário
+      fala daquela unidade).
+      **Decisão do Weliton:** o sumário foca nos **dados criminais**, não em
+      população. A 5ª regra, que na proposta original era "carga relativa à
+      população", virou **concentração territorial** — que fatia dos registros
+      está nos bairros mais frequentes e em quantos bairros se distribuem —
+      com leitura operacional (concentrado = focalizável; pulverizado = exige
+      cobertura distribuída). A taxa por 100 mil **continua** nas tabelas e
+      cards, onde serve para comparar municípios de portes diferentes.
+      Dois defeitos corrigidos na revisão, dignos de registro:
+      (a) quando o comparativo não se aplica ao recorte, as frases 1 e 2
+      afirmavam ausência de mudança significativa, **contradizendo o aviso que
+      o próprio painel exibe** três seções abaixo — agora dizem explicitamente
+      que a comparação não está disponível;
+      (b) o comparador de "maior alta" era **intransitivo** quando uma natureza
+      partia de zero, fazendo o vencedor depender da ordem do arquivo. Latente
+      com os dados atuais, ativaria sozinho na próxima atualização. Há teste
+      com permutações travando isso — **não simplifique esse comparador sem ler
+      o teste primeiro.**
 - [ ] Error boundary em `github-pages/main.tsx` (e equivalente no Next) para
       que uma exceção mostre mensagem em português em vez de tela branca.
 - [ ] **Comparativo POR UNIDADE (Fase 1-B).** **BLOQUEADO:** depende de o
