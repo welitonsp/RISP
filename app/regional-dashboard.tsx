@@ -44,12 +44,6 @@ type DashboardData = {
 };
 
 const ALL = "TODOS";
-const CVLI = new Set([
-  "HOMICÍDIO DOLOSO",
-  "FEMINICÍDIO",
-  "LATROCÍNIO",
-  "LESÃO SEGUIDA DE MORTE",
-]);
 
 function formatNumber(value: number) {
   return new Intl.NumberFormat("pt-BR").format(value);
@@ -70,10 +64,21 @@ function formatDate(value: string) {
   return new Intl.DateTimeFormat("pt-BR").format(new Date(year, month - 1, day));
 }
 
-function titleCase(value: string) {
+const KNOWN_ACRONYMS = new Set(["CVLI", "BPTUR", "SSP", "RAI", "CIPM", "BPM"]);
+
+export function titleCase(value: string) {
   return value
-    .toLocaleLowerCase("pt-BR")
-    .replace(/(^|\s)\p{L}/gu, (letter) => letter.toLocaleUpperCase("pt-BR"));
+    .split(/(\s+)/)
+    .map((token) => {
+      const bareLetters = token.replace(/[^\p{L}]/gu, "").toLocaleUpperCase("pt-BR");
+      if (KNOWN_ACRONYMS.has(bareLetters)) {
+        return token.toLocaleUpperCase("pt-BR");
+      }
+      return token
+        .toLocaleLowerCase("pt-BR")
+        .replace(/(^|\s)\p{L}/gu, (letter) => letter.toLocaleUpperCase("pt-BR"));
+    })
+    .join("");
 }
 
 function countBy<T>(items: T[], key: (item: T) => string) {
@@ -91,6 +96,13 @@ export function RegionalDashboard({ data }: { data: DashboardData }) {
   const [selectedNatures, setSelectedNatures] = useState(
     () => new Set(data.dimensions.natures),
   );
+
+  const CVLI = useMemo(() => {
+    if (!data.dimensions.groups?.CVLI?.length) {
+      throw new Error("data.dimensions.groups.CVLI ausente: KPI de CVLI não pode ser calculado.");
+    }
+    return new Set(data.dimensions.groups.CVLI);
+  }, [data.dimensions.groups]);
 
   const availableMunicipalities = useMemo(() => {
     if (unit === ALL) return Object.values(data.dimensions.territorialUnits).flat();

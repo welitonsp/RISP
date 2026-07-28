@@ -3,29 +3,11 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 
-const EXPECTED_NATURES = [
-  "HOMICÍDIO DOLOSO",
-  "FEMINICÍDIO",
-  "ESTUPRO",
-  "LATROCÍNIO",
-  "LESÃO SEGUIDA DE MORTE",
-  "ROUBO A TRANSEUNTE",
-  "ROUBO DE VEÍCULOS",
-  "ROUBO EM COMÉRCIO",
-  "ROUBO EM RESIDÊNCIA",
-  "ROUBO DE CARGA",
-  "ROUBO A INSTITUIÇÃO FINANCEIRA",
-  "FURTO DE VEÍCULOS",
-  "FURTO EM COMÉRCIO",
-  "FURTO EM RESIDÊNCIA",
-  "FURTO A TRANSEUNTE",
-];
-
-const TERRITORIAL_UNITS = {
-  BPTUR: ["CALDAS NOVAS", "RIO QUENTE", "MARZAGÃO", "CORUMBAÍBA"],
-  "36º BPM": ["MORRINHOS", "PONTALINA", "MAIRIPOTABA", "CROMÍNIA"],
-  "6ª CIPM": ["PIRACANJUBA", "PROFESSOR JAMIL", "CRISTIANÓPOLIS"],
-};
+const dominio = JSON.parse(
+  await readFile(new URL("../config/dominio.json", import.meta.url), "utf8"),
+);
+const EXPECTED_NATURES = dominio.naturezas;
+const TERRITORIAL_UNITS = dominio.unidadesTerritoriais;
 
 function folded(value) {
   return String(value ?? "")
@@ -233,12 +215,7 @@ const output = {
   dimensions: {
     natures: EXPECTED_NATURES,
     territorialUnits: TERRITORIAL_UNITS,
-    groups: {
-      CVLI: ["HOMICÍDIO DOLOSO", "FEMINICÍDIO", "LATROCÍNIO", "LESÃO SEGUIDA DE MORTE"],
-      "CRIMES SEXUAIS": ["ESTUPRO"],
-      ROUBOS: EXPECTED_NATURES.filter((nature) => nature.startsWith("ROUBO")),
-      FURTOS: EXPECTED_NATURES.filter((nature) => nature.startsWith("FURTO")),
-    },
+    groups: dominio.grupos,
   },
   comparison,
   records: detail.records,
