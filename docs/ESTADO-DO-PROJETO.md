@@ -133,9 +133,8 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
 - **A8 — `bonferroniN` está INERTE na base atual.** Nenhuma natureza chega a
   p<0.05 nem sem correção. Consequência: nenhum teste de HTML detecta regressão
   ali. Só teste unitário direto de `statistics.ts` protege esse código.
-- **A9 — `npx tsc --noEmit` retorna 3 erros pré-existentes** em `db/index.ts` e
-  `worker/index.ts` (tipos `cloudflare:workers` / `D1Database` não gerados).
-  Não são do código do painel. Some quando o código morto for removido.
+- ~~**A9 — `npx tsc --noEmit` retorna 3 erros**~~ **RESOLVIDO** (commit
+  `95c9178`). Hoje `tsc --noEmit` retorna zero erros. Mantenha assim.
 - **A10 — `npm audit` reporta 18 vulnerabilidades** (1 low, 4 moderate, 13
   high), todas em devDependencies de um site estático sem backend. **Decisão:
   não tratar.** `npm audit fix --force` tem risco real de quebrar o build e o
@@ -146,7 +145,8 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
   "00:00" tanto para meia-noite real quanto para hora não informada. Hoje esses
   registros entram no mapa de calor como se fossem madrugada. Corrigir exige
   `time: null` no importador e bump de `schemaVersion` para 2.
-- **A13 — código morto do scaffolding:** `db/schema.ts` e `db/index.ts`
+- ~~**A13 — código morto do scaffolding**~~ **RESOLVIDO** (commit `95c9178`).
+  Ficava assim: `db/schema.ts` e `db/index.ts`
   (placeholders vazios), `worker/index.ts`, `drizzle.config.ts`, `drizzle/`,
   `examples/d1/`, `.openai/hosting.json`, `app/chatgpt-auth.ts` (não é
   importado por ninguém), `public/file.svg`, `public/globe.svg`,
@@ -214,9 +214,21 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
 
 ### P2 — Importante. Qualidade e sustentabilidade.
 
-- [ ] Remover o código morto do item A13. Isso também zera os 3 erros de
-      `tsc --noEmit` (A9) e reduz a superfície que um novo mantenedor precisa
-      entender.
+- [x] ~~Remover o código morto do item A13~~ — commit `95c9178`. Removidos:
+      `db/`, `drizzle.config.ts`, `drizzle/`, `examples/d1/`,
+      `app/chatgpt-auth.ts`, e as dependências `drizzle-orm`/`drizzle-kit`
+      com o script `db:generate`. **`npx tsc --noEmit` saiu de 3 erros para
+      zero** (fecha A9).
+      **Achado importante:** `worker/index.ts`, `build/sites-vite-plugin.ts` e
+      `.openai/hosting.json` **NÃO são código morto** — são referenciados por
+      `vite.config.ts`, que roda no `npm run build`, que os testes usam para
+      renderizar o HTML. Foram mantidos. Do worker saiu apenas o binding
+      `DB: D1Database`, órfão após a remoção da camada de banco. Os tipos
+      mínimos do runtime Cloudflare ficam em `worker/cloudflare-types.d.ts`
+      (o pacote `@cloudflare/workers-types` não está instalado).
+      *Nota:* `vite.config.ts` mantém um binding `d1_databases` condicionado a
+      `hostingConfig.d1` — é infraestrutura genérica do template, dormente e
+      inofensiva, não resquício do que foi removido.
 - [ ] Importador: gravar `time: null` quando a hora não for informada e subir
       `schemaVersion` para 2. Exige ajuste correspondente no mapa de calor para
       excluir esses registros (A12). **Depende de:** o Weliton rodar
