@@ -156,25 +156,29 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
 
 ### P0 — Crítico. Fazer antes de qualquer outra coisa.
 
-- [ ] **O repositório `welitonsp/RISP` está PÚBLICO.** Verificado em
-      2026-07-28 (`gh repo view --json visibility` -> `PUBLIC`). O painel
-      marcado como "acesso restrito" no próprio rodapé está acessível a
-      qualquer pessoa na internet neste momento. `noindex`/`nofollow`
-      **não é** controle de acesso — só pede para buscadores não indexarem.
-      **Decisão do comando é necessária:** tornar o repositório privado, ou
-      aceitar formalmente a exposição.
-- [ ] **Remover `public/relatorio.html`** (416 KB, relatório de auditoria
-      antigo). Ele é copiado por `publicDir` para `github-pages-dist/` e
-      `dist/client/` e fica servido em `/relatorio.html`, **fora de qualquer
-      autenticação**. Ninguém o referencia no código
-      (`grep relatorio.html` = zero ocorrências fora de build). Remover também
-      `Relatorio-Auditoria-Indicadores-Criminais-19RISP-2026 (1).html` da raiz.
-      *Verificado em 2026-07-28:* os dois arquivos contêm **apenas dados
-      agregados** por bairro e natureza — zero CPF, zero RAI real, zero nome de
-      pessoa, zero placa. **Não há dado pessoal identificável**, então basta
-      remover os arquivos; não é necessário reescrever o histórico do Git.
-      Ainda assim são dados institucionais restritos publicados em aberto, e
-      são uma cópia **desatualizada** da verdade.
+- [x] ~~**O repositório `welitonsp/RISP` está PÚBLICO.**~~ **RESOLVIDO em
+      2026-07-28** (commit `71bc6f7`). Foi confirmado via
+      `gh repo view --json visibility` que o repositório estava `PUBLIC`, com o
+      painel marcado como "acesso restrito" acessível a qualquer pessoa na
+      internet. O repositório foi tornado **PRIVATE**.
+      *Registro para quem vier depois:* `noindex`/`nofollow` **não é** controle
+      de acesso — só pede para buscadores não indexarem. Nunca trate isso como
+      proteção.
+      **Consequência esperada:** GitHub Pages não funciona em repositório
+      privado no plano gratuito, então o painel provavelmente saiu do ar
+      naquele endereço. Isso é aceito — o destino final é o Cloudflare Pages
+      com Access (ver os dois itens abaixo).
+- [x] ~~**Remover `public/relatorio.html`**~~ **RESOLVIDO em 2026-07-28**
+      (commit `71bc6f7`). Era um relatório de auditoria antigo de 416 KB,
+      copiado por `publicDir` para `github-pages-dist/` e `dist/client/`, que
+      ficava servido em `/relatorio.html` **fora de qualquer autenticação** e
+      era uma cópia **desatualizada** da verdade. Nenhum código o referenciava.
+      Antes de remover foi verificado que continha **apenas dados agregados**
+      por bairro e natureza — zero CPF, zero RAI real, zero nome de pessoa,
+      zero placa —, por isso **não foi necessário reescrever o histórico do
+      Git**. Removidos junto: o HTML de auditoria da raiz e os SVGs órfãos do
+      scaffolding (`file.svg`, `globe.svg`, `window.svg`).
+      `public/favicon.svg` foi mantido: está em uso.
 - [ ] **Validar o Cloudflare Access de ponta a ponta:** abrir a URL do
       `painel-risp` numa janela anônima e confirmar que exige login; confirmar
       que a lista de e-mails autorizados está correta. Ao ativar o Access num
