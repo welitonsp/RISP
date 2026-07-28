@@ -3,7 +3,7 @@
 Documento de handoff. Se você (pessoa ou IA) está pegando este projeto agora,
 leia este arquivo inteiro antes de tocar em qualquer coisa.
 
-Última revisão: 2026-07-28. Commit de referência: `1d84106`.
+Última revisão: 2026-07-28. Commit de referência: `98b2f60`.
 
 ---
 
@@ -34,7 +34,7 @@ Painel de indicadores criminais das 15 naturezas controladas pela SSP na
 | `tests/analytics.test.mjs` | Testa `analytics.ts` e `statistics.ts`. |
 | `tests/rendered-html.test.mjs` | Testa o HTML gerado pelo build. |
 | `github-pages/`, `vite.pages.config.ts` | Build alternativo (SPA) para GitHub Pages. |
-| `.github/workflows/pages.yml` | Deploy automático no push em `main`. |
+| `.github/workflows/ci.yml` | Portão de verificação no push em `main`: roda lint + testes + build de checagem. Não publica nada. |
 
 ## 3. Decisões já tomadas — NÃO reabrir sem motivo forte
 
@@ -47,9 +47,14 @@ Painel de indicadores criminais das 15 naturezas controladas pela SSP na
    `painel-risp`, domínio `.pages.dev`). Motivo: é o único jeito gratuito de
    ter autenticação de verdade na frente de um site estático. Cloudflare Access
    **não funciona** em `*.workers.dev`, só em `*.pages.dev` ou domínio próprio.
-4. **GitHub Pages é temporário** e deve ser desligado assim que o Access
-   estiver validado. GitHub Pages **não tem controle de acesso** no plano
-   gratuito.
+4. **GitHub Pages já saiu de cena.** O repositório foi tornado privado em
+   2026-07-28, e GitHub Pages **não funciona em repositório privado no plano
+   gratuito** — o painel parou de ser servido naquele endereço. O workflow de
+   deploy (`pages.yml`) foi removido no mesmo dia (commit `d7b363e`) e
+   substituído por `.github/workflows/ci.yml`, que só verifica (lint + testes
+   + build), sem publicar. O motivo original continua valendo como registro:
+   GitHub Pages **não tem controle de acesso** no plano gratuito, por isso
+   nunca foi o destino final — o destino é o Cloudflare Pages com Access.
 5. **`package-lock.json` não é versionado** (commit `7a199d1`). Motivo:
    dependências nativas do rolldown quebravam entre Windows e Linux, fazendo
    `npm ci` falhar no build do Cloudflare. Todo ambiente usa `npm install`.
@@ -108,17 +113,18 @@ anterior está preservado no Git.
 
 Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
 
-- **A1 — build não reproduzível.** `esbuild` é usado em
-  `tests/rendered-html.test.mjs` e `tests/analytics.test.mjs`, mas **não
-  está em `package.json`**. Só funciona por hoisting transitivo (tsx /
-  drizzle-kit / wrangler). Sem lockfile, um `npm install` futuro pode quebrar
-  os testes sem nenhuma mudança de código. Declarar `esbuild` em
-  devDependencies resolve.
-- **A2 — arquivo temporário dentro de `app/`.**
-  `tests/rendered-html.test.mjs` escreve `app/.tmp-titlecase-<pid>.mjs`,
-  dentro do diretório de rotas, e não está no `.gitignore`. Se o processo
-  morrer no meio, sobra lixo em `app/`. (`analytics.test.mjs` já escreve dentro
-  de `tests/`, que é o certo.)
+- ~~**A1 — build não reproduzível.**~~ **RESOLVIDO** (commit `d7b363e`).
+  `esbuild` era usado em `tests/rendered-html.test.mjs` e
+  `tests/analytics.test.mjs`, mas **não estava em `package.json`** — só
+  funcionava por hoisting transitivo (tsx / drizzle-kit / wrangler). Foi
+  declarado em devDependencies, fixado em `0.28.0` (a mesma versão que já
+  vinha sendo resolvida por hoisting, para não mudar comportamento).
+- ~~**A2 — arquivo temporário dentro de `app/`.**~~ **RESOLVIDO** (commit
+  `d7b363e`). `tests/rendered-html.test.mjs` escrevia
+  `app/.tmp-titlecase-<pid>.mjs`, dentro do diretório de rotas, e não estava
+  no `.gitignore`. O temporário passou a ser escrito em `tests/` (mesmo
+  padrão que `analytics.test.mjs` já usava), e `.tmp-*.mjs` entrou no
+  `.gitignore`.
 - **A3 — `titleCase` capitaliza preposições:** "Roubo A Instituição
   Financeira", "Lesão Seguida De Morte". Cosmético, pré-existente.
 - **A4 — `titleCase` quebra siglas com barra** (`10ª CIPM/CPE`, `19ª RISP`,
@@ -139,8 +145,10 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
   high), todas em devDependencies de um site estático sem backend. **Decisão:
   não tratar.** `npm audit fix --force` tem risco real de quebrar o build e o
   ganho de segurança é nulo neste modelo de ameaça.
-- **A11 — sem `.gitattributes` e `core.autocrlf=true`:** diffs poluídos por
-  CRLF/LF. Um `.gitattributes` com `* text=auto eol=lf` encerra o assunto.
+- ~~**A11 — sem `.gitattributes` e `core.autocrlf=true`.**~~ **RESOLVIDO**
+  (commit `52eb5da`). Diffs eram poluídos por CRLF/LF. `.gitattributes`
+  criado com `* text=auto eol=lf`; a renormalização (`git add --renormalize .`)
+  não alterou nenhum arquivo, porque os objetos já estavam armazenados em LF.
 - **A12 — 32 registros com hora "00:00" ambígua.** O importador devolve
   "00:00" tanto para meia-noite real quanto para hora não informada. Hoje esses
   registros entram no mapa de calor como se fossem madrugada. Corrigir exige
@@ -187,9 +195,12 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
       (`abc123.painel-risp.pages.dev`), que servem os mesmos dados. É
       obrigatório criar uma **segunda** aplicação de Access cobrindo
       `*.painel-risp.pages.dev`, ou desativar as pré-visualizações.
-- [ ] **Desligar o GitHub Pages** assim que o item acima passar: desabilitar
-      Pages no repositório e remover `.github/workflows/pages.yml`.
-      Depende de: Access validado.
+- [x] ~~**Desligar o GitHub Pages**~~ **RESOLVIDO/OBSOLETO em 2026-07-28.** O
+      Pages saiu do ar sozinho ao tornar o repositório privado (plano
+      gratuito não serve Pages em repo privado), e `.github/workflows/pages.yml`
+      foi removido no commit `d7b363e`, substituído por
+      `.github/workflows/ci.yml` (só verificação, sem deploy). Não havia mais
+      nada a desligar manualmente.
 
 ### P1 — Alto. Confiabilidade do que já existe. ✅ CONCLUÍDO em 2026-07-28
 
