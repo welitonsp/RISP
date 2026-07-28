@@ -2,7 +2,15 @@
 
 import { useMemo, useState } from "react";
 import { classifyVariation, type VariationClassification } from "./statistics";
-import { rankNeighborhoods, weekHourMatrix, ratePer100k, HOUR_BUCKETS, WEEKDAY_LABELS } from "./analytics";
+import {
+  rankNeighborhoods,
+  weekHourMatrix,
+  ratePer100k,
+  executiveSummary,
+  titleCase,
+  HOUR_BUCKETS,
+  WEEKDAY_LABELS,
+} from "./analytics";
 
 type RecordItem = {
   date: string;
@@ -117,23 +125,6 @@ function formatDate(value: string) {
   return new Intl.DateTimeFormat("pt-BR").format(new Date(year, month - 1, day));
 }
 
-const KNOWN_ACRONYMS = new Set(["CVLI", "BPTUR", "SSP", "RAI", "CIPM", "BPM"]);
-
-export function titleCase(value: string) {
-  return value
-    .split(/(\s+)/)
-    .map((token) => {
-      const bareLetters = token.replace(/[^\p{L}]/gu, "").toLocaleUpperCase("pt-BR");
-      if (KNOWN_ACRONYMS.has(bareLetters)) {
-        return token.toLocaleUpperCase("pt-BR");
-      }
-      return token
-        .toLocaleLowerCase("pt-BR")
-        .replace(/(^|\s)\p{L}/gu, (letter) => letter.toLocaleUpperCase("pt-BR"));
-    })
-    .join("");
-}
-
 function countBy<T>(items: T[], key: (item: T) => string) {
   const counts = new Map<string, number>();
   for (const item of items) counts.set(key(item), (counts.get(key(item)) ?? 0) + 1);
@@ -233,6 +224,17 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
   const neighborhoodRanking = useMemo(() => rankNeighborhoods(filtered), [filtered]);
   const hourMatrix = useMemo(() => weekHourMatrix(filtered), [filtered]);
   const maxNeighborhood = Math.max(1, ...neighborhoodRanking.rows.slice(0, 10).map((row) => row.count));
+
+  const summary = useMemo(
+    () =>
+      executiveSummary({
+        comparison,
+        comparisonApplicable,
+        neighborhoodRanking,
+        hourCells: hourMatrix.cells,
+      }),
+    [comparisonApplicable, comparison, neighborhoodRanking, hourMatrix.cells],
+  );
 
   const viewLabel =
     unit === ALL && municipality === ALL
@@ -442,6 +444,18 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
                 <strong>{formatNumber(leadingMunicipality[1])}</strong>.</>
             )}
           </p>
+        </section>
+
+        <section className="executive-summary" aria-labelledby="executive-summary-title">
+          <div className="summary-mark">Sumário executivo</div>
+          <h2 id="executive-summary-title" className="sr-only">Sumário executivo</h2>
+          <ul>
+            <li>{summary.maiorAlta}</li>
+            <li>{summary.maiorQueda}</li>
+            <li>{summary.bairroCritico}</li>
+            <li>{summary.faixaCritica}</li>
+            <li>{summary.concentracaoTerritorial}</li>
+          </ul>
         </section>
 
         <section className="kpi-grid" aria-label="Indicadores principais">

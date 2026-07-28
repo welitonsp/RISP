@@ -136,6 +136,7 @@ h1 {
 .unit-card,
 .kpi-card,
 .plain-summary,
+.executive-summary,
 .method-section {
   border: 1px solid var(--line);
   background: var(--white);
@@ -300,6 +301,41 @@ button:focus-visible {
 }
 
 .plain-summary strong { color: var(--ink); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.executive-summary {
+  margin-top: 18px;
+  padding: 20px 24px;
+  border-left: 4px solid var(--blue);
+}
+
+.executive-summary ul {
+  margin: 12px 0 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.executive-summary li {
+  margin-bottom: 10px;
+  color: var(--muted);
+  line-height: 1.62;
+  font-size: 14px;
+}
+
+.executive-summary li:last-child {
+  margin-bottom: 0;
+}
 
 .kpi-grid {
   display: grid;
@@ -818,5 +854,6 @@ footer p {
   .unit-card,
   .kpi-card,
   .plain-summary,
+  .executive-summary,
   .method-section { box-shadow: none; break-inside: avoid; }
 }

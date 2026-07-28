@@ -4,16 +4,14 @@ import test from "node:test";
 import esbuild from "esbuild";
 
 async function loadTitleCase() {
-  const sourcePath = new URL("../app/regional-dashboard.tsx", import.meta.url);
+  const sourcePath = new URL("../app/analytics.ts", import.meta.url);
   const tmpPath = new URL(`./.tmp-titlecase-${process.pid}.mjs`, import.meta.url);
   const result = await esbuild.build({
     entryPoints: [sourcePath.pathname.replace(/^\/([A-Za-z]:)/, "$1")],
     bundle: true,
     write: false,
     format: "esm",
-    jsx: "automatic",
     platform: "node",
-    external: ["react", "react-dom"],
   });
   const code = result.outputFiles[0].text;
   await writeFile(tmpPath, code, "utf8");
