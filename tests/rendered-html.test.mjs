@@ -5,7 +5,7 @@ import esbuild from "esbuild";
 
 async function loadTitleCase() {
   const sourcePath = new URL("../app/regional-dashboard.tsx", import.meta.url);
-  const tmpPath = new URL(`../app/.tmp-titlecase-${process.pid}.mjs`, import.meta.url);
+  const tmpPath = new URL(`./.tmp-titlecase-${process.pid}.mjs`, import.meta.url);
   const result = await esbuild.build({
     entryPoints: [sourcePath.pathname.replace(/^\/([A-Za-z]:)/, "$1")],
     bundle: true,
