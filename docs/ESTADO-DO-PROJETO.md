@@ -244,12 +244,16 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
       `schemaVersion` para 2. Exige ajuste correspondente no mapa de calor para
       excluir esses registros (A12). **Depende de:** o Weliton rodar
       `npm run atualizar` de novo com os Excel originais para regenerar a base.
-- [ ] Cobertura de teste para os pontos hoje descobertos: `bonferroniN` (teste
-      unitário direto — ver A8), rótulo "no período" vs "ao ano", somas de
-      população por unidade, limiar visual `<10`, e existência dos elementos
-      interativos.
-- [ ] Corrigir contraste: `.section-kicker` (`#6c91bd` sobre branco, ~3,1:1) e
-      `.rank-number` (`#8b969e`, ~2,9:1) falham WCAG AA em texto pequeno.
+- [x] ~~Cobertura de teste para os pontos hoje descobertos~~ — commit
+      `e44bfb2`. Fecha a armadilha **A8**: há teste unitário provando que
+      `bonferroniN` muda o resultado (`observar` com N=15 x `significativo`
+      com N=1). Também travados: o rótulo "por 100 mil habitantes no período"
+      (proibindo variantes anualizadas), as somas de população por UPM, e o
+      limiar visual `<10`.
+- [x] ~~Corrigir contraste~~ — commit `e44bfb2`. `.section-kicker` foi de
+      3,27:1 para **4,85:1** e `.rank-number` de 3,02:1 para **4,94:1**, ambos
+      acima do mínimo AA de 4,5:1 para texto pequeno. Matiz preservada. Os
+      demais textos pequenos foram conferidos e já passavam.
 - [ ] Abrir o painel num celular real uma vez e confirmar os breakpoints de
       960px e 620px. Estruturalmente parecem corretos; nunca foram testados.
 
@@ -275,8 +279,16 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
       com os dados atuais, ativaria sozinho na próxima atualização. Há teste
       com permutações travando isso — **não simplifique esse comparador sem ler
       o teste primeiro.**
-- [ ] Error boundary em `github-pages/main.tsx` (e equivalente no Next) para
-      que uma exceção mostre mensagem em português em vez de tela branca.
+- [x] ~~Error boundary~~ — commit `e44bfb2`. Em `github-pages/main.tsx` e
+      `app/error.tsx`. Distingue **falha da aplicação** (recarregar) de **falha
+      de integridade da base**, em que o painel é interrompido de propósito
+      para não exibir número errado (nasce do `throw` deliberado quando o grupo
+      CVLI vem ausente ou vazio).
+      **Não mexa na detecção sem ler `app/errors.ts` e `tests/errors.test.mjs`:**
+      ela usa uma classe de erro com propriedade marcadora, e não comparação de
+      texto da mensagem nem `instanceof` (que pode falhar entre bundles). Há
+      teste provando isso — um erro genérico contendo o texto antigo do marcador
+      deve cair no caminho genérico.
 - [ ] **Comparativo POR UNIDADE (Fase 1-B).** **BLOQUEADO:** depende de o
       Weliton fornecer um arquivo de exemplo real exportado pela fonte com
       quebra por unidade. Ele confirmou que a fonte consegue exportar, mas o
