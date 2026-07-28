@@ -113,6 +113,24 @@ h1 {
   padding-bottom: 48px;
 }
 
+.view-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: var(--blue-soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+.view-indicator-label strong {
+  color: var(--blue-dark);
+}
+
 .filter-panel,
 .panel,
 .unit-card,
@@ -387,6 +405,76 @@ button:focus-visible {
 }
 
 .unit-card.specialized .unit-card-top strong { color: #8a6e00; }
+
+.unit-card-clickable {
+  cursor: pointer;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+
+.unit-card-clickable:hover {
+  border-color: var(--blue);
+  box-shadow: 0 2px 10px rgba(18, 73, 143, 0.14);
+}
+
+.unit-card-clickable.unit-card-active {
+  border-color: var(--blue);
+  background: var(--blue-soft);
+  box-shadow: inset 0 0 0 1px var(--blue);
+}
+
+.unit-card-button {
+  display: block;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.unit-card-button:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.rank-row-clickable {
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background .15s ease;
+}
+
+.rank-row-clickable:hover {
+  background: var(--panel);
+}
+
+.rank-row-clickable.rank-row-active {
+  background: var(--blue-soft);
+}
+
+.rank-row-button {
+  display: contents;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.rank-row-clickable:focus-within {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.rank-row-clickable.rank-row-active .rank-label {
+  color: var(--blue-dark);
+  font-weight: 700;
+}
 
 .two-column {
   display: grid;

@@ -234,6 +234,16 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
   const hourMatrix = useMemo(() => weekHourMatrix(filtered), [filtered]);
   const maxNeighborhood = Math.max(1, ...neighborhoodRanking.rows.slice(0, 10).map((row) => row.count));
 
+  const viewLabel =
+    unit === ALL && municipality === ALL
+      ? "Regional (19ª RISP)"
+      : unit !== ALL && municipality !== ALL
+        ? `${unit} · ${titleCase(municipality)}`
+        : unit !== ALL
+          ? unit
+          : titleCase(municipality);
+  const hasActiveView = unit !== ALL || municipality !== ALL;
+
   const rankedMunicipalities = [...municipalityCounts.entries()].sort((a, b) => b[1] - a[1]);
   const rankedNatures = data.dimensions.natures
     .filter((nature) => selectedNatures.has(nature))
@@ -299,6 +309,24 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
       </header>
 
       <div className="dashboard-shell">
+        <div className="view-indicator">
+          <span className="view-indicator-label" aria-live="polite">
+            Visão: <strong>{viewLabel}</strong>
+          </span>
+          {hasActiveView && (
+            <button
+              type="button"
+              className="text-button"
+              onClick={() => {
+                setUnit(ALL);
+                setMunicipality(ALL);
+              }}
+            >
+              ← Voltar para visão Regional
+            </button>
+          )}
+        </div>
+
         <section className="filter-panel" aria-labelledby="filter-title">
           <div className="filter-heading">
             <div>
@@ -464,18 +492,29 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
             {Object.entries(data.dimensions.territorialUnits).map(([unitName, cities]) => {
               const value = unitCounts.get(unitName) ?? 0;
               const share = filtered.length ? value / filtered.length : 0;
+              const isActive = unit === unitName;
               return (
-                <article className="unit-card" key={unitName}>
-                  <div className="unit-card-top">
-                    <h3>{unitName}</h3>
-                    <strong>{formatNumber(value)}</strong>
-                  </div>
-                  <div className="share-track" aria-label={`${formatPercent(share)} do recorte`}>
-                    <span style={{ width: `${share * 100}%` }} />
-                  </div>
-                  <p>{formatPercent(share)} do recorte</p>
-                  <RateLabel count={value} population={unitPopulations.get(unitName)} />
-                  <small>{cities.map(titleCase).join(" · ")}</small>
+                <article
+                  className={`unit-card unit-card-clickable${isActive ? " unit-card-active" : ""}`}
+                  key={unitName}
+                >
+                  <button
+                    type="button"
+                    className="unit-card-button"
+                    aria-pressed={isActive}
+                    onClick={() => changeUnit(unitName)}
+                  >
+                    <div className="unit-card-top">
+                      <h3>{unitName}</h3>
+                      <strong>{formatNumber(value)}</strong>
+                    </div>
+                    <div className="share-track" aria-label={`${formatPercent(share)} do recorte`}>
+                      <span style={{ width: `${share * 100}%` }} />
+                    </div>
+                    <p>{formatPercent(share)} do recorte</p>
+                    <RateLabel count={value} population={unitPopulations.get(unitName)} />
+                    <small>{cities.map(titleCase).join(" · ")}</small>
+                  </button>
                 </article>
               );
             })}
@@ -499,17 +538,30 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
               </div>
               <div className="ranking">
                 {rankedMunicipalities.length ? (
-                  rankedMunicipalities.map(([name, value], index) => (
-                    <div className="rank-row" key={name}>
-                      <span className="rank-number">{String(index + 1).padStart(2, "0")}</span>
-                      <span className="rank-label">{titleCase(name)}</span>
-                      <span className="rank-track">
-                        <i style={{ width: `${(value / maxMunicipality) * 100}%` }} />
-                      </span>
-                      <strong>{formatNumber(value)}</strong>
-                      <RateLabel count={value} population={populacao.municipios[name]} />
-                    </div>
-                  ))
+                  rankedMunicipalities.map(([name, value], index) => {
+                    const isActive = municipality === name;
+                    return (
+                      <div
+                        className={`rank-row rank-row-clickable${isActive ? " rank-row-active" : ""}`}
+                        key={name}
+                      >
+                        <button
+                          type="button"
+                          className="rank-row-button"
+                          aria-pressed={isActive}
+                          onClick={() => setMunicipality(isActive ? ALL : name)}
+                        >
+                          <span className="rank-number">{String(index + 1).padStart(2, "0")}</span>
+                          <span className="rank-label">{titleCase(name)}</span>
+                          <span className="rank-track">
+                            <i style={{ width: `${(value / maxMunicipality) * 100}%` }} />
+                          </span>
+                          <strong>{formatNumber(value)}</strong>
+                          <RateLabel count={value} population={populacao.municipios[name]} />
+                        </button>
+                      </div>
+                    );
+                  })
                 ) : (
                   <p className="empty-state">Nenhum registro corresponde aos filtros.</p>
                 )}
