@@ -34,8 +34,7 @@ Painel de indicadores criminais das 15 naturezas controladas pela SSP na
 | `tests/analytics.test.mjs` | Testa `analytics.ts` e `statistics.ts`. |
 | `tests/rendered-html.test.mjs` | Testa o HTML gerado pelo build. |
 | `tests/fixtures/numeric-baseline.json` | Congela todos os tokens numéricos do HTML renderizado. Caminho protegido. |
-| `CLAUDE.md`, `.claude/agents/` | Contrato de trabalho e roteamento de tarefas entre agentes. |
-| `setup-agents.ps1` | Gerador dos arquivos acima. **Desatualizado — ver armadilha A15.** |
+| `CLAUDE.md`, `.claude/agents/` | Contrato de trabalho e roteamento de tarefas entre agentes. Versionados; não há gerador (ver A15). |
 | `github-pages/`, `vite.pages.config.ts` | Build alternativo (SPA) para GitHub Pages. |
 | `.github/workflows/ci.yml` | Portão de verificação no push em `main`: roda lint + testes + build de checagem. Não publica nada. |
 
@@ -170,13 +169,16 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
   `.ps1` sem BOM como ANSI/cp1252; as strings já nascem corrompidas em memória e
   são gravadas assim. **Rode-o com `pwsh` (PowerShell 7+), nunca com
   `powershell.exe`.** O mesmo vale para qualquer script futuro com acento.
-- **A15 — `setup-agents.ps1` regenera a versão contaminada.** O script embute nos
-  heredocs (linhas ~22-205) a versão **antiga** de `CLAUDE.md` e dos 4 agentes,
-  copiada de outros projetos: protege `value_cents`, `ledger`, `calculo.mjs`,
-  RPCs `SECURITY DEFINER` e `Decimal`, que **não existem neste repositório**, e
-  manda o `quick-task` rodar `pytest`/`ruff`/`mypy`, que também não existem.
-  **Rodar `setup-agents.ps1` hoje desfaz o commit `0c3b897`.** Ficou fora do
-  escopo daquela correção de propósito. Ver pendência em P2.
+- ~~**A15 — `setup-agents.ps1` regenera a versão contaminada.**~~ **RESOLVIDO
+  pela remoção do script.** Ele embutia nos heredocs a versão **antiga** de
+  `CLAUDE.md` e dos 4 agentes, copiada de outros projetos, e rodá-lo desfazia o
+  commit `0c3b897` em silêncio. **Decisão:** apagar em vez de manter em sincronia.
+  Os 5 arquivos já estão versionados no Git — um gerador duplicado significaria
+  manter duas cópias da mesma verdade para sempre, e a do script já tinha
+  divergido uma vez. *Registro para quem vier depois:* se algum dia quiser
+  provisionar esses agentes em outro repositório, **não ressuscite este script** —
+  o conteúdo dele é específico do RISP (naturezas, municípios, caminhos
+  protegidos) e não serve para outro projeto. O histórico está no Git.
 - ~~**A13 — código morto do scaffolding**~~ **RESOLVIDO** (commit `95c9178`).
   Ficava assim: `db/schema.ts` e `db/index.ts`
   (placeholders vazios), `worker/index.ts`, `drizzle.config.ts`, `drizzle/`,
@@ -292,10 +294,11 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
       **o tamanho da família** na tabela por natureza
       (`app/analytics.ts:260`, hoje 15). Os dois estão certos —
       **não uniformize.** O default da função em `app/statistics.ts` é `1`.
-- [ ] **Atualizar `setup-agents.ps1`** (armadilha A15) para gerar a versão atual
-      de `CLAUDE.md` e dos 4 agentes, ou apagá-lo. Hoje ele é uma armadilha
-      armada: rodá-lo reverte o commit `0c3b897` em silêncio. Se for mantido,
-      grave-o **com BOM** ou documente que só roda em `pwsh` (armadilha A14).
+- [x] ~~**Resolver `setup-agents.ps1`**~~ (armadilha A15) — o script foi
+      **apagado**. Rodá-lo revertia o commit `0c3b897` em silêncio, e manter um
+      gerador em sincronia com 5 arquivos já versionados é custo permanente sem
+      benefício. A armadilha A14 (executar `.ps1` sem BOM no PowerShell 5.1)
+      continua valendo para qualquer script futuro com acento.
 
 ### P3 — Melhorias analíticas.
 
