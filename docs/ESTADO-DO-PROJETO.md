@@ -3,7 +3,7 @@
 Documento de handoff. Se você (pessoa ou IA) está pegando este projeto agora,
 leia este arquivo inteiro antes de tocar em qualquer coisa.
 
-Última revisão: 2026-07-28. Commit de referência: `e44bfb2`.
+Última revisão: 2026-07-29. Commit de referência: `0c3b897`.
 
 ---
 
@@ -33,6 +33,9 @@ Painel de indicadores criminais das 15 naturezas controladas pela SSP na
 | `data/dashboard.json` | A verdade publicada. `schemaVersion: 1`. |
 | `tests/analytics.test.mjs` | Testa `analytics.ts` e `statistics.ts`. |
 | `tests/rendered-html.test.mjs` | Testa o HTML gerado pelo build. |
+| `tests/fixtures/numeric-baseline.json` | Congela todos os tokens numéricos do HTML renderizado. Caminho protegido. |
+| `CLAUDE.md`, `.claude/agents/` | Contrato de trabalho e roteamento de tarefas entre agentes. |
+| `setup-agents.ps1` | Gerador dos arquivos acima. **Desatualizado — ver armadilha A15.** |
 | `github-pages/`, `vite.pages.config.ts` | Build alternativo (SPA) para GitHub Pages. |
 | `.github/workflows/ci.yml` | Portão de verificação no push em `main`: roda lint + testes + build de checagem. Não publica nada. |
 
@@ -158,6 +161,22 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
   "00:00" tanto para meia-noite real quanto para hora não informada. Hoje esses
   registros entram no mapa de calor como se fossem madrugada. Corrigir exige
   `time: null` no importador e bump de `schemaVersion` para 2.
+- ~~**A14 — mojibake em `CLAUDE.md` e `.claude/agents/*.md`.**~~ **RESOLVIDO**
+  (commit `0c3b897`). Os cinco arquivos estavam com acentuação dupla-codificada
+  ("DivisÃ£o" em vez de "Divisão"): bytes UTF-8 lidos como Latin-1 e regravados
+  como UTF-8. **A causa não é o `setup-agents.ps1`** — o fonte dele está em
+  UTF-8 limpo e ele grava com `UTF8Encoding($false)`. A corrupção acontece
+  quando o script é **executado pelo Windows PowerShell 5.1**, que lê arquivo
+  `.ps1` sem BOM como ANSI/cp1252; as strings já nascem corrompidas em memória e
+  são gravadas assim. **Rode-o com `pwsh` (PowerShell 7+), nunca com
+  `powershell.exe`.** O mesmo vale para qualquer script futuro com acento.
+- **A15 — `setup-agents.ps1` regenera a versão contaminada.** O script embute nos
+  heredocs (linhas ~22-205) a versão **antiga** de `CLAUDE.md` e dos 4 agentes,
+  copiada de outros projetos: protege `value_cents`, `ledger`, `calculo.mjs`,
+  RPCs `SECURITY DEFINER` e `Decimal`, que **não existem neste repositório**, e
+  manda o `quick-task` rodar `pytest`/`ruff`/`mypy`, que também não existem.
+  **Rodar `setup-agents.ps1` hoje desfaz o commit `0c3b897`.** Ficou fora do
+  escopo daquela correção de propósito. Ver pendência em P2.
 - ~~**A13 — código morto do scaffolding**~~ **RESOLVIDO** (commit `95c9178`).
   Ficava assim: `db/schema.ts` e `db/index.ts`
   (placeholders vazios), `worker/index.ts`, `drizzle.config.ts`, `drizzle/`,
@@ -261,6 +280,22 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
       demais textos pequenos foram conferidos e já passavam.
 - [ ] Abrir o painel num celular real uma vez e confirmar os breakpoints de
       960px e 620px. Estruturalmente parecem corretos; nunca foram testados.
+- [x] ~~**Reescrever `CLAUDE.md` e `.claude/agents/*.md` para o domínio do
+      RISP**~~ — commit `0c3b897`. Os cinco arquivos vieram copiados de outros
+      projetos: protegiam caminhos inexistentes aqui e **não protegiam nenhum
+      caminho crítico deste repositório**. Passaram a cobrir o contrato real —
+      15 naturezas, 11 municípios, atribuição territorial de unidade, descarte de
+      `PESSOA_ID`/`VEICULO_ID`/`ID_RAI`, inutilidade da coluna `AISP`, entrada de
+      dois Excel, paridade obrigatória e classificação por Poisson.
+      **Registrado lá, e digno de repetição aqui:** `bonferroniN` vale **1** no
+      KPI de variação regional (`app/regional-dashboard.tsx:222`, teste único) e
+      **o tamanho da família** na tabela por natureza
+      (`app/analytics.ts:260`, hoje 15). Os dois estão certos —
+      **não uniformize.** O default da função em `app/statistics.ts` é `1`.
+- [ ] **Atualizar `setup-agents.ps1`** (armadilha A15) para gerar a versão atual
+      de `CLAUDE.md` e dos 4 agentes, ou apagá-lo. Hoje ele é uma armadilha
+      armada: rodá-lo reverte o commit `0c3b897` em silêncio. Se for mantido,
+      grave-o **com BOM** ou documente que só roda em `pwsh` (armadilha A14).
 
 ### P3 — Melhorias analíticas.
 
@@ -294,6 +329,18 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
       texto da mensagem nem `instanceof` (que pode falhar entre bundles). Há
       teste provando isso — um erro genérico contendo o texto antigo do marcador
       deve cair no caminho genérico.
+- [x] ~~**Redesenho do painel com grade de KPIs**~~ — commit `9196a94`.
+      Acrescenta grade de KPIs (variação regional, registros por natureza, fatos
+      distintos, CVLI), sumário executivo destacado e bloco de leitura rápida,
+      com o CSS correspondente.
+      **O que esse commit criou de mais importante não é a tela, é a rede:**
+      `tests/fixtures/numeric-baseline.json` congela **todos** os tokens
+      numéricos do HTML renderizado, e o teste *"paridade numérica"* prova que
+      mudança de layout não altera nenhum número exibido. O teste normaliza
+      nomes de asset com hash e o `deploymentVersion` do payload RSC, porque
+      mudam a cada build e não são números vistos pelo usuário.
+      **Não regenere o baseline para calar o teste.** Se ele falha e a mudança
+      não é atualização de base, a mudança é que está errada.
 - [ ] **Comparativo POR UNIDADE (Fase 1-B).** **BLOQUEADO:** depende de o
       Weliton fornecer um arquivo de exemplo real exportado pela fonte com
       quebra por unidade. Ele confirmou que a fonte consegue exportar, mas o
@@ -335,9 +382,15 @@ npm run build:pages         # build SPA do GitHub Pages
 - Uma branch por mudança. Revisão de diff antes do merge.
 - Nenhum commit sem autorização explícita do Weliton.
 - **Nenhum diff que toque `scripts/import-reports.mjs`, `config/dominio.json`,
-  `app/statistics.ts` ou `data/dashboard.json` vai a merge sem revisão** — são
-  o caminho que produz os números oficiais publicados.
+  `app/statistics.ts`, `data/dashboard.json` ou
+  `tests/fixtures/numeric-baseline.json` vai a merge sem revisão** — são o
+  caminho que produz os números oficiais publicados. Esta é a mesma lista de
+  "caminhos protegidos" de `CLAUDE.md`; se mudar aqui, mude lá também.
 - **Teste de paridade obrigatório** em qualquer mudança que toque a apuração:
   os números exibidos (686 registros, 658 fatos, 717 no anterior, -4,3%) devem
   permanecer idênticos, salvo quando a mudança for justamente atualizar a base.
+  Dois testes distintos protegem coisas distintas — não os confunda:
+  *"dados importados reconciliam os dois relatórios"* trava a reconciliação
+  detalhado × comparativo; *"paridade numérica"* trava os números renderizados
+  contra `tests/fixtures/numeric-baseline.json`.
 - Ver `CLAUDE.md` para o roteamento de tarefas entre agentes.
