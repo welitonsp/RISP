@@ -43,6 +43,11 @@ type DashboardData = {
     previousTotal: number;
     currentTotal: number;
     regionalVariation: number | null;
+    // Opcionais: só existem em bases geradas a partir da importação de 2026-07-29.
+    // Bases antigas continuam válidas e o painel não deve quebrar sem eles.
+    declaredFilters?: { detail: string[]; comparison: string[] };
+    ambiguousMidnight?: number;
+    blankTime?: number;
     warnings: string[];
   };
   dimensions: {
@@ -232,6 +237,14 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
     () => hourMatrix.cells.reduce((sum, day) => sum + day[0], 0),
     [hourMatrix.cells],
   );
+  // União dos filtros declarados nos dois arquivos, sem repetir os que aparecem nos
+  // dois. É a única declaração de janela que a fonte fornece; exibi-la é o que impede
+  // o dado capturado de virar payload morto dentro de `data/dashboard.json`.
+  const declaredFilters = useMemo(() => {
+    const declared = data.metadata.declaredFilters;
+    if (!declared) return [];
+    return [...new Set([...declared.detail, ...declared.comparison])];
+  }, [data.metadata.declaredFilters]);
   const maxNeighborhood = Math.max(1, ...neighborhoodRanking.rows.slice(0, 10).map((row) => row.count));
 
   const summary = useMemo(
@@ -241,8 +254,9 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
         comparisonApplicable,
         neighborhoodRanking,
         hourCells: hourMatrix.cells,
+        ambiguousMidnight: hourMatrix.ambiguousMidnight,
       }),
-    [comparisonApplicable, comparison, neighborhoodRanking, hourMatrix.cells],
+    [comparisonApplicable, comparison, neighborhoodRanking, hourMatrix.cells, hourMatrix.ambiguousMidnight],
   );
 
   const viewLabel =
@@ -841,6 +855,16 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
             deve ser lida como comparação com um período de duração não declarada, e não como comparação
             entre janelas equivalentes.
           </p>
+          {declaredFilters.length > 0 && (
+            <div className="method-note">
+              <strong>Filtros declarados pela fonte na exportação:</strong>
+              <ul>
+                {declaredFilters.map((filter) => (
+                  <li key={filter}>{filter}</li>
+                ))}
+              </ul>
+            </div>
+          )}
           <p className="method-note">
             As taxas por 100 mil habitantes usam a população de referência de {populacao.fonte}. Elas se
             referem ao período do recorte selecionado, de {formatDate(startDate)} a {formatDate(endDate)},

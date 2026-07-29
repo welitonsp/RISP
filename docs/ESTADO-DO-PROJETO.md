@@ -173,12 +173,20 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
   fonte.
   **Único conserto real:** pedir à SSP que exporte `HORA_FATO` em branco quando
   não informado. **Mitigação já aplicada** (ver P2): o painel declara quantos
-  registros são ambíguos e que fatia da faixa 00–04h eles representam — 34,4% na
-  base de julho —, e diz que a faixa deve ser lida como limite superior.
-  `weekHourMatrix` mantém o tratamento de `time: null` para o dia em que a fonte
-  passar a exportar em branco. **Não converta `"00:00"` em `null` nem descarte
-  esses registros:** jogaria fora meia-noite verdadeira sem o usuário saber. Há
-  teste travando esse comportamento.
+  registros são ambíguos e que fatia da faixa 00–04h eles representam — 34,7% na
+  base de julho: 33 de 95 registros —, e diz que a faixa deve ser lida como limite superior.
+  **A afirmação "a fonte nunca exporta em branco" é verificada por código, não por
+  conferência manual:** `parseTime` devolve `null` para célula sem hora (antes
+  devolvia `"00:00"`, fundindo os dois casos), o importador conta esses casos em
+  `metadata.blankTime`, e há teste exigindo que seja **0**. No dia em que a SSP
+  atender ao pedido, esse teste falha de propósito — é o gatilho para reavaliar a
+  A12, **não** para ajustar o número esperado. `weekHourMatrix` já exclui
+  `time: null` do mapa de calor.
+  **Não converta `"00:00"` em `null` nem descarte esses registros:** jogaria fora
+  meia-noite verdadeira sem o usuário saber. Há teste travando esse comportamento.
+  A ressalva também é anexada à frase do sumário executivo quando a faixa apontada
+  como crítica é justamente a 00–04h, porque quem lê só o sumário — ou o PDF
+  impresso — não chega à seção do mapa de calor.
 - ~~**A14 — mojibake em `CLAUDE.md` e `.claude/agents/*.md`.**~~ **RESOLVIDO**
   (commit `0c3b897`). Os cinco arquivos estavam com acentuação dupla-codificada
   ("DivisÃ£o" em vez de "Divisão"): bytes UTF-8 lidos como Latin-1 e regravados
@@ -292,7 +300,7 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
       fatia da faixa 00–04h eles representam, reagindo aos filtros.
       `schemaVersion` **continua 1** — a mudança foi aditiva em `metadata`.
 - [ ] **Pedir à SSP que exporte `HORA_FATO` em branco quando não informado.**
-      É o único conserto de verdade da A12. Sem isso, 34,4% da faixa 00–04h
+      É o único conserto de verdade da A12. Sem isso, 34,7% da faixa 00–04h
       permanece indistinguível entre madrugada real e ausência de dado.
 - [ ] **Pedir à SSP a janela coberta pela coluna `ANTERIOR`.** Nenhum dos dois
       arquivos declara: os filtros exportados descrevem só o período atual

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "metadata": {
-    "generatedAt": "2026-07-29T18:54:51.100Z",
+    "generatedAt": "2026-07-29T19:25:08.357Z",
     "sourceFiles": [
       "data (14).xlsx",
       "data (16).xlsx"
@@ -25,11 +25,12 @@
       ]
     },
     "ambiguousMidnight": 33,
+    "blankTime": 0,
     "warnings": [
       "O comparativo anterior é fornecido apenas no nível regional e por natureza.",
       "A fonte não identifica a unidade que realizou o atendimento; a unidade exibida é territorial.",
       "A janela coberta pela coluna ANTERIOR não é declarada em nenhum dos arquivos: os filtros exportados descrevem apenas o período atual. A variação percentual regional não deve ser lida como comparação com um período de duração conhecida.",
-      "33 registros têm HORA_FATO igual a \"00:00\". A fonte usa esse valor tanto para meia-noite real quanto para hora não informada e nunca exporta a coluna em branco, então os dois casos são indistinguíveis."
+      "33 registros têm HORA_FATO igual a \"00:00\" e nenhuma célula da coluna veio em branco nesta exportação, então meia-noite real e hora não informada são indistinguíveis."
     ]
   },
   "dimensions": {

@@ -49,9 +49,19 @@ test("classifyVariation(1, 3) é baixo-volume (caso real do CVLI do painel)", as
   assert.equal(classifyVariation(1, 3).level, "baixo-volume");
 });
 
-test("classifyVariation(717, 686) não é significativo (par regional real do dashboard.json)", async () => {
+test("classifyVariation(725, 696) não é significativo (par regional real do dashboard.json)", async () => {
   const { classifyVariation } = await loadStatistics();
-  assert.notEqual(classifyVariation(717, 686).level, "significativo");
+  const data = JSON.parse(await readFile(new URL("../data/dashboard.json", import.meta.url), "utf8"));
+
+  // Lê o par direto da base publicada em vez de repetir números no teste: o rótulo já
+  // ficou mentindo uma vez (dizia 717/686 depois que a base virou 725/696) e um teste
+  // que não acompanha a base para de proteger o que diz proteger.
+  assert.equal(data.metadata.previousTotal, 725);
+  assert.equal(data.metadata.currentTotal, 696);
+  assert.notEqual(
+    classifyVariation(data.metadata.previousTotal, data.metadata.currentTotal).level,
+    "significativo",
+  );
 });
 
 test("classifyVariation(100, 180) é significativo com direção alta", async () => {
@@ -152,6 +162,46 @@ test('weekHourMatrix conta "00:00" como ambíguo sem removê-lo da matriz', asyn
   assert.equal(result.cells[quinta][0], 3, "os dois 00:00 e o 03:59 seguem na faixa 00–04h");
   assert.equal(result.total, 4, "ambíguos continuam no total; só o time null sai");
   assert.equal(result.semHora, 1);
+});
+
+test("executiveSummary anexa a ressalva de hora 00:00 quando a faixa crítica é a 00–04h", async () => {
+  const { executiveSummary, rankNeighborhoods } = await loadAnalytics();
+  const cells = Array.from({ length: 7 }, () => Array(6).fill(0));
+  cells[4][0] = 9; // quinta, 00–04h: vence a matriz
+
+  const comRessalva = executiveSummary({
+    comparison: [],
+    neighborhoodRanking: rankNeighborhoods([]),
+    hourCells: cells,
+    ambiguousMidnight: 6,
+  });
+  assert.match(comRessalva.faixaCritica, /00–04h/);
+  assert.match(comRessalva.faixaCritica, /limite superior/);
+  assert.match(comRessalva.faixaCritica, /6 registros desta faixa/);
+
+  // Sem registros ambíguos no recorte, a afirmação é limpa e não deve carregar ressalva.
+  const semRessalva = executiveSummary({
+    comparison: [],
+    neighborhoodRanking: rankNeighborhoods([]),
+    hourCells: cells,
+    ambiguousMidnight: 0,
+  });
+  assert.doesNotMatch(semRessalva.faixaCritica, /limite superior/);
+});
+
+test("executiveSummary não anexa a ressalva quando a faixa crítica não é a madrugada", async () => {
+  const { executiveSummary, rankNeighborhoods } = await loadAnalytics();
+  const cells = Array.from({ length: 7 }, () => Array(6).fill(0));
+  cells[5][4] = 9; // sexta, 16–20h
+
+  const result = executiveSummary({
+    comparison: [],
+    neighborhoodRanking: rankNeighborhoods([]),
+    hourCells: cells,
+    ambiguousMidnight: 30,
+  });
+  assert.match(result.faixaCritica, /16–20h/);
+  assert.doesNotMatch(result.faixaCritica, /limite superior/);
 });
 
 test("weekHourMatrix não conta como ambíguo um horário que apenas começa com 00", async () => {

@@ -189,7 +189,18 @@ function summarizeCriticalNeighborhood(rows: NeighborhoodRow[]): string {
   )} registros no período.`;
 }
 
-function summarizeCriticalTimeslot(cells: number[][]): string {
+// A ressalva sobre a hora "00:00" fica na seção do mapa de calor, muito abaixo do
+// sumário. Quem lê só o sumário — ou o PDF impresso — precisa receber o alerta junto
+// com a afirmação, senão o painel aponta a madrugada como pico sem dizer que até um
+// terço daquela faixa pode ser hora não informada.
+function midnightCaveat(ambiguousMidnight: number): string {
+  if (ambiguousMidnight <= 0) return "";
+  return ` Atenção: ${numFormatter.format(
+    ambiguousMidnight,
+  )} registros desta faixa têm hora 00:00, valor que a fonte usa também para hora não informada — leia esta faixa como limite superior.`;
+}
+
+function summarizeCriticalTimeslot(cells: number[][], ambiguousMidnight: number): string {
   let best: { day: number; hour: number; count: number } | null = null;
   for (let day = 0; day < cells.length; day += 1) {
     for (let hour = 0; hour < cells[day].length; hour += 1) {
@@ -206,7 +217,7 @@ function summarizeCriticalTimeslot(cells: number[][]): string {
   if (best) {
     return `Faixa mais crítica: ${WEEKDAY_LABELS[best.day]}, ${HOUR_BUCKETS[best.hour]}, com ${numFormatter.format(
       best.count,
-    )} registros no período.`;
+    )} registros no período.${best.hour === 0 ? midnightCaveat(ambiguousMidnight) : ""}`;
   }
 
   const bucketTotals = HOUR_BUCKETS.map((_, hour) => cells.reduce((sum, dayCells) => sum + dayCells[hour], 0));
@@ -216,7 +227,7 @@ function summarizeCriticalTimeslot(cells: number[][]): string {
   }
   return `Nenhuma combinação específica de dia e horário reuniu volume suficiente para destaque; agregando os sete dias da semana, a faixa de horário com mais registros é ${HOUR_BUCKETS[bestHour]}, com ${numFormatter.format(
     bucketTotals[bestHour],
-  )} registros no período.`;
+  )} registros no período.${bestHour === 0 ? midnightCaveat(ambiguousMidnight) : ""}`;
 }
 
 function summarizeTerritorialConcentration(ranking: NeighborhoodRanking): string {
@@ -269,6 +280,12 @@ export function executiveSummary(input: {
    */
   neighborhoodRanking: NeighborhoodRanking;
   hourCells: number[][];
+  /**
+   * Quantos registros do recorte têm hora "00:00" — valor que a fonte usa tanto para
+   * meia-noite real quanto para hora não informada. Usado só para anexar a ressalva
+   * quando a faixa apontada como crítica for justamente a 00–04h.
+   */
+  ambiguousMidnight?: number;
 }): ExecutiveSummary {
   const comparisonApplicable = input.comparisonApplicable ?? true;
   const bonferroniN = input.bonferroniN ?? Math.max(1, input.comparison.length);
@@ -276,7 +293,7 @@ export function executiveSummary(input: {
     maiorAlta: summarizeNatureExtreme(input.comparison, "alta", bonferroniN, comparisonApplicable),
     maiorQueda: summarizeNatureExtreme(input.comparison, "queda", bonferroniN, comparisonApplicable),
     bairroCritico: summarizeCriticalNeighborhood(input.neighborhoodRanking.rows),
-    faixaCritica: summarizeCriticalTimeslot(input.hourCells),
+    faixaCritica: summarizeCriticalTimeslot(input.hourCells, input.ambiguousMidnight ?? 0),
     concentracaoTerritorial: summarizeTerritorialConcentration(input.neighborhoodRanking),
   };
 }
