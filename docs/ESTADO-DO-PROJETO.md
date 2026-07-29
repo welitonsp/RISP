@@ -3,7 +3,7 @@
 Documento de handoff. Se você (pessoa ou IA) está pegando este projeto agora,
 leia este arquivo inteiro antes de tocar em qualquer coisa.
 
-Última revisão: 2026-07-29. Commit de referência: `0c3b897`.
+Última revisão: 2026-07-29. Commit de referência: `6086eca`.
 
 ---
 
