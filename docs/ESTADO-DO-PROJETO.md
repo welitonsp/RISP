@@ -14,7 +14,7 @@ Painel de indicadores criminais das 15 naturezas controladas pela SSP na
 
 - Site estático, sem banco e sem backend. Todos os dados vivem em
   `data/dashboard.json`, gerado por script a partir de dois Excel da SSP.
-- Volume atual: ~686 registros. Isto é pequeno de propósito. **Não aplique
+- Volume atual: ~696 registros. Isto é pequeno de propósito. **Não aplique
   padrões de sistema de grande porte aqui** — cache, fila, banco, paginação,
   observabilidade: nada disso se justifica.
 - Mantido por uma pessoa só (Weliton), sem orçamento. Tudo roda no gratuito.
@@ -90,6 +90,12 @@ Feita **uma vez por mês, no primeiro dia útil**. Responsável: Weliton.
    - o **comparativo regional**.
    Os nomes podem ser quaisquer — o importador identifica cada um pelos
    cabeçalhos.
+   **São dois arquivos, não três.** Em 2026-07-29 chegaram três (`data (14)`,
+   `data (15)`, `data (16)`) e os dois primeiros eram **byte a byte idênticos**
+   — mesmo SHA-256, o detalhado baixado duas vezes. Passar três faz o importador
+   parar com a mensagem de uso, e isso está correto. Se estiver na dúvida sobre
+   qual é qual, o detalhado tem a coluna `ID_RAI` e o comparativo tem
+   `ANTERIOR`/`ATUAL`.
 2. Abra o terminal na pasta do projeto e rode:
    ```bash
    npm run atualizar -- "caminho\arquivo-1.xlsx" "caminho\arquivo-2.xlsx"
@@ -156,10 +162,31 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
   (commit `52eb5da`). Diffs eram poluídos por CRLF/LF. `.gitattributes`
   criado com `* text=auto eol=lf`; a renormalização (`git add --renormalize .`)
   não alterou nenhum arquivo, porque os objetos já estavam armazenados em LF.
-- **A12 — 32 registros com hora "00:00" ambígua.** O importador devolve
-  "00:00" tanto para meia-noite real quanto para hora não informada. Hoje esses
-  registros entram no mapa de calor como se fossem madrugada. Corrigir exige
-  `time: null` no importador e bump de `schemaVersion` para 2.
+- **A12 — 33 registros com hora "00:00" ambígua. NÃO tem conserto no
+  importador.** *Diagnóstico corrigido em 2026-07-29, verificado no Excel de
+  origem:* a coluna `HORA_FATO` traz o **texto literal `"00:00"`** e **nunca vem
+  em branco** — contagem no arquivo de julho: 33 células `"00:00"`, **zero**
+  células vazias, 663 com outros horários. Meia-noite real e hora não informada
+  saem com bytes idênticos. **A hipótese anterior (`time: null` no importador +
+  `schemaVersion: 2`) não funciona:** `"00:00"` é perfeitamente parseável, então
+  a mudança pegaria zero das 33 linhas. Não é bug de código, é limitação da
+  fonte.
+  **Único conserto real:** pedir à SSP que exporte `HORA_FATO` em branco quando
+  não informado. **Mitigação já aplicada** (ver P2): o painel declara quantos
+  registros são ambíguos e que fatia da faixa 00–04h eles representam — 34,7% na
+  base de julho: 33 de 95 registros —, e diz que a faixa deve ser lida como limite superior.
+  **A afirmação "a fonte nunca exporta em branco" é verificada por código, não por
+  conferência manual:** `parseTime` devolve `null` para célula sem hora (antes
+  devolvia `"00:00"`, fundindo os dois casos), o importador conta esses casos em
+  `metadata.blankTime`, e há teste exigindo que seja **0**. No dia em que a SSP
+  atender ao pedido, esse teste falha de propósito — é o gatilho para reavaliar a
+  A12, **não** para ajustar o número esperado. `weekHourMatrix` já exclui
+  `time: null` do mapa de calor.
+  **Não converta `"00:00"` em `null` nem descarte esses registros:** jogaria fora
+  meia-noite verdadeira sem o usuário saber. Há teste travando esse comportamento.
+  A ressalva também é anexada à frase do sumário executivo quando a faixa apontada
+  como crítica é justamente a 00–04h, porque quem lê só o sumário — ou o PDF
+  impresso — não chega à seção do mapa de calor.
 - ~~**A14 — mojibake em `CLAUDE.md` e `.claude/agents/*.md`.**~~ **RESOLVIDO**
   (commit `0c3b897`). Os cinco arquivos estavam com acentuação dupla-codificada
   ("DivisÃ£o" em vez de "Divisão"): bytes UTF-8 lidos como Latin-1 e regravados
@@ -266,10 +293,19 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
       *Nota:* `vite.config.ts` mantém um binding `d1_databases` condicionado a
       `hostingConfig.d1` — é infraestrutura genérica do template, dormente e
       inofensiva, não resquício do que foi removido.
-- [ ] Importador: gravar `time: null` quando a hora não for informada e subir
-      `schemaVersion` para 2. Exige ajuste correspondente no mapa de calor para
-      excluir esses registros (A12). **Depende de:** o Weliton rodar
-      `npm run atualizar` de novo com os Excel originais para regenerar a base.
+- [x] ~~Importador: gravar `time: null` quando a hora não for informada~~
+      **CANCELADO — a premissa estava errada** (ver A12). A fonte nunca exporta
+      `HORA_FATO` em branco, então não há o que detectar. Em vez disso o painel
+      passou a **declarar** a ambiguidade: quantos registros têm `"00:00"` e que
+      fatia da faixa 00–04h eles representam, reagindo aos filtros.
+      `schemaVersion` **continua 1** — a mudança foi aditiva em `metadata`.
+- [ ] **Pedir à SSP que exporte `HORA_FATO` em branco quando não informado.**
+      É o único conserto de verdade da A12. Sem isso, 34,7% da faixa 00–04h
+      permanece indistinguível entre madrugada real e ausência de dado.
+- [ ] **Pedir à SSP a janela coberta pela coluna `ANTERIOR`.** Nenhum dos dois
+      arquivos declara: os filtros exportados descrevem só o período atual
+      (`Date é igual a ou está depois de 01/01/2026`). Enquanto isso, o painel
+      diz explicitamente que a duração da janela anterior não é declarada.
 - [x] ~~Cobertura de teste para os pontos hoje descobertos~~ — commit
       `e44bfb2`. Fecha a armadilha **A8**: há teste unitário provando que
       `bonferroniN` muda o resultado (`observar` com N=15 x `significativo`
@@ -361,9 +397,9 @@ Nenhuma destas é bloqueante hoje, mas todas já custaram tempo a alguém.
 - Corrigir `titleCase` para siglas com barra (A4) enquanto estiver inerte —
   basta um comentário no código avisando.
 - Otimização de performance. O bundle é dominado por um arquivo que vai ser
-  deletado no P0; depois disso não há o que otimizar com 686 registros.
+  deletado no P0; depois disso não há o que otimizar com ~700 registros.
 - SEO / meta tags. O alvo é acesso restrito; investir aqui é contraproducente.
-- Fragmentar `data/dashboard.json` ou pré-agregar dados. Com 686 registros o
+- Fragmentar `data/dashboard.json` ou pré-agregar dados. Com ~700 registros o
   navegador processa tudo em fração de milissegundo.
 - **Farol de metas por unidade:** só faz sentido depois que o comando definir
   metas oficiais. Sem metas, é invenção de número.
@@ -390,7 +426,7 @@ npm run build:pages         # build SPA do GitHub Pages
   caminho que produz os números oficiais publicados. Esta é a mesma lista de
   "caminhos protegidos" de `CLAUDE.md`; se mudar aqui, mude lá também.
 - **Teste de paridade obrigatório** em qualquer mudança que toque a apuração:
-  os números exibidos (686 registros, 658 fatos, 717 no anterior, -4,3%) devem
+  os números exibidos (696 registros, 668 fatos, 725 no anterior, -4,0%) devem
   permanecer idênticos, salvo quando a mudança for justamente atualizar a base.
   Dois testes distintos protegem coisas distintas — não os confunda:
   *"dados importados reconciliam os dois relatórios"* trava a reconciliação

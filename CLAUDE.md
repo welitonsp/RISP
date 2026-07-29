@@ -19,7 +19,7 @@ Painel de indicadores criminais das 15 naturezas controladas pela SSP-GO na
 - **Site estático. Sem banco, sem backend.** Todos os dados vivem em
   `data/dashboard.json`, gerado por script a partir de dois arquivos Excel da
   fonte.
-- **~686 registros.** Isto é pequeno de propósito.
+- **~696 registros.** Isto é pequeno de propósito.
 - **Mantido por uma pessoa só, sem orçamento.** Tudo roda no plano gratuito.
 
 **Não aplique padrões de sistema de grande porte aqui.** Cache, fila, banco,

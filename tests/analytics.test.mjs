@@ -49,9 +49,19 @@ test("classifyVariation(1, 3) é baixo-volume (caso real do CVLI do painel)", as
   assert.equal(classifyVariation(1, 3).level, "baixo-volume");
 });
 
-test("classifyVariation(717, 686) não é significativo (par regional real do dashboard.json)", async () => {
+test("classifyVariation(725, 696) não é significativo (par regional real do dashboard.json)", async () => {
   const { classifyVariation } = await loadStatistics();
-  assert.notEqual(classifyVariation(717, 686).level, "significativo");
+  const data = JSON.parse(await readFile(new URL("../data/dashboard.json", import.meta.url), "utf8"));
+
+  // Lê o par direto da base publicada em vez de repetir números no teste: o rótulo já
+  // ficou mentindo uma vez (dizia 717/686 depois que a base virou 725/696) e um teste
+  // que não acompanha a base para de proteger o que diz proteger.
+  assert.equal(data.metadata.previousTotal, 725);
+  assert.equal(data.metadata.currentTotal, 696);
+  assert.notEqual(
+    classifyVariation(data.metadata.previousTotal, data.metadata.currentTotal).level,
+    "significativo",
+  );
 });
 
 test("classifyVariation(100, 180) é significativo com direção alta", async () => {
@@ -131,6 +141,77 @@ test("weekHourMatrix distribui registros por dia da semana e faixa de horário",
   assert.equal(result.cells[quinta][1], 1);
   assert.equal(result.cells[sexta][5], 1);
   assert.equal(result.max, 1);
+});
+
+test('weekHourMatrix conta "00:00" como ambíguo sem removê-lo da matriz', async () => {
+  const { weekHourMatrix } = await loadAnalytics();
+  const records = [
+    { date: "2026-01-01", time: "00:00" },
+    { date: "2026-01-01", time: "00:00" },
+    { date: "2026-01-01", time: "03:59" },
+    { date: "2026-01-01", time: "09:00" },
+    { date: "2026-01-02", time: null },
+  ];
+  const result = weekHourMatrix(records);
+  const quinta = new Date(2026, 0, 1).getDay();
+
+  // A fonte não distingue meia-noite real de hora não informada, então descartar
+  // silenciosamente jogaria fora ocorrência verdadeira. Os registros continuam
+  // contados na matriz e no total; o painel apenas declara quantos são incertos.
+  assert.equal(result.ambiguousMidnight, 2);
+  assert.equal(result.cells[quinta][0], 3, "os dois 00:00 e o 03:59 seguem na faixa 00–04h");
+  assert.equal(result.total, 4, "ambíguos continuam no total; só o time null sai");
+  assert.equal(result.semHora, 1);
+});
+
+test("executiveSummary anexa a ressalva de hora 00:00 quando a faixa crítica é a 00–04h", async () => {
+  const { executiveSummary, rankNeighborhoods } = await loadAnalytics();
+  const cells = Array.from({ length: 7 }, () => Array(6).fill(0));
+  cells[4][0] = 9; // quinta, 00–04h: vence a matriz
+
+  const comRessalva = executiveSummary({
+    comparison: [],
+    neighborhoodRanking: rankNeighborhoods([]),
+    hourCells: cells,
+    ambiguousMidnight: 6,
+  });
+  assert.match(comRessalva.faixaCritica, /00–04h/);
+  assert.match(comRessalva.faixaCritica, /limite superior/);
+  assert.match(comRessalva.faixaCritica, /6 registros desta faixa/);
+
+  // Sem registros ambíguos no recorte, a afirmação é limpa e não deve carregar ressalva.
+  const semRessalva = executiveSummary({
+    comparison: [],
+    neighborhoodRanking: rankNeighborhoods([]),
+    hourCells: cells,
+    ambiguousMidnight: 0,
+  });
+  assert.doesNotMatch(semRessalva.faixaCritica, /limite superior/);
+});
+
+test("executiveSummary não anexa a ressalva quando a faixa crítica não é a madrugada", async () => {
+  const { executiveSummary, rankNeighborhoods } = await loadAnalytics();
+  const cells = Array.from({ length: 7 }, () => Array(6).fill(0));
+  cells[5][4] = 9; // sexta, 16–20h
+
+  const result = executiveSummary({
+    comparison: [],
+    neighborhoodRanking: rankNeighborhoods([]),
+    hourCells: cells,
+    ambiguousMidnight: 30,
+  });
+  assert.match(result.faixaCritica, /16–20h/);
+  assert.doesNotMatch(result.faixaCritica, /limite superior/);
+});
+
+test("weekHourMatrix não conta como ambíguo um horário que apenas começa com 00", async () => {
+  const { weekHourMatrix } = await loadAnalytics();
+  const result = weekHourMatrix([
+    { date: "2026-01-01", time: "00:01" },
+    { date: "2026-01-01", time: "00:30" },
+  ]);
+  assert.equal(result.ambiguousMidnight, 0);
+  assert.equal(result.total, 2);
 });
 
 test("ratePer100k(10, 0) retorna null", async () => {

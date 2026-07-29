@@ -42,6 +42,34 @@ function detectType(headers) {
   return null;
 }
 
+// A última linha de cada exportação traz, na primeira coluna, o texto dos filtros
+// que a fonte aplicou ("Date é igual a ou está depois de 01/01/2026 00:00:00", etc.).
+// É a única declaração de janela que os arquivos carregam, e antes era descartada
+// junto com a linha. Guardamos o texto VERBATIM, sem interpretar datas: o formato é
+// da fonte e pode mudar sem aviso, então parsear aqui criaria uma dependência frágil
+// num caminho que produz número oficial.
+// A linha de filtros é sempre a última do arquivo e vive na PRIMEIRA coluna. Restringir
+// a busca a isso evita que uma célula de dado que por acaso comece com o mesmo prefixo
+// seja publicada no lugar dela. Os limites de quantidade e tamanho existem porque este
+// é texto livre da fonte indo direto para um artefato publicado: se um dia a exportação
+// passar a incluir filtro por pessoa, RAI ou operador, o estrago fica contido e visível.
+const MAX_FILTER_LINES = 12;
+const MAX_FILTER_LINE_LENGTH = 200;
+
+function extractDeclaredFilters(source) {
+  for (let index = source.rows.length - 1; index >= 0 && index >= source.rows.length - 3; index -= 1) {
+    const text = String(source.rows[index]?.[0] ?? "").trim();
+    if (!text.startsWith("Filtros aplicados:")) continue;
+    return text
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean)
+      .slice(1, 1 + MAX_FILTER_LINES)
+      .map((line) => (line.length > MAX_FILTER_LINE_LENGTH ? `${line.slice(0, MAX_FILTER_LINE_LENGTH)}…` : line));
+  }
+  return [];
+}
+
 function rowObject(row, headers) {
   const object = {};
   for (let column = 0; column < headers.length; column += 1) {
@@ -62,12 +90,18 @@ function parseDate(value) {
   return `${match[3]}-${match[2].padStart(2, "0")}-${match[1].padStart(2, "0")}`;
 }
 
+// Devolve `null` quando a célula não traz hora nenhuma. Antes devolvia "00:00",
+// o que fundia célula vazia com meia-noite real e tornava impossível distinguir as
+// duas mesmo no dia em que a fonte passasse a exportar em branco. Hoje a fonte NUNCA
+// exporta em branco (ver `blankTime` abaixo, contado a cada importação), então na
+// prática isto não muda nenhum registro — mas deixa o caminho pronto e, sobretudo,
+// torna a afirmação verificável pelo código em vez de por conferência manual.
 function parseTime(value) {
   if (value instanceof Date && !Number.isNaN(value.valueOf())) {
     return `${String(value.getHours()).padStart(2, "0")}:${String(value.getMinutes()).padStart(2, "0")}`;
   }
   const match = String(value ?? "").trim().match(/^(\d{1,2}):(\d{2})/);
-  if (!match) return "00:00";
+  if (!match) return null;
   return `${match[1].padStart(2, "0")}:${match[2]}`;
 }
 
@@ -140,7 +174,9 @@ function parseDetail(source) {
   }
 
   if (!records.length) throw new Error("O relatório detalhado não contém registros válidos.");
-  records.sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time));
+  // `time` pode ser null (célula sem hora): ordena esses registros no início do dia,
+  // sem quebrar a comparação.
+  records.sort((a, b) => a.date.localeCompare(b.date) || (a.time ?? "").localeCompare(b.time ?? ""));
   return { records, warnings };
 }
 
@@ -190,6 +226,11 @@ if (comparisonCurrent !== detail.records.length) {
 }
 
 const uniqueFacts = new Set(detail.records.map((record) => record.factId)).size;
+const ambiguousMidnight = detail.records.filter((record) => record.time === "00:00").length;
+// Contado a partir do que `parseTime` produziu: com a fonte atual isto é sempre 0, e é
+// exatamente essa a afirmação que o warning publicado faz. Se um dia deixar de ser 0,
+// a fonte passou a exportar hora em branco e a A12 pode finalmente ser resolvida.
+const blankTime = detail.records.filter((record) => record.time === null).length;
 const dates = detail.records.map((record) => record.date);
 const previousTotal = comparison.reduce((sum, item) => sum + item.previous, 0);
 const currentTotal = comparison.reduce((sum, item) => sum + item.current, 0);
@@ -206,10 +247,20 @@ const output = {
     previousTotal,
     currentTotal,
     regionalVariation: previousTotal === 0 ? null : (currentTotal - previousTotal) / previousTotal,
+    declaredFilters: {
+      detail: extractDeclaredFilters(detailSource),
+      comparison: extractDeclaredFilters(comparisonSource),
+    },
+    ambiguousMidnight,
+    blankTime,
     warnings: [
       ...detail.warnings,
       "O comparativo anterior é fornecido apenas no nível regional e por natureza.",
       "A fonte não identifica a unidade que realizou o atendimento; a unidade exibida é territorial.",
+      "A janela coberta pela coluna ANTERIOR não é declarada em nenhum dos arquivos: os filtros exportados descrevem apenas o período atual. A variação percentual regional não deve ser lida como comparação com um período de duração conhecida.",
+      blankTime === 0
+        ? `${ambiguousMidnight} registros têm HORA_FATO igual a "00:00" e nenhuma célula da coluna veio em branco nesta exportação, então meia-noite real e hora não informada são indistinguíveis.`
+        : `${ambiguousMidnight} registros têm HORA_FATO igual a "00:00" e ${blankTime} vieram com a coluna em branco. A fonte passou a distinguir os dois casos: os registros em branco saem do mapa de calor e a armadilha A12 pode ser reavaliada.`,
     ],
   },
   dimensions: {
@@ -227,4 +278,9 @@ await writeFile(outputPath, `${JSON.stringify(output, null, 2)}\n`, "utf8");
 
 console.log(`Dados atualizados: ${detail.records.length} registros, ${uniqueFacts} fatos únicos.`);
 console.log(`Período: ${output.metadata.periodStart} a ${output.metadata.periodEnd}.`);
+console.log(
+  `Hora "00:00" (meia-noite real ou não informada, indistinguíveis na fonte): ${ambiguousMidnight} registros. Coluna em branco: ${blankTime}.`,
+);
+console.log(`Filtros declarados no detalhado: ${output.metadata.declaredFilters.detail.join(" | ") || "nenhum"}`);
+console.log(`Filtros declarados no comparativo: ${output.metadata.declaredFilters.comparison.join(" | ") || "nenhum"}`);
 console.log(`Arquivo gerado: ${outputPath}`);

@@ -54,6 +54,35 @@ test("dados importados reconciliam os dois relatórios", async () => {
   assert.ok(data.records.every((record) => !("personId" in record) && !("vehicleId" in record)));
 });
 
+test("metadata.ambiguousMidnight e blankTime conferem com os registros publicados", async () => {
+  const data = JSON.parse(await readFile(new URL("../data/dashboard.json", import.meta.url), "utf8"));
+  // O painel recalcula a ambiguidade no cliente a partir de `records`; a metadata é a
+  // versão gravada na importação. Se as duas divergirem, uma delas está mentindo.
+  const ambiguous = data.records.filter((record) => record.time === "00:00").length;
+  const blank = data.records.filter((record) => record.time === null).length;
+  assert.equal(data.metadata.ambiguousMidnight, ambiguous);
+  assert.equal(data.metadata.blankTime, blank);
+
+  // A fonte nunca exporta HORA_FATO em branco. No dia em que exportar, este teste falha
+  // de propósito: é o gatilho para reavaliar a armadilha A12, não para ajustar o número.
+  assert.equal(blank, 0, "a fonte passou a exportar hora em branco — reavalie a A12");
+});
+
+test("os filtros declarados pela fonte são capturados e não vazam campo pessoal", async () => {
+  const data = JSON.parse(await readFile(new URL("../data/dashboard.json", import.meta.url), "utf8"));
+  const declared = data.metadata.declaredFilters;
+  assert.ok(Array.isArray(declared.detail) && declared.detail.length > 0);
+  assert.ok(Array.isArray(declared.comparison) && declared.comparison.length > 0);
+
+  // É texto livre da fonte indo para um artefato publicado: se um dia a exportação
+  // passar a filtrar por pessoa, veículo ou RAI, isso não pode entrar em silêncio.
+  const todos = [...declared.detail, ...declared.comparison].join(" ").toUpperCase();
+  for (const proibido of ["PESSOA", "VEICULO", "VEÍCULO", "ID_RAI", "CPF"]) {
+    assert.ok(!todos.includes(proibido), `filtro declarado menciona ${proibido}: ${todos}`);
+  }
+  assert.ok([...declared.detail, ...declared.comparison].every((line) => line.length <= 201));
+});
+
 test("domínio do dashboard confere com config/dominio.json", async () => {
   const data = JSON.parse(await readFile(new URL("../data/dashboard.json", import.meta.url), "utf8"));
   const dominio = JSON.parse(await readFile(new URL("../config/dominio.json", import.meta.url), "utf8"));
@@ -143,6 +172,11 @@ test("paridade numérica: o redesign não altera nenhum número exibido", async 
   // falso positivo neste teste de paridade.
   html = html.replace(/\/assets\/[A-Za-z0-9_.-]+\.(?:js|css)/g, "");
   html = html.replace(/\\?"deploymentVersion\\?":\\?"[^"\\]*\\?"/g, "");
+  // `generatedAt` é o instante da importação. Ele nunca é renderizado — chega ao HTML
+  // só dentro do payload RSC —, mas muda a cada `npm run atualizar`, inclusive quando
+  // os dados são idênticos. Sem excluí-lo, toda reimportação produz ruído de token que
+  // esconde a diferença de verdade, que é justamente o que este teste existe pra ver.
+  html = html.replace(/\\?"generatedAt\\?":\\?"[^"\\]*\\?"/g, "");
   const tokens = (html.match(/-?\d[\d.,]*\s*%?/g) ?? []).slice().sort();
   assert.equal(tokens.length, baseline.count);
   assert.deepEqual(tokens, baseline.tokens);
