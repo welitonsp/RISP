@@ -128,3 +128,22 @@ test("o importador não publica identificadores pessoais da fonte", async () => 
   assert.match(importer, /unidade que realizou o atendimento/);
   await readFile(new URL("../app/regional-dashboard.tsx", import.meta.url), "utf8");
 });
+
+test("paridade numérica: o redesign não altera nenhum número exibido", async () => {
+  const baseline = JSON.parse(
+    await readFile(new URL("./fixtures/numeric-baseline.json", import.meta.url), "utf8"),
+  );
+  const response = await render();
+  let html = await response.text();
+  // Nomes de arquivo de build com hash de conteúdo (ex.: /assets/index-XYZ.css,
+  // /assets/regional-dashboard-ABC.js) mudam sempre que o CSS/JS empacotado muda de
+  // conteúdo (inclusive por efeito cascata: um chunk JS que importa um CSS alterado
+  // também muda de hash), e o payload RSC embute um "deploymentVersion" (UUID) gerado
+  // a cada build — nenhum dos dois é um número exibido ao usuário. Excluí-los evita
+  // falso positivo neste teste de paridade.
+  html = html.replace(/\/assets\/[A-Za-z0-9_.-]+\.(?:js|css)/g, "");
+  html = html.replace(/\\?"deploymentVersion\\?":\\?"[^"\\]*\\?"/g, "");
+  const tokens = (html.match(/-?\d[\d.,]*\s*%?/g) ?? []).slice().sort();
+  assert.equal(tokens.length, baseline.count);
+  assert.deepEqual(tokens, baseline.tokens);
+});

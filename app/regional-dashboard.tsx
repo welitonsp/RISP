@@ -330,6 +330,180 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
           )}
         </div>
 
+        <section className="kpi-grid" aria-label="Indicadores principais">
+          <article
+            className={`kpi-card variation ${
+              comparisonApplicable && regionalClassification.level === "significativo"
+                ? regionalVariation !== null && regionalVariation > 0
+                  ? "bad"
+                  : "good"
+                : "neutral"
+            }`}
+          >
+            <span>Variação regional</span>
+            <strong>{comparisonApplicable ? formatPercent(regionalVariation) : "—"}</strong>
+            <small>
+              {comparisonApplicable
+                ? `${formatNumber(previousSelected)} no período anterior e ${formatNumber(currentSelected)} no atual. Leitura: ${readingLabel(regionalClassification)}.`
+                : "Disponível somente para o período completo e visão regional."}
+            </small>
+          </article>
+          <article className="kpi-card">
+            <span>Registros por natureza</span>
+            <strong>{formatNumber(filtered.length)}</strong>
+            <small>Uma ocorrência pode possuir mais de uma natureza.</small>
+          </article>
+          <article className="kpi-card">
+            <span>Fatos distintos</span>
+            <strong>{formatNumber(uniqueFacts)}</strong>
+            <small>Contagem de RAI sem duplicidade.</small>
+          </article>
+          <article className="kpi-card">
+            <span>CVLI</span>
+            <strong>{formatNumber(cvliCount)}</strong>
+            <small>Homicídio, feminicídio, latrocínio e lesão seguida de morte.</small>
+          </article>
+        </section>
+
+        <section className="executive-summary" aria-labelledby="executive-summary-title">
+          <div className="summary-mark">Sumário executivo</div>
+          <h2 id="executive-summary-title" className="sr-only">Sumário executivo</h2>
+          <ul>
+            <li>{summary.maiorAlta}</li>
+            <li>{summary.maiorQueda}</li>
+            <li>{summary.bairroCritico}</li>
+            <li>{summary.faixaCritica}</li>
+            <li>{summary.concentracaoTerritorial}</li>
+          </ul>
+        </section>
+
+        <section className="plain-summary plain-summary--secondary" aria-live="polite">
+          <div className="summary-mark">Leitura rápida</div>
+          <p>
+            No recorte selecionado há <strong>{formatNumber(filtered.length)} registros de natureza</strong>{" "}
+            relacionados a <strong>{formatNumber(uniqueFacts)} fatos distintos</strong>.
+            {leadingNature && (
+              <> A natureza mais frequente é <strong>{titleCase(leadingNature[0])}</strong>, com{" "}
+                <strong>{formatNumber(leadingNature[1])}</strong> registros.</>
+            )}
+            {leadingMunicipality && (
+              <> O município com maior volume é <strong>{titleCase(leadingMunicipality[0])}</strong>, com{" "}
+                <strong>{formatNumber(leadingMunicipality[1])}</strong>.</>
+            )}
+          </p>
+        </section>
+
+        <section className="content-section" aria-labelledby="neighborhoods-title">
+          <div className="section-heading">
+            <div>
+              <p className="section-kicker">Concentração territorial</p>
+              <h2 id="neighborhoods-title">Bairros críticos</h2>
+            </div>
+            <span>top 10 · registros por natureza</span>
+          </div>
+
+          <article className="panel">
+            <div className="ranking">
+              {neighborhoodRanking.rows.length ? (
+                neighborhoodRanking.rows.slice(0, 10).map((row, index) => {
+                  const heatLevel = Math.min(4, Math.max(1, Math.ceil((row.count / maxNeighborhood) * 4)));
+                  return (
+                    <div className="rank-row rank-label--wide" key={`${row.municipality} ${row.neighborhood}`}>
+                      <span className="rank-number">{String(index + 1).padStart(2, "0")}</span>
+                      <span className="rank-label">
+                        <span className={`rank-heat-chip cell-${heatLevel}`} aria-hidden="true" />{" "}
+                        {titleCase(row.municipality)} · {titleCase(row.neighborhood)}
+                      </span>
+                      <span className="rank-track">
+                        <i style={{ width: `${(row.count / maxNeighborhood) * 100}%` }} />
+                      </span>
+                      <strong>{formatNumber(row.count)}</strong>
+                    </div>
+                  );
+                })
+              ) : (
+                <p className="empty-state">Nenhum registro corresponde aos filtros.</p>
+              )}
+            </div>
+            <div className="cr5-bar" aria-hidden="true">
+              <span className="cr5-bar-fill" style={{ width: `${neighborhoodRanking.cr5 * 100}%` }} />
+            </div>
+            <p className="method-note">
+              Os 5 bairros mais frequentes concentram {formatShare(neighborhoodRanking.cr5)} dos
+              registros do recorte, distribuídos em {formatNumber(neighborhoodRanking.distinct)} bairros
+              distintos.
+            </p>
+          </article>
+        </section>
+
+        <section className="content-section" aria-labelledby="hour-title">
+          <div className="section-heading">
+            <div>
+              <p className="section-kicker">Padrão temporal</p>
+              <h2 id="hour-title">Dia da semana × faixa de horário</h2>
+            </div>
+            <span>{formatNumber(hourMatrix.total)} registros com horário</span>
+          </div>
+
+          <div className="heatmap-wrap">
+            <table className="heatmap-table">
+              <thead>
+                <tr>
+                  <th>Dia</th>
+                  {HOUR_BUCKETS.map((bucket) => (
+                    <th key={bucket}>{bucket}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {WEEKDAY_LABELS.map((label, dayIndex) => (
+                  <tr key={label}>
+                    <td className="weekday-label">{label}</td>
+                    {hourMatrix.cells[dayIndex].map((value, hourIndex) => {
+                      const belowThreshold = value < 5;
+                      const ratio = hourMatrix.max ? value / hourMatrix.max : 0;
+                      const level = belowThreshold
+                        ? 0
+                        : Math.min(4, Math.max(1, Math.ceil(ratio * 4)));
+                      const cellClass = belowThreshold ? "cell-below-threshold" : `cell-${level}`;
+                      return (
+                        <td key={hourIndex} className={cellClass}>
+                          {formatNumber(value)}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="heat-legend" aria-hidden="true">
+            <span className="heat-legend-item">
+              <i className="heat-legend-swatch cell-0" /> menos de 5 registros
+            </span>
+            <span className="heat-legend-item">
+              <i className="heat-legend-swatch cell-1" /> até 25% do valor máximo da matriz
+            </span>
+            <span className="heat-legend-item">
+              <i className="heat-legend-swatch cell-2" /> 25% a 50%
+            </span>
+            <span className="heat-legend-item">
+              <i className="heat-legend-swatch cell-3" /> 50% a 75%
+            </span>
+            <span className="heat-legend-item">
+              <i className="heat-legend-swatch cell-4" /> 75% a 100% (valor máximo)
+            </span>
+          </div>
+          <p className="method-note">
+            Células com menos de 5 registros não recebem destaque de cor, apenas o número, para evitar
+            leitura enganosa de intensidade em volumes pequenos.
+          </p>
+          <p className="info-banner">
+            32 registros no total têm horário marcado como 00:00 e podem representar hora não informada;
+            a precisão desta matriz será refinada numa próxima atualização.
+          </p>
+        </section>
+
         <section className="filter-panel" aria-labelledby="filter-title">
           <div className="filter-heading">
             <div>
@@ -431,69 +605,6 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
           </div>
         </section>
 
-        <section className="plain-summary" aria-live="polite">
-          <div className="summary-mark">Leitura rápida</div>
-          <p>
-            No recorte selecionado há <strong>{formatNumber(filtered.length)} registros de natureza</strong>{" "}
-            relacionados a <strong>{formatNumber(uniqueFacts)} fatos distintos</strong>.
-            {leadingNature && (
-              <> A natureza mais frequente é <strong>{titleCase(leadingNature[0])}</strong>, com{" "}
-                <strong>{formatNumber(leadingNature[1])}</strong> registros.</>
-            )}
-            {leadingMunicipality && (
-              <> O município com maior volume é <strong>{titleCase(leadingMunicipality[0])}</strong>, com{" "}
-                <strong>{formatNumber(leadingMunicipality[1])}</strong>.</>
-            )}
-          </p>
-        </section>
-
-        <section className="executive-summary" aria-labelledby="executive-summary-title">
-          <div className="summary-mark">Sumário executivo</div>
-          <h2 id="executive-summary-title" className="sr-only">Sumário executivo</h2>
-          <ul>
-            <li>{summary.maiorAlta}</li>
-            <li>{summary.maiorQueda}</li>
-            <li>{summary.bairroCritico}</li>
-            <li>{summary.faixaCritica}</li>
-            <li>{summary.concentracaoTerritorial}</li>
-          </ul>
-        </section>
-
-        <section className="kpi-grid" aria-label="Indicadores principais">
-          <article className="kpi-card">
-            <span>Registros por natureza</span>
-            <strong>{formatNumber(filtered.length)}</strong>
-            <small>Uma ocorrência pode possuir mais de uma natureza.</small>
-          </article>
-          <article className="kpi-card">
-            <span>Fatos distintos</span>
-            <strong>{formatNumber(uniqueFacts)}</strong>
-            <small>Contagem de RAI sem duplicidade.</small>
-          </article>
-          <article className="kpi-card">
-            <span>CVLI</span>
-            <strong>{formatNumber(cvliCount)}</strong>
-            <small>Homicídio, feminicídio, latrocínio e lesão seguida de morte.</small>
-          </article>
-          <article
-            className={`kpi-card variation ${
-              comparisonApplicable && regionalClassification.level === "significativo"
-                ? regionalVariation !== null && regionalVariation > 0
-                  ? "bad"
-                  : "good"
-                : "neutral"
-            }`}
-          >
-            <span>Variação regional</span>
-            <strong>{comparisonApplicable ? formatPercent(regionalVariation) : "—"}</strong>
-            <small>
-              {comparisonApplicable
-                ? `${formatNumber(previousSelected)} no período anterior e ${formatNumber(currentSelected)} no atual. Leitura: ${readingLabel(regionalClassification)}.`
-                : "Disponível somente para o período completo e visão regional."}
-            </small>
-          </article>
-        </section>
-
         <section className="content-section" aria-labelledby="units-title">
           <div className="section-heading">
             <div>
@@ -545,7 +656,7 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
             </article>
           </div>
 
-          <div className="three-column">
+          <div className="two-column">
             <article className="panel">
               <div className="panel-heading">
                 <h3>Municípios com maior volume</h3>
@@ -581,36 +692,6 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
                   <p className="empty-state">Nenhum registro corresponde aos filtros.</p>
                 )}
               </div>
-            </article>
-
-            <article className="panel">
-              <div className="panel-heading">
-                <h3>Bairros críticos</h3>
-                <span>top 10 · registros por natureza</span>
-              </div>
-              <div className="ranking">
-                {neighborhoodRanking.rows.length ? (
-                  neighborhoodRanking.rows.slice(0, 10).map((row, index) => (
-                    <div className="rank-row" key={`${row.municipality}\u0000${row.neighborhood}`}>
-                      <span className="rank-number">{String(index + 1).padStart(2, "0")}</span>
-                      <span className="rank-label">
-                        {titleCase(row.municipality)} · {titleCase(row.neighborhood)}
-                      </span>
-                      <span className="rank-track">
-                        <i style={{ width: `${(row.count / maxNeighborhood) * 100}%` }} />
-                      </span>
-                      <strong>{formatNumber(row.count)}</strong>
-                    </div>
-                  ))
-                ) : (
-                  <p className="empty-state">Nenhum registro corresponde aos filtros.</p>
-                )}
-              </div>
-              <p className="method-note">
-                Os 5 bairros mais frequentes concentram {formatShare(neighborhoodRanking.cr5)} dos
-                registros do recorte, distribuídos em {formatNumber(neighborhoodRanking.distinct)} bairros
-                distintos.
-              </p>
             </article>
 
             <article className="panel">
@@ -708,60 +789,11 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
           </div>
         </section>
 
-        <section className="content-section" aria-labelledby="hour-title">
-          <div className="section-heading">
-            <div>
-              <p className="section-kicker">Padrão temporal</p>
-              <h2 id="hour-title">Dia da semana × faixa de horário</h2>
-            </div>
-            <span>{formatNumber(hourMatrix.total)} registros com horário</span>
-          </div>
-
-          <div className="heatmap-wrap">
-            <table className="heatmap-table">
-              <thead>
-                <tr>
-                  <th>Dia</th>
-                  {HOUR_BUCKETS.map((bucket) => (
-                    <th key={bucket}>{bucket}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {WEEKDAY_LABELS.map((label, dayIndex) => (
-                  <tr key={label}>
-                    <td className="weekday-label">{label}</td>
-                    {hourMatrix.cells[dayIndex].map((value, hourIndex) => {
-                      const belowThreshold = value < 5;
-                      const ratio = hourMatrix.max ? value / hourMatrix.max : 0;
-                      const level = belowThreshold
-                        ? 0
-                        : Math.min(4, Math.max(1, Math.ceil(ratio * 4)));
-                      const cellClass = belowThreshold ? "cell-below-threshold" : `cell-${level}`;
-                      return (
-                        <td key={hourIndex} className={cellClass}>
-                          {formatNumber(value)}
-                        </td>
-                      );
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="method-note">
-            Células com menos de 5 registros não recebem destaque de cor, apenas o número, para evitar
-            leitura enganosa de intensidade em volumes pequenos.
-          </p>
-          <p className="info-banner">
-            32 registros no total têm horário marcado como 00:00 e podem representar hora não informada;
-            a precisão desta matriz será refinada numa próxima atualização.
-          </p>
-        </section>
-
-        <section className="method-section" aria-labelledby="method-title">
-          <p className="section-kicker">Como ler este painel</p>
-          <h2 id="method-title">Transparência sobre os dados</h2>
+        <details className="method-section" aria-labelledby="method-title">
+          <summary>
+            <p className="section-kicker">Como ler este painel</p>
+            <h2 id="method-title">Transparência sobre os dados</h2>
+          </summary>
           <div className="method-grid">
             <article>
               <strong>Registro por natureza</strong>
@@ -797,7 +829,7 @@ export function RegionalDashboard({ data, populacao }: { data: DashboardData; po
             que a população residente considerada pelo IBGE, então a taxa desses dois municípios deve ser
             lida com essa ressalva.
           </p>
-        </section>
+        </details>
 
         <footer>
           <strong>Documento de acesso restrito</strong>
