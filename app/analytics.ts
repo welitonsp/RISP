@@ -27,14 +27,28 @@ export function rankNeighborhoods(records: { municipality: string; neighborhood:
 const HOUR_BUCKETS = ["00–04h", "04–08h", "08–12h", "12–16h", "16–20h", "20–24h"];
 const WEEKDAY_LABELS = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
 
-export type WeekHourMatrix = { cells: number[][]; max: number; total: number; semHora: number };
+export type WeekHourMatrix = {
+  cells: number[][];
+  max: number;
+  total: number;
+  semHora: number;
+  ambiguousMidnight: number;
+};
 
 export function weekHourMatrix(records: { date: string; time: string | null }[]): WeekHourMatrix {
   const cells: number[][] = Array.from({ length: 7 }, () => Array(6).fill(0));
   let semHora = 0;
+  let ambiguousMidnight = 0;
   let total = 0;
   for (const record of records) {
     if (record.time === null) { semHora += 1; continue; }
+    // A fonte grava o texto literal "00:00" tanto para meia-noite real quanto para
+    // hora não informada — foi verificado no arquivo de origem que a coluna HORA_FATO
+    // nunca vem em branco. Não há como separar os dois casos aqui, então estes
+    // registros CONTINUAM na matriz e são apenas contados, para que o painel possa
+    // declarar quanto da faixa 00–04h é incerto. Não transforme isto num descarte
+    // silencioso: jogaria fora meia-noite verdadeira sem o usuário saber.
+    if (record.time === "00:00") ambiguousMidnight += 1;
     const [year, month, day] = record.date.split("-").map(Number);
     const weekday = new Date(year, month - 1, day).getDay();
     const [hourStr] = record.time.split(":");
@@ -44,7 +58,7 @@ export function weekHourMatrix(records: { date: string; time: string | null }[])
     total += 1;
   }
   const max = Math.max(0, ...cells.flat());
-  return { cells, max, total, semHora };
+  return { cells, max, total, semHora, ambiguousMidnight };
 }
 
 export function ratePer100k(count: number, population: number): number | null {

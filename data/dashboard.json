@@ -1,21 +1,35 @@
 {
   "schemaVersion": 1,
   "metadata": {
-    "generatedAt": "2026-07-27T20:16:22.382Z",
+    "generatedAt": "2026-07-29T18:54:51.100Z",
     "sourceFiles": [
-      "data (12).xlsx",
-      "data (13).xlsx"
+      "data (14).xlsx",
+      "data (16).xlsx"
     ],
     "periodStart": "2026-01-01",
-    "periodEnd": "2026-07-25",
-    "records": 686,
-    "uniqueFacts": 658,
-    "previousTotal": 717,
-    "currentTotal": 686,
-    "regionalVariation": -0.043235704323570434,
+    "periodEnd": "2026-07-27",
+    "records": 696,
+    "uniqueFacts": 668,
+    "previousTotal": 725,
+    "currentTotal": 696,
+    "regionalVariation": -0.04,
+    "declaredFilters": {
+      "detail": [
+        "FLAG_ANO_ATUAL_REATIVAS não está em branco",
+        "Date é igual a ou está depois de 01/01/2026 00:00:00",
+        "RISP é 19ª RISP - CALDAS NOVAS"
+      ],
+      "comparison": [
+        "Date é igual a ou está depois de 01/01/2026 00:00:00",
+        "RISP é 19ª RISP - CALDAS NOVAS"
+      ]
+    },
+    "ambiguousMidnight": 33,
     "warnings": [
       "O comparativo anterior é fornecido apenas no nível regional e por natureza.",
-      "A fonte não identifica a unidade que realizou o atendimento; a unidade exibida é territorial."
+      "A fonte não identifica a unidade que realizou o atendimento; a unidade exibida é territorial.",
+      "A janela coberta pela coluna ANTERIOR não é declarada em nenhum dos arquivos: os filtros exportados descrevem apenas o período atual. A variação percentual regional não deve ser lida como comparação com um período de duração conhecida.",
+      "33 registros têm HORA_FATO igual a \"00:00\". A fonte usa esse valor tanto para meia-noite real quanto para hora não informada e nunca exporta a coluna em branco, então os dois casos são indistinguíveis."
     ]
   },
   "dimensions": {
@@ -121,8 +135,8 @@
       "id": 6,
       "nature": "ROUBO A TRANSEUNTE",
       "previous": 25,
-      "current": 18,
-      "variation": -0.28
+      "current": 19,
+      "variation": -0.24
     },
     {
       "id": 7,
@@ -162,30 +176,30 @@
     {
       "id": 12,
       "nature": "FURTO DE VEÍCULOS",
-      "previous": 84,
+      "previous": 86,
       "current": 88,
-      "variation": 0.047619047619047616
+      "variation": 0.023255813953488372
     },
     {
       "id": 13,
       "nature": "FURTO EM COMÉRCIO",
-      "previous": 180,
-      "current": 153,
-      "variation": -0.15
+      "previous": 182,
+      "current": 155,
+      "variation": -0.14835164835164835
     },
     {
       "id": 14,
       "nature": "FURTO EM RESIDÊNCIA",
-      "previous": 313,
-      "current": 332,
-      "variation": 0.06070287539936102
+      "previous": 315,
+      "current": 337,
+      "variation": 0.06984126984126984
     },
     {
       "id": 15,
       "nature": "FURTO A TRANSEUNTE",
-      "previous": 56,
-      "current": 48,
-      "variation": -0.14285714285714285
+      "previous": 58,
+      "current": 50,
+      "variation": -0.13793103448275862
     }
   ],
   "records": [
@@ -6301,9 +6315,18 @@
       "territorialUnit": "BPTUR"
     },
     {
+      "date": "2026-07-23",
+      "time": "22:00",
+      "factId": "F000653",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR SOL NASCENTE",
+      "territorialUnit": "36º BPM"
+    },
+    {
       "date": "2026-07-24",
       "time": "00:30",
-      "factId": "F000653",
+      "factId": "F000654",
       "nature": "FURTO DE VEÍCULOS",
       "municipality": "PROFESSOR JAMIL",
       "neighborhood": "SETOR BOA NOVA",
@@ -6312,7 +6335,7 @@
     {
       "date": "2026-07-24",
       "time": "00:30",
-      "factId": "F000653",
+      "factId": "F000654",
       "nature": "FURTO EM RESIDÊNCIA",
       "municipality": "PROFESSOR JAMIL",
       "neighborhood": "SETOR BOA NOVA",
@@ -6321,7 +6344,7 @@
     {
       "date": "2026-07-24",
       "time": "08:00",
-      "factId": "F000654",
+      "factId": "F000655",
       "nature": "FURTO EM RESIDÊNCIA",
       "municipality": "CALDAS NOVAS",
       "neighborhood": "CALDAS DO OESTE",
@@ -6330,7 +6353,7 @@
     {
       "date": "2026-07-24",
       "time": "19:28",
-      "factId": "F000655",
+      "factId": "F000656",
       "nature": "FURTO A TRANSEUNTE",
       "municipality": "CALDAS NOVAS",
       "neighborhood": "SANTA EFIGÊNIA",
@@ -6338,8 +6361,17 @@
     },
     {
       "date": "2026-07-25",
+      "time": "00:00",
+      "factId": "F000657",
+      "nature": "ROUBO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "ESTÂNCIA JEQUITIMAR",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-25",
       "time": "02:51",
-      "factId": "F000656",
+      "factId": "F000658",
       "nature": "ESTUPRO",
       "municipality": "CALDAS NOVAS",
       "neighborhood": "CENTRO",
@@ -6347,8 +6379,17 @@
     },
     {
       "date": "2026-07-25",
+      "time": "16:30",
+      "factId": "F000659",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR SÃO PEDRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-25",
       "time": "18:19",
-      "factId": "F000657",
+      "factId": "F000660",
       "nature": "FURTO DE VEÍCULOS",
       "municipality": "MORRINHOS",
       "neighborhood": "CENTRO",
@@ -6357,11 +6398,74 @@
     {
       "date": "2026-07-25",
       "time": "20:16",
-      "factId": "F000658",
+      "factId": "F000661",
       "nature": "HOMICÍDIO DOLOSO",
       "municipality": "PIRACANJUBA",
       "neighborhood": "VILA UNIÃO",
       "territorialUnit": "6ª CIPM"
+    },
+    {
+      "date": "2026-07-25",
+      "time": "22:30",
+      "factId": "F000662",
+      "nature": "FURTO A TRANSEUNTE",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-26",
+      "time": "01:28",
+      "factId": "F000663",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "MORRINHOS",
+      "neighborhood": "SETOR JARDIM SANTA FÉ",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-26",
+      "time": "06:00",
+      "factId": "F000664",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "SANTA EFIGÊNIA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-26",
+      "time": "15:00",
+      "factId": "F000665",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "JARDIM PRIVÊ DAS CALDAS",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-27",
+      "time": "07:00",
+      "factId": "F000666",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "DO TURISTA",
+      "territorialUnit": "BPTUR"
+    },
+    {
+      "date": "2026-07-27",
+      "time": "10:30",
+      "factId": "F000667",
+      "nature": "FURTO EM COMÉRCIO",
+      "municipality": "MORRINHOS",
+      "neighborhood": "CENTRO",
+      "territorialUnit": "36º BPM"
+    },
+    {
+      "date": "2026-07-27",
+      "time": "16:09",
+      "factId": "F000668",
+      "nature": "FURTO EM RESIDÊNCIA",
+      "municipality": "CALDAS NOVAS",
+      "neighborhood": "PARQUE REAL",
+      "territorialUnit": "BPTUR"
     }
   ]
 }

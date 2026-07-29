@@ -133,6 +133,37 @@ test("weekHourMatrix distribui registros por dia da semana e faixa de horário",
   assert.equal(result.max, 1);
 });
 
+test('weekHourMatrix conta "00:00" como ambíguo sem removê-lo da matriz', async () => {
+  const { weekHourMatrix } = await loadAnalytics();
+  const records = [
+    { date: "2026-01-01", time: "00:00" },
+    { date: "2026-01-01", time: "00:00" },
+    { date: "2026-01-01", time: "03:59" },
+    { date: "2026-01-01", time: "09:00" },
+    { date: "2026-01-02", time: null },
+  ];
+  const result = weekHourMatrix(records);
+  const quinta = new Date(2026, 0, 1).getDay();
+
+  // A fonte não distingue meia-noite real de hora não informada, então descartar
+  // silenciosamente jogaria fora ocorrência verdadeira. Os registros continuam
+  // contados na matriz e no total; o painel apenas declara quantos são incertos.
+  assert.equal(result.ambiguousMidnight, 2);
+  assert.equal(result.cells[quinta][0], 3, "os dois 00:00 e o 03:59 seguem na faixa 00–04h");
+  assert.equal(result.total, 4, "ambíguos continuam no total; só o time null sai");
+  assert.equal(result.semHora, 1);
+});
+
+test("weekHourMatrix não conta como ambíguo um horário que apenas começa com 00", async () => {
+  const { weekHourMatrix } = await loadAnalytics();
+  const result = weekHourMatrix([
+    { date: "2026-01-01", time: "00:01" },
+    { date: "2026-01-01", time: "00:30" },
+  ]);
+  assert.equal(result.ambiguousMidnight, 0);
+  assert.equal(result.total, 2);
+});
+
 test("ratePer100k(10, 0) retorna null", async () => {
   const { ratePer100k } = await loadAnalytics();
   assert.equal(ratePer100k(10, 0), null);

@@ -42,6 +42,28 @@ function detectType(headers) {
   return null;
 }
 
+// A última linha de cada exportação traz, na primeira coluna, o texto dos filtros
+// que a fonte aplicou ("Date é igual a ou está depois de 01/01/2026 00:00:00", etc.).
+// É a única declaração de janela que os arquivos carregam, e antes era descartada
+// junto com a linha. Guardamos o texto VERBATIM, sem interpretar datas: o formato é
+// da fonte e pode mudar sem aviso, então parsear aqui criaria uma dependência frágil
+// num caminho que produz número oficial.
+function extractDeclaredFilters(source) {
+  for (const row of source.rows) {
+    for (const cell of row ?? []) {
+      const text = String(cell ?? "").trim();
+      if (text.startsWith("Filtros aplicados:")) {
+        return text
+          .split("\n")
+          .map((line) => line.trim())
+          .filter(Boolean)
+          .slice(1);
+      }
+    }
+  }
+  return [];
+}
+
 function rowObject(row, headers) {
   const object = {};
   for (let column = 0; column < headers.length; column += 1) {
@@ -190,6 +212,7 @@ if (comparisonCurrent !== detail.records.length) {
 }
 
 const uniqueFacts = new Set(detail.records.map((record) => record.factId)).size;
+const ambiguousMidnight = detail.records.filter((record) => record.time === "00:00").length;
 const dates = detail.records.map((record) => record.date);
 const previousTotal = comparison.reduce((sum, item) => sum + item.previous, 0);
 const currentTotal = comparison.reduce((sum, item) => sum + item.current, 0);
@@ -206,10 +229,17 @@ const output = {
     previousTotal,
     currentTotal,
     regionalVariation: previousTotal === 0 ? null : (currentTotal - previousTotal) / previousTotal,
+    declaredFilters: {
+      detail: extractDeclaredFilters(detailSource),
+      comparison: extractDeclaredFilters(comparisonSource),
+    },
+    ambiguousMidnight,
     warnings: [
       ...detail.warnings,
       "O comparativo anterior é fornecido apenas no nível regional e por natureza.",
       "A fonte não identifica a unidade que realizou o atendimento; a unidade exibida é territorial.",
+      "A janela coberta pela coluna ANTERIOR não é declarada em nenhum dos arquivos: os filtros exportados descrevem apenas o período atual. A variação percentual regional não deve ser lida como comparação com um período de duração conhecida.",
+      `${ambiguousMidnight} registros têm HORA_FATO igual a "00:00". A fonte usa esse valor tanto para meia-noite real quanto para hora não informada e nunca exporta a coluna em branco, então os dois casos são indistinguíveis.`,
     ],
   },
   dimensions: {
@@ -227,4 +257,9 @@ await writeFile(outputPath, `${JSON.stringify(output, null, 2)}\n`, "utf8");
 
 console.log(`Dados atualizados: ${detail.records.length} registros, ${uniqueFacts} fatos únicos.`);
 console.log(`Período: ${output.metadata.periodStart} a ${output.metadata.periodEnd}.`);
+console.log(
+  `Hora "00:00" (meia-noite real ou não informada, indistinguíveis na fonte): ${ambiguousMidnight} registros.`,
+);
+console.log(`Filtros declarados no detalhado: ${output.metadata.declaredFilters.detail.join(" | ") || "nenhum"}`);
+console.log(`Filtros declarados no comparativo: ${output.metadata.declaredFilters.comparison.join(" | ") || "nenhum"}`);
 console.log(`Arquivo gerado: ${outputPath}`);
